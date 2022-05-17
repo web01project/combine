@@ -1,12 +1,11 @@
 package com.example0.config.auth;
 
 import java.util.ArrayList;
+
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import com.example.demo4.model.User;
 
 import lombok.Getter;
 //CustomUser
@@ -25,7 +24,7 @@ public class PrincipalDetails implements UserDetails{
 		collect.add(()->{
 			return user.getRole();
 		});
-		return collect;
+		return collect; 
 	}
 
 	@Override
