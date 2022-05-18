@@ -14,6 +14,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -52,5 +55,9 @@ public class Hotel {
 	@ManyToOne
 	@JoinColumn(name = "mnum")
 	private Manager manager;
-
+	// 업로드 파일
+	@Transient //객체에서 빼기
+	private MultipartFile upload;
+	// 파일이름
+	private String fileimage;
 }

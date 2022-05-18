@@ -11,7 +11,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
@@ -47,4 +51,9 @@ public class Review {
 	@ManyToOne
 	@JoinColumn(name = "h_num")
 	private Hotel hotel;
+	// 업로드 파일
+	@Transient //객체에서 빼기
+	private MultipartFile upload;
+	// 파일이름
+	private String fileimage;
 }
