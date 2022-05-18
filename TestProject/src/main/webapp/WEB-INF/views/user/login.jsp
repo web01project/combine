@@ -10,11 +10,11 @@
 	</div>
 	<div class="form-group">
 		<label for="password">비밀번호:</label> <input type="password"
-			class="form-control" id="password" placeholder="Enter password" readonly="readonly"
+			class="form-control" id="password" placeholder="Enter password"
 			name="password">
 	</div>
 	<button type="button" class="btn btn-primary" id="btnLogin">로그인</button>
-	<!-- <script>
+	<script>
 		$("#btnLogin").click(function(){
 			$.ajax({
 				type : "post",
@@ -36,6 +36,6 @@
 				}
 			}) //done
 		}) //btnLogin
-	</script> -->
+	</script>
 </div>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
