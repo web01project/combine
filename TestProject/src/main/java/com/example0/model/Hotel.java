@@ -35,7 +35,6 @@ public class Hotel {
 	//숙소 리뷰
 	@OneToMany(mappedBy ="hotel" )
 	private List<Review> reviews;
-	
 	//업주번호 
 	
 }
