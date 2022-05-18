@@ -1,13 +1,15 @@
 package com.example0.config.auth;
 
+import org.apache.tomcat.jni.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.demo4.model.User;
-import com.example.demo4.repository.UserRepository;
+import com.example0.repository.UserRepository;
+
+
 
 @Service
 public class PrincipalDetailService implements UserDetailsService{
