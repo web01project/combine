@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,7 +46,7 @@ public class Manager {
 	@JoinColumn(name = "e_name")
 	private Enterprise enterprise;
 	// 호텔
-	@OneToMany
+	@OneToMany(mappedBy = "manager")
 	private List<Hotel> hotels;
 	//권한
 	private String role;
