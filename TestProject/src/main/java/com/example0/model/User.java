@@ -32,7 +32,7 @@ public class User {
 	private List<Review> review;
 	
 	@ManyToOne
-	@JoinColumn(name = "entername")
+	@JoinColumn(name = "e_name")
 	private Enterprise enterprise;
 	
 }

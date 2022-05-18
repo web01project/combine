@@ -38,6 +38,5 @@ public class Review {
 	private User user;
 	@ManyToOne
 	@JoinColumn(name = "hotel_id")
-	private Manager manager;
-	
+	private Hotel hotel;
 }
