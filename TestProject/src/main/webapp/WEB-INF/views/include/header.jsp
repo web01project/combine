@@ -44,7 +44,7 @@
 			<!-- 오른쪽 -->
 			<ul class="navbar-nav">
 				<sec:authorize access="isAnonymous()">
-					<li class="nav-item"><a class="navbar-brand" href="/register">회원가입</a></li>
+					<li class="nav-item"><a class="navbar-brand" href="/join">회원가입</a></li>
 					<li class="nav-item"><a class="navbar-brand" href="/login">로그인</a></li>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
