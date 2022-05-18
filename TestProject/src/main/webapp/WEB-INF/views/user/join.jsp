@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-
 <div class="container">
 	<h3>회원가입</h3>
 	<div class="form-group">
@@ -43,9 +42,9 @@
 				$("#name").focus();
 				return false;
 			}
-			if ($("#email").val() == "") {
-				alert("이메일 입력하세요")
-				$("#email").focus();
+			if ($("#username").val() == "") {
+				alert("아이디를 입력하세요")
+				$("#username").focus();
 				return false;
 			}
 			if ($("#password").val() == "") {
@@ -64,7 +63,7 @@
 				return false;
 			}
 			if ($("#tel").val() == "") {
-				alert("나이를 입력하세요")
+				alert("전화번호를 입력하세요")
 				$("#tel").focus();
 				return false;
 			}
