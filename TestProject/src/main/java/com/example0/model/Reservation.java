@@ -24,4 +24,5 @@ public class Reservation {
 	private int people;
 	private String check_in;
 	private String check_out;
+	222
 }
