@@ -42,7 +42,7 @@ public class Hotel {
 	@Enumerated(EnumType.STRING)
 	private Grade grade;
 	// 숙소 찜
-	private Long like;
+	private Long h_like;
 	// 숙소금액
 	private int price;
 	// 숙소 리뷰
