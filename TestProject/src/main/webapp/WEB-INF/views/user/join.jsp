@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<div class="container">
+<!-- Masthead-->
+	<header class="masthead">
+		<div class="container position-relative">
+			<div class="row justify-content-center">
+				<div class="col-xl-6">
+					<div class="text-center text-white">
+						<div class="container">
 	<h3>회원가입</h3>
 	<div class="form-group">
 		<label for="name">이름:</label> <input type="text" class="form-control"
@@ -32,6 +38,13 @@
 			id="tel" placeholder="Enter tel" name="tel">
 	</div>
 	<button class="btn btn-secondary" id="btnJoin">회원가입</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
 	<script>
 	//회원가입버튼
 		$("#btnJoin").click(function() {
