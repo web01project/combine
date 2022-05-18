@@ -34,5 +34,5 @@ public class User {
 	@ManyToOne
 	@JoinColumn(name = "entername")
 	private Enterprise enterprise;
-	//
+	
 }
