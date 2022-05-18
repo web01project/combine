@@ -21,6 +21,6 @@ public class Enterprise {
 	private String e_id;
 	// 관리자 비밀번호
 	private String e_password;
-	// 사업자번호
-
+	//권한
+	private String role;
 }

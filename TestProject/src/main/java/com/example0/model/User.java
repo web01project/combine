@@ -29,7 +29,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long u_num;
 	// 유저이름
-	private String u_username;
+	private String username;
 	// 유저비밀번호
 	private String u_password;
 	// 유저이메일
@@ -39,11 +39,12 @@ public class User {
 	// 유저 나이
 	private int age;
 	// 유저:리뷰 1:다 연결
-	@OneToMany(mappedBy = "review", fetch = FetchType.LAZY)
-	@JoinColumn(name = "review")
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private List<Review> reviews;
 	// 유저:회사 다:1 연결
 	@ManyToOne
 	@JoinColumn(name = "e_name")
 	private Enterprise enterprise;
+	//권한
+	private String role;
 }

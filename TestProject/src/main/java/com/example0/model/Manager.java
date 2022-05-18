@@ -47,4 +47,6 @@ public class Manager {
 	// 호텔
 	@OneToMany
 	private List<Hotel> hotels;
+	//권한
+	private String role;
 }

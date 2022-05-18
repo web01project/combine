@@ -1,12 +1,13 @@
 package com.example0.config.auth;
 
-import org.apache.tomcat.jni.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.example0.model.User;
 import com.example0.repository.UserRepository;
 
 
