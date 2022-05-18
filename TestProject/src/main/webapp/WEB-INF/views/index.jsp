@@ -30,7 +30,7 @@
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h2 class="mb-3">여행하고 싶은 장소를 검색하세요.</h1>
+                            <h1 class="mb-5">Generate more leads with a professional landing page!</h1>
                             <!-- Signup form-->
                             <!-- * * * * * * * * * * * * * * *-->
                             <!-- * * SB Forms Contact Form * *-->
@@ -199,18 +199,18 @@
                 </div>
             </div>
         </section>
-        <!-- Footer-->	
+        <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
                             <li class="list-inline-item"><a href="#!">About</a></li>
-                            <li class="list-inline-item"></li>
+                            <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="#!">Contact</a></li>
-                            <li class="list-inline-item"></li>
+                            <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
-                            <li class="list-inline-item"></li>
+                            <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2022. All Rights Reserved.</p>
