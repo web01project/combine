@@ -13,7 +13,9 @@
 			class="form-control" id="password" placeholder="Enter password"
 			name="password">
 	</div>
-	<button type="button" class="btn btn-primary" id="btnLogin">로그인</button>
+	<div class="form-group" align="right">
+		<button type="button" class="btn btn-primary" id="btnLogin">로그인</button>
+	</div>
 	<script>
 		$("#btnLogin").click(function(){
 			$.ajax({

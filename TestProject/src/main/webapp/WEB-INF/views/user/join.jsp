@@ -8,6 +8,7 @@
 				<div class="col-xl-6">
 					<div class="text-center text-white">
 						<div class="container">
+							<form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
 	<h3>회원가입</h3>
 	<div class="form-group">
 		<label for="name">이름:</label> <input type="text" class="form-control"
@@ -38,7 +39,8 @@
 			id="tel" placeholder="Enter tel" name="tel">
 	</div>
 	<button class="btn btn-secondary" id="btnJoin">회원가입</button>
-						</form>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -113,6 +115,5 @@
 			})//fail
 		})//btn
 	</script>
-</div>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

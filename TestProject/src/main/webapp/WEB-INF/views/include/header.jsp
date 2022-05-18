@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -27,8 +27,11 @@
 	<!-- Navigation-->
 	<nav class="navbar navbar-light bg-light static-top">
 		<div class="container">
-			<a class="navbar-brand" href="#!">Start Bootstrap</a> <a
-				class="btn btn-primary" href="#signup">Sign Up</a>
+			<a class="navbar-brand" href="/">Start Bootstrap</a>
+			<div>
+				<a a class="navbar-brand" href="/login">로그인</a>
+				<a a class="navbar-brand" href="/join">회원가입</a>
+			</div>
 		</div>
 	</nav>
 	
