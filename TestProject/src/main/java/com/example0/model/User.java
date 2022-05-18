@@ -12,10 +12,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-@Getter@Setter
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
 @Entity
 @Table
 public class User {
@@ -24,22 +29,21 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long u_num;
 	// 유저이름
-	private String username;
+	private String u_username;
 	// 유저비밀번호
-	private String password;
+	private String u_password;
 	// 유저이메일
-	private String email;
+	private String u_email;
 	// 유저전화번호
-	private String num;
+	private String u_tel;
 	// 유저 나이
 	private int age;
 	// 유저:리뷰 1:다 연결
 	@OneToMany(mappedBy = "review", fetch = FetchType.LAZY)
 	@JoinColumn(name = "review")
-	private List<Review> review;
+	private List<Review> reviews;
 	// 유저:회사 다:1 연결
 	@ManyToOne
 	@JoinColumn(name = "e_name")
 	private Enterprise enterprise;
-	//
 }
