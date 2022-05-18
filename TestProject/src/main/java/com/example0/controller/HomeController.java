@@ -9,7 +9,15 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public String home() {
-		return "home";
+		return "/user/login";
+	}
+	@GetMapping("login")
+	public String login() {
+		return "/user/login";
+	}
+	@GetMapping("join")
+	public String join() {
+		return "/user/join";
 	}
 	
 	
