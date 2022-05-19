@@ -22,7 +22,7 @@ public class ManagerService {
 	//회원가입
 	public void managerjoin(Manager manager) {
 		System.out.println(manager);
-//		enterpriseRepository.findById(null);
+//		enterpriseRepository.findById();
 		
 		String rawPassword = manager.getM_password();
 		String encPassword = encoder.encode(rawPassword);

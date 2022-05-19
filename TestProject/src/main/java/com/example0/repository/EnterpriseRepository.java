@@ -6,7 +6,7 @@ import com.example0.model.Enterprise;
 import com.example0.model.User;
 
 public interface EnterpriseRepository 
-		extends JpaRepository<Enterprise, String>{
+		extends JpaRepository<Enterprise, Long>{
 //	Enterprise findByE_name(String e_name);
 //	Enterprise findby
 }
