@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 public class HomeController {
 	
 	private final ManagerService mservice;
-
+	private final UserService uservice;
 	
 	@GetMapping("/")
 	public String home() {
@@ -27,11 +27,11 @@ public class HomeController {
 	public String login() {
 		return "/user/login";
 	}
-	@GetMapping("join")
+	@GetMapping("userjoin")
 	public String join() {
-		return "/user/join";
+		return "/user/userjoin";
 	}
-	@PostMapping("join")
+	@PostMapping("userjoin")
 	@ResponseBody
 	public String join(@RequestBody User user) {
 		
