@@ -16,9 +16,9 @@ public class UserService {
 	private BCryptPasswordEncoder encoder;
 	//회원 가입
 	public void userjoin(User user) {
-		 String rawPassword = user.getU_password();
-		  String encPassword = encoder.encode(rawPassword);
-		  user.setU_password(encPassword);
+//		 String rawPassword = user.getU_password();
+//		  String encPassword = encoder.encode(rawPassword);
+//		  user.setU_password(encPassword);
 		  userRepository.save(user);
 	}
 }

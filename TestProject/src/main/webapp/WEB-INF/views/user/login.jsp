@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <div class="container">
+<c:if test="${not empty errorMsg }">
+   ${errorMsg}
+</c:if>
 	<h3>로그인</h3>
 	<form action="/login" method="post">
 	<div class="form-group">
