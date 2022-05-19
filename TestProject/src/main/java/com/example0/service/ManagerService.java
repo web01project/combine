@@ -1,5 +1,7 @@
 package com.example0.service;
 
+import java.util.List;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +28,10 @@ public class ManagerService {
 		manager.setM_password(encPassword);
 		
 		managerRepository.save(manager);
+	}
+	
+	//리스트
+	public List<Manager> list(){
+		return managerRepository.findAll();
 	}
 }

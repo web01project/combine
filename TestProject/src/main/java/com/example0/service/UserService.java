@@ -1,5 +1,7 @@
 package com.example0.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -20,5 +22,10 @@ public class UserService {
 		  String encPassword = encoder.encode(rawPassword);
 		  user.setU_password(encPassword);
 		  userRepository.save(user);
+	}
+	
+	//리스트
+	public List<User> list(){
+		return userRepository.findAll();
 	}
 }
