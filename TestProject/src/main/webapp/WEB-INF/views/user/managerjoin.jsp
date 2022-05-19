@@ -42,16 +42,23 @@
 	<script>
 	//회원가입버튼
 		$("#btnJoin").click(function() {
-			var exp = /^[0-9]{3}-[0-9]{4}-[0-9]{4}$/
-			
+			//전화번호 정규식
+			var regTel = /^[0-9]{3}-[0-9]{4}-[0-9]{4}$/
+			//이메일 정규식
+			var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/
 			if ($("#name").val() == "") {
 				alert("이름을 입력하세요")
 				$("#name").focus();
 				return false;
 			}
-			if ($("#email").val() == "") {
+			if ($("#username").val() == "") {
 				alert("아이디를 입력하세요")
-				$("#email").focus();
+				$("#username").focus();
+				return false;
+			}
+			if (!$("#username").val().match(regEmail)) {
+				alert("이메일 양식이 아닙니다");
+				$("#tel").focus();
 				return false;
 			}
 			if ($("#password").val() == "") {
@@ -64,11 +71,6 @@
 				$("#pwd_check").focus();
 				return false;
 			}
-			if ($("#businessnum").val() == "") {
-				alert("사업자번호를 입력하세요")
-				$("#businessnum").focus();
-				return false;
-			}
 			if ($("#age").val() == "") {
 				alert("나이를 입력하세요")
 				$("#age").focus();
@@ -79,24 +81,23 @@
 				$("#tel").focus();
 				return false;
 			}
-			if (!$("#tel").val().match(exp)) {
+			if (!$("#tel").val().match(regTel)) {
 				alert("전화번호 양식이 아닙니다");
 				$("#tel").focus();
 				return false;
 			}
-			
+
 			var dataParam = {
-				"m_name" : $("#name").val(),
-				"m_email" : $("#email").val(),
-				"m_password" : $("#password").val(),
-				"m_age" : $("#age").val(),
-				"m_tel" : $("#tel").val(),
-				"m_businessnum" : $("#businessnum").val(),
+				"username" : $("#name").val(),
+				"u_email" : $("#username").val(),
+				"u_password" : $("#password").val(),
+				"age" : $("#age").val(),
+				"u_tel" : $("#tel").val(),
 				"role" : $("#role").val()
 			}
 			$.ajax({
 				type : "POST",
-				url : "managerjoin",
+				url : "/userjoin",
 				contentType : "application/json;charset=utf-8",
 				data : JSON.stringify(dataParam)
 			})//done
@@ -104,10 +105,10 @@
 				if (resp == "success") {
 					alert("회원 가입 성공")
 					location.href = "/login";
-				} 
-				else if (resp == "fail") {
+
+				} else if (resp == "fail") {
 					alert("아이디 중복")
-					$("#email").val("")
+					$("#username").val("")
 				}
 			}).fail(function() {
 				alert("회원가입실패")
