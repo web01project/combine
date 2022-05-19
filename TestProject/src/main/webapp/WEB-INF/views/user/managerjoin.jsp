@@ -25,6 +25,10 @@
 			placeholder="Enter password_check" name="pwd_check">
 	</div>
 	<div class="form-group">
+		<label for=businessnum >사업자번호:</label> <input type="text" class="form-control"
+			id="businessnum" placeholder="Enter Business Number" name="businessnum">
+	</div>
+	<div class="form-group">
 		<label for="age">나이:</label> <input type="text" class="form-control"
 			id="age" placeholder="Enter age" name="age">
 	</div>

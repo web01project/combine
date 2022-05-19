@@ -39,6 +39,8 @@ public class Manager {
 	private String m_email;
 	// 비밀번호
 	private String m_password;
+	//사업자번호
+	private String m_business_num;
 	// 나이
 	private int m_age;
 	// 회사이름
