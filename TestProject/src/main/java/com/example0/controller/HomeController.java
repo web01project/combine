@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example0.model.Manager;
 import com.example0.model.User;
+import com.example0.service.ManagerService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class HomeController {
 	
-	
+	private final ManagerService mservice;
 
 	
 	@GetMapping("/")
@@ -44,8 +45,8 @@ public class HomeController {
 	}
 	@PostMapping("managerjoin")
 	public String managerjoin(Manager manager) {
-		
-		return "/user/login";
+		mservice.managerjoin(manager);
+		return "success";
 	}
 	
 }

@@ -63,6 +63,11 @@
 				$("#pwd_check").focus();
 				return false;
 			}
+			if ($("#businessnum").val() == "") {
+				alert("사업자번호를 입력하세요")
+				$("#businessnum").focus();
+				return false;
+			}
 			if ($("#age").val() == "") {
 				alert("나이를 입력하세요")
 				$("#age").focus();
@@ -81,14 +86,15 @@
 			
 			var dataParam = {
 				"name" : $("#name").val(),
-				"username" : $("#username").val(),
+				"email" : $("#email").val(),
 				"password" : $("#password").val(),
 				"age" : $("#age").val(),
 				"tel" : $("#tel").val(),
+				"businessnum" : $("#businessnum").val()
 			}
 			$.ajax({
 				type : "POST",
-				url : "/join",
+				url : "managerjoin",
 				contentType : "application/json;charset=utf-8",
 				data : JSON.stringify(dataParam)
 			})//done
@@ -96,10 +102,10 @@
 				if (resp == "success") {
 					alert("회원 가입 성공")
 					location.href = "/login";
-
-				} else if (resp == "fail") {
+				} 
+				else if (resp == "fail") {
 					alert("아이디 중복")
-					$("#username").val("")
+					$("#email").val("")
 				}
 			}).fail(function() {
 				alert("회원가입실패")
