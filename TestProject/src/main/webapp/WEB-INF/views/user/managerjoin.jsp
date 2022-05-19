@@ -4,6 +4,7 @@
 <div class="container">
 <h3>숙소 관리자 회원가입폼</h3>
 	<input type="hidden" value="ROLE_MANAGER" id="role" name="role">
+	
 	<div class="form-group">
 		<label for="name">이름:</label> <input type="text" class="form-control"
 			id="name" placeholder="Enter name" name="name">
@@ -85,12 +86,13 @@
 			}
 			
 			var dataParam = {
-				"name" : $("#name").val(),
-				"email" : $("#email").val(),
-				"password" : $("#password").val(),
-				"age" : $("#age").val(),
-				"tel" : $("#tel").val(),
-				"businessnum" : $("#businessnum").val()
+				"m_name" : $("#name").val(),
+				"m_email" : $("#email").val(),
+				"m_password" : $("#password").val(),
+				"m_age" : $("#age").val(),
+				"m_tel" : $("#tel").val(),
+				"m_businessnum" : $("#businessnum").val(),
+				"role" : $("#role").val()
 			}
 			$.ajax({
 				type : "POST",
