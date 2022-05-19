@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,10 +30,16 @@
 	<!-- Navigation-->
 	<nav class="navbar navbar-light bg-light static-top">
 		<div class="container">
-			<a class="navbar-brand" href="/">Start Bootstrap</a>
+			<a class="navbar-brand" href="/">Home</a>
 			<div>
 				<a a class="navbar-brand" href="/login">로그인</a>
-				<a a class="navbar-brand" href="/join">회원가입</a>
+				<a a class="navbar-brand" href="/JoinForm">회원가입</a>
+				<sec:authorize access="isAuthenticated()">
+					<li class="nav-item"><a class="navbar-brand" href="/logout">
+							로그아웃(${principal.user.username}) /<sec:authentication
+							property="principal.user.username" />
+							</a></li>
+							</sec:authorize>
 			</div>
 		</div>
 	</nav>
