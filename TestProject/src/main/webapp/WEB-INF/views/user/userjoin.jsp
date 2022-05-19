@@ -38,6 +38,7 @@
 		<label for="tel">전화번호:</label> <input type="text" class="form-control"
 			id="tel" placeholder="Enter tel" name="tel">
 	</div>
+	
 	<button class="btn btn-secondary" id="btnJoin">회원가입</button>
 							</form>
 						</div>
@@ -97,7 +98,7 @@
 			}
 			$.ajax({
 				type : "POST",
-				url : "/join",
+				url : "/userjoin",
 				contentType : "application/json;charset=utf-8",
 				data : JSON.stringify(dataParam)
 			})//done

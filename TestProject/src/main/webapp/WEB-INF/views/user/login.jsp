@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <div class="container">
-  <h3>로그인</h3>
+	<h3>로그인</h3>
 	<div class="form-group">
 		<label for="username">아이디:</label> <input type="text"
 			class="form-control" id="username" placeholder="Enter email"
@@ -13,11 +13,21 @@
 			class="form-control" id="password" placeholder="Enter password"
 			name="password">
 	</div>
+	<div class="form-check-inline">
+		<label class="form-check-label"> <input type="radio"
+			class="form-check-input" name="role" value="0" checked>일반회원
+		</label>
+	</div>
+	<div class="form-check-inline">
+		<label class="form-check-label"> <input type="radio"
+			class="form-check-input" name="role" value="1">관리자
+		</label>
+	</div>
 	<div class="form-group" align="right">
 		<button type="button" class="btn btn-primary" id="btnLogin">로그인</button>
 	</div>
 	<script>
-		$("#btnLogin").click(function(){
+		$("#btnLogin").click(function() {
 			$.ajax({
 				type : "post",
 				url : "/login",
@@ -25,7 +35,8 @@
 				data : JSON.stringify({
 					"username" : $("#username").val(),
 					"password" : $("#password").val()
-				})//ajax
+				})
+			//ajax
 			}).done(function(resp) {
 				if (resp == "no") {
 					alert("회원이 아닙니다. 회원가입하세요");
