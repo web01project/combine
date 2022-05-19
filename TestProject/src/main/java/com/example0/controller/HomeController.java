@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example0.model.Manager;
 import com.example0.model.User;
 
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,8 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequiredArgsConstructor
 public class HomeController {
+	
+	
 
 	
 	@GetMapping("/")
@@ -38,6 +41,11 @@ public class HomeController {
 	@GetMapping("managerjoin")
 	public String managerjoin() {
 		return "/user/managerjoin";
+	}
+	@PostMapping("managerjoin")
+	public String managerjoin(Manager manager) {
+		
+		return "/user/login";
 	}
 	
 }
