@@ -14,8 +14,6 @@
 					<li class="list-inline-item">·</li>
 					<li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
 				</ul>
-				<!-- </br/> -->
-				<br/>
 				<p class="text-muted small mb-4 mb-lg-0">&copy; Your Website
 					2022. All Rights Reserved.</p>
 			</div>
