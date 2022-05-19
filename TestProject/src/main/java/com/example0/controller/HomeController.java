@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example0.model.Manager;
 import com.example0.model.User;
+import com.example0.service.ManagerService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class HomeController {
 	
-	
+	private final ManagerService mservice;
 
 	
 	@GetMapping("/")
@@ -30,11 +31,6 @@ public class HomeController {
 	public String join() {
 		return "/user/join";
 	}
-	@GetMapping("JoinForm")
-	public String form() {
-		
-		return "/user/JoinForm";
-	}
 	@PostMapping("join")
 	@ResponseBody
 	public String join(@RequestBody User user) {
@@ -42,15 +38,16 @@ public class HomeController {
 		
 		return "success";
 	}
-	//managerjoin 폼
+	//manager가입 폼
 	@GetMapping("managerjoin")
 	public String managerjoin() {
 		return "/user/managerjoin";
 	}
+	//manager가입
 	@PostMapping("managerjoin")
 	public String managerjoin(Manager manager) {
-		
-		return "/user/login";
+		mservice.managerjoin(manager);
+		return "success";
 	}
 	
 }
