@@ -6,5 +6,4 @@ import com.example0.model.Manager;
 
 public interface ManagerRepository
 		extends JpaRepository<Manager, Long>{
-
 }
