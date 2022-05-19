@@ -7,16 +7,16 @@
   <h3>숙소등록</h3>
   <form action="managerJoin" method="post" enctype="multipart/form-data">
 <div class="form-group">
-      <label for="title">업주 번호:</label>
-      <input type="text" class="form-control" id="h_num"  readonly="readonly" name="title">
+      <label for="h_num">업주 번호:</label>
+      <input type="text" class="form-control" id="h_num"  readonly="readonly" name="h_num">
     </div>    
 <div class="form-group">
       <label for="title">숙소 이름:</label>
       <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
     </div>
     <div class="form-group">
-      <label for="pwd">숙소 위치:</label>
-      <input type="text" class="form-control" id="writer" 
+      <label for="loc">숙소 위치:</label>
+      <input type="text" class="form-control" id="location" 
       placeholder="Enter writer" name="writer" >
     </div>
     <div class="form-group">
