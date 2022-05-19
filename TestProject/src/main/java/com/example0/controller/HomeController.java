@@ -38,11 +38,12 @@ public class HomeController {
 		
 		return "success";
 	}
-	//managerjoin 폼
+	//manager가입 폼
 	@GetMapping("managerjoin")
 	public String managerjoin() {
 		return "/user/managerjoin";
 	}
+	//manager가입
 	@PostMapping("managerjoin")
 	public String managerjoin(Manager manager) {
 		mservice.managerjoin(manager);
