@@ -24,7 +24,7 @@ public class AdminController {
 	@RequestMapping("userList")
 	public String userlist(Model model) {
 		model.addAttribute("users",uservice.list());
-		return "redirect:/admin/userList";
+		return "admin/userList";
 	}
 	public String managerlist(Model model) {
 		model.addAttribute("managers",mservice.list());

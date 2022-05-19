@@ -96,7 +96,7 @@
 				"username" : $("#name").val(),
 				"u_email" : $("#username").val(),
 				"u_password" : $("#password").val(),
-				"u_age" : $("#age").val(),
+				"age" : $("#age").val(),
 				"u_tel" : $("#tel").val(),
 				"role" : $("#role").val()
 			}

@@ -18,10 +18,10 @@
 	</thead>
 	
 	<tbody>
-		<c:forEach items="${users.content }" var ="user" varStatus="st">
+		<c:forEach items="${users }" var ="user" varStatus="st">
 		<tr>
 			<td>${user.u_num }</td>
-			<td>${user.u_name }</td>
+			<td>${user.username }</td>
 			<td>${user.u_email } </td>
 			<td>${user.u_password }</td>
 			<td>${user.u_tel }</td>
