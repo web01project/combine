@@ -38,6 +38,9 @@
 		<label for="tel">전화번호:</label> <input type="text" class="form-control"
 			id="tel" placeholder="Enter tel" name="tel">
 	</div>
+	<div>
+		<input type="hidden" name="role" id="role" value="ROLE_USER"> 
+	</div>
 	
 	<button class="btn btn-secondary" id="btnJoin">회원가입</button>
 							</form>
