@@ -27,11 +27,12 @@ public class HomeController {
 	public String login() {
 		return "/user/login";
 	}
-	@GetMapping("join")
+	@GetMapping("joinform")
 	public String join() {
-		return "/user/join";
+		return "/user/joinform";
 	}
-	@PostMapping("join")
+	
+	@PostMapping("joinform")
 	@ResponseBody
 	public String join(@RequestBody User user) {
 		

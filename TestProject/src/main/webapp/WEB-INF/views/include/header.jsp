@@ -33,7 +33,7 @@
 			<a class="navbar-brand" href="/">Home</a>
 			<div>
 				<a a class="navbar-brand" href="/login">로그인</a>
-				<a a class="navbar-brand" href="/JoinForm">회원가입</a>
+				<a a class="navbar-brand" href="/joinform">회원가입</a>
 				<sec:authorize access="isAuthenticated()">
 					<li class="nav-item"><a class="navbar-brand" href="/logout">
 							로그아웃(${principal.user.username}) /<sec:authentication
