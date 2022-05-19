@@ -21,13 +21,22 @@ public class AdminController {
 	private final UserService uservice;
 	private final ManagerService mservice;
 	
+	//리스트선택폼
+	@RequestMapping("listForm")
+	public String listForm() {
+		return "admin/listForm";
+	}
+	
+	//유저리스트
 	@RequestMapping("userList")
 	public String userlist(Model model) {
 		model.addAttribute("users",uservice.list());
 		return "admin/userList";
 	}
+	//사업자리스트
+	@RequestMapping("managerList")
 	public String managerlist(Model model) {
 		model.addAttribute("managers",mservice.list());
-		return "redirect:/admin/managerList";//
+		return "admin/managerList";
 	}
 }

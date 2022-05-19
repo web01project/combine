@@ -20,7 +20,7 @@
 	</thead>
 	
 	<tbody>
-		<c:forEach items="${managers.content }" var ="manager" varStatus="st">
+		<c:forEach items="${managers }" var ="manager" varStatus="st">
 		<tr>
 			<td>${manager.mnum }</td>
 			<td>${manager.m_name }</td>

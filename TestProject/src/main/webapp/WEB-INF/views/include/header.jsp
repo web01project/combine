@@ -32,9 +32,10 @@
 	<nav class="navbar navbar-light bg-light static-top">
 		<div class="container">
 			<a class="navbar-brand" href="/">Home</a>
+			<a class="navbar-brand" href="/ad/listForm">list</a>
 			<div>
-				<a a class="navbar-brand" href="/login">로그인</a>
-				<a a class="navbar-brand" href="/joinform">회원가입</a>
+				<a class="navbar-brand" href="/login">로그인</a>
+				<a class="navbar-brand" href="/joinform">회원가입</a>
 				<sec:authorize access="isAuthenticated()">
 					<li class="nav-item"><a class="navbar-brand" href="/logout">
 							로그아웃(${principal.user.username}) /<sec:authentication
