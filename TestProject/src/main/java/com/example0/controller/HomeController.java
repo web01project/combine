@@ -37,11 +37,10 @@ public class HomeController {
 	public String userjoin() {
 		return "/user/userjoin";
 	}
-	
+	@PostMapping("userjoin")
 	@ResponseBody
 	public String join(@RequestBody User user) {
-		
-		
+		uservice.userjoin(user);
 		return "success";
 	}
 	//manager가입 폼
