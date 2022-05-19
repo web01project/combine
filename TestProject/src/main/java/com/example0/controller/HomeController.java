@@ -35,4 +35,9 @@ public class HomeController {
 		return "success";
 	}
 	
+	@GetMapping("managerjoin")
+	public String managerjoin() {
+		return "/user/managerjoin";
+	}
+	
 }
