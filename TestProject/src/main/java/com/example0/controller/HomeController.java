@@ -34,7 +34,7 @@ public class HomeController {
 		
 		return "success";
 	}
-	
+	//managerjoin 폼
 	@GetMapping("managerjoin")
 	public String managerjoin() {
 		return "/user/managerjoin";
