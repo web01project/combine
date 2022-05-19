@@ -4,12 +4,9 @@
 
 <div class="container">
   <h2>회원가입 선택</h2>
-		<a href="/user/userjoin"> <button type="button" class="btn btn-secondary btn-lg id="ulogin">일반회원가입 </button></a>
-		<a href="/user/managerjoin"> <button type="button" class="btn btn-secondary btn-lg id="mlogin">관리자회원가입 </button></a>
+	 <button type="button" onclick="location.href='userjoin'"  class="btn btn-secondary btn-lg id="ulogin">일반회원가입 </button>
+	<button type="button" onclick="location.href='managerjoin'" class="btn btn-secondary btn-lg id="mlogin">관리자회원가입 </button>
 	</div>
-	<script>
-		
-	</script>
 	
 	
 

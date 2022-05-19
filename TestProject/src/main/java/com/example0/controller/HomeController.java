@@ -28,11 +28,16 @@ public class HomeController {
 	public String login() {
 		return "/user/login";
 	}
-	@GetMapping("userjoin")
+	@GetMapping("joinform")
 	public String join() {
+		return "/user/joinform";
+	}
+	//user가입 폼
+	@GetMapping("userjoin")
+	public String userjoin() {
 		return "/user/userjoin";
 	}
-	@PostMapping("userjoin")
+	
 	@ResponseBody
 	public String join(@RequestBody User user) {
 		
