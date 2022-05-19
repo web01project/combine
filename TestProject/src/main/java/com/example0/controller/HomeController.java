@@ -1,6 +1,7 @@
 package com.example0.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,10 +25,16 @@ public class HomeController {
 	public String home() {
 		return "index";
 	}
-	@GetMapping("login")
+	@GetMapping("/login")
 	public String login() {
 		return "/user/login";
 	}
+	//로그인  error
+	  @GetMapping("/login/error")
+	  public String login(Model model) {
+		  model.addAttribute("errorMsg",  "아이디 또는 비밀번호가 일치하지 않습니다.");
+		  return "/user/login";
+	  }
 	@GetMapping("joinform")
 	public String join() {
 		return "/user/joinform";
