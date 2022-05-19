@@ -1,6 +1,8 @@
 package com.example0.controller;
 
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +35,7 @@ public class HomeController {
 		  return "/user/login";
 	  }
 	//로그인  error
+	  @Transactional
 	  @GetMapping("/login/error")
 	  public String login(Model model) {
 		  model.addAttribute("errorMsg",  "아이디 또는 비밀번호가 일치하지 않습니다.");

@@ -41,7 +41,7 @@ public class User {
 	// 유저 나이
 	private int age;
 	// 유저:리뷰 1:다 연결
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
 	private List<Review> reviews;
 	// 유저:회사 다:1 연결
 	@ManyToOne
