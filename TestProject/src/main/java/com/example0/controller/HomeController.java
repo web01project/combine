@@ -30,6 +30,11 @@ public class HomeController {
 	public String join() {
 		return "/user/join";
 	}
+	@GetMapping("JoinForm")
+	public String form() {
+		
+		return "/user/JoinForm";
+	}
 	@PostMapping("join")
 	@ResponseBody
 	public String join(@RequestBody User user) {

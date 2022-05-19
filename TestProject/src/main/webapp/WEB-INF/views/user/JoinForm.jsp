@@ -4,8 +4,9 @@
 
 <div class="container">
   <h2>회원가입 선택</h2>
-		 
-	
+
+
+</div>
 	
 
 
