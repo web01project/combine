@@ -28,4 +28,4 @@
 </div>
 
 
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+<%@ include file="../include/footer.jsp"%>

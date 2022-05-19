@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../includes/header.jsp"%>
+<%@ include file="../include/header.jsp"%>
 
 
   <div class="container">
   <h3>숙소등록</h3>
-  <form action="managerJoin" method="post" enctype="multipart/form-data">
+  <form action="hotelInsert" method="post" enctype="multipart/form-data">
 <div class="form-group">
       <label for="h_num">업주 번호:</label>
       <input type="text" class="form-control" id="h_num"  readonly="readonly" name="h_num">
@@ -38,3 +38,4 @@
      </div> 
   </form>
 </div>
+<%@ include file="../include/footer.jsp"%>
