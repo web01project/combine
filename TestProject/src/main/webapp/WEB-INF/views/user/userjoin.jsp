@@ -93,11 +93,12 @@
 			}
 			
 			var dataParam = {
-				"name" : $("#name").val(),
-				"username" : $("#username").val(),
-				"password" : $("#password").val(),
-				"age" : $("#age").val(),
-				"tel" : $("#tel").val(),
+				"username" : $("#name").val(),
+				"u_email" : $("#username").val(),
+				"u_password" : $("#password").val(),
+				"u_age" : $("#age").val(),
+				"u_tel" : $("#tel").val(),
+				"role" : $("#role").val()
 			}
 			$.ajax({
 				type : "POST",
