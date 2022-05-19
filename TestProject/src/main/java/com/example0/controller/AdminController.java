@@ -28,6 +28,6 @@ public class AdminController {
 	}
 	public String managerlist(Model model) {
 		model.addAttribute("managers",mservice.list());
-		return "redirect:/admin/managerList";
+		return "redirect:/admin/managerList";//
 	}
 }
