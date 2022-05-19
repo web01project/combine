@@ -46,7 +46,8 @@ public class HomeController {
 	}
 	//manager가입
 	@PostMapping("managerjoin")
-	public String managerjoin(Manager manager) {
+	@ResponseBody
+	public String managerjoin(@RequestBody Manager manager) {
 		mservice.managerjoin(manager);
 		return "success";
 	}
