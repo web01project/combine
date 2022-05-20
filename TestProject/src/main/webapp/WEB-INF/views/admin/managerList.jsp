@@ -24,7 +24,7 @@
 		<tr>
 			<td>${manager.mnum }</td>
 			<td>${manager.m_name }</td>
-			<td>${manager.m_email } </td>
+			<td>${manager.manageremail } </td>
 			<td>${manager.m_password }</td>
 			<td>${manager.m_tel }</td>
 			<td>${manager.m_age }

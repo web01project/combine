@@ -22,7 +22,7 @@
 		<tr>
 			<td>${user.u_num }</td>
 			<td>${user.username }</td>
-			<td>${user.u_email } </td>
+			<td>${user.useremail } </td>
 			<td>${user.u_password }</td>
 			<td>${user.u_tel }</td>
 			<td>${user.age }

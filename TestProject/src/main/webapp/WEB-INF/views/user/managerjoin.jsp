@@ -94,7 +94,7 @@
 
 			var dataParam = {
 				"m_name" : $("#name").val(),
-				"m_email" : $("#email").val(),
+				"manageremail" : $("#email").val(),
 				"m_password" : $("#password").val(),
 				"m_age" : $("#age").val(),
 				"m_tel" : $("#tel").val(),
