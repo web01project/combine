@@ -35,7 +35,7 @@ public class User {
 	// 유저비밀번호
 	private String u_password;
 	// 유저이메일
-	private String u_email;
+	private String useremail;
 	// 유저전화번호
 	private String u_tel;
 	// 유저 나이

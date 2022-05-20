@@ -51,14 +51,14 @@
 				$("#name").focus();
 				return false;
 			}
-			if ($("#username").val() == "") {
+			if ($("#email").val() == "") {
 				alert("아이디를 입력하세요")
-				$("#username").focus();
+				$("#email").focus();
 				return false;
 			}
-			if (!$("#username").val().match(regEmail)) {
+			if (!$("#email").val().match(regEmail)) {
 				alert("이메일 양식이 아닙니다");
-				$("#tel").focus();
+				$("#email").focus();
 				return false;
 			}
 			if ($("#password").val() == "") {
@@ -69,6 +69,11 @@
 			if ($("#password").val() != $("#pwd_check").val()) {
 				alert("비밀번호가 일치하지 않습니다.")
 				$("#pwd_check").focus();
+				return false;
+			}
+			if ($("#businessnum").val() == "") {
+				alert("사업자번호를 입력하세요")
+				$("#businessnum").focus();
 				return false;
 			}
 			if ($("#age").val() == "") {
@@ -88,16 +93,17 @@
 			}
 
 			var dataParam = {
-				"username" : $("#name").val(),
-				"u_email" : $("#username").val(),
-				"u_password" : $("#password").val(),
-				"age" : $("#age").val(),
-				"u_tel" : $("#tel").val(),
+				"m_name" : $("#name").val(),
+				"m_email" : $("#email").val(),
+				"m_password" : $("#password").val(),
+				"m_age" : $("#age").val(),
+				"m_tel" : $("#tel").val(),
+				"m_businessnum" : $("#businessnum").val(),
 				"role" : $("#role").val()
 			}
 			$.ajax({
 				type : "POST",
-				url : "/userjoin",
+				url : "managerjoin",
 				contentType : "application/json;charset=utf-8",
 				data : JSON.stringify(dataParam)
 			})//done
