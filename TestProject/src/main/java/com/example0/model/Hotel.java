@@ -62,4 +62,8 @@ public class Hotel {
 	private MultipartFile upload;
 	// 파일이름
 	private String fileimage;
+	//숙소 위치(임시)
+	private String location;
+	//숙소 설명(임시)
+	private String content;
 }

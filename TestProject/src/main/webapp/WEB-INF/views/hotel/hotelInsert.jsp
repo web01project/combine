@@ -12,12 +12,12 @@
     </div>    
 <div class="form-group">
       <label for="title">숙소 이름:</label>
-      <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
+      <input type="text" class="form-control" id="h_name" placeholder="Enter title" name="h_name">
     </div>
     <div class="form-group">
-      <label for="loc">숙소 위치:</label>
+      <label for="location">숙소 위치:</label>
       <input type="text" class="form-control" id="location" 
-      placeholder="Enter writer" name="writer" >
+      placeholder="Enter location" name="location" >
     </div>
     <div class="form-group">
       <label for="upload">숙소 사진:</label>
@@ -32,7 +32,8 @@
       <label for="price">금액:</label>
       <input type="text" class="form-control" id="price" 
       placeholder="Enter price" name="price" >
-    </div>	
+    </div>
+    	
     <div class="form-group text-right">
       <button type="submit" class="btn btn-primary btn-sm">등록하기</button>
      </div> 
