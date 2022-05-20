@@ -36,7 +36,7 @@ public class Manager {
 	// 전화번호
 	private String m_tel;
 	// 이메일
-	private String m_email;
+	private String manageremail;
 	// 비밀번호
 	private String m_password;
 	//사업자번호

@@ -102,7 +102,7 @@
 
 						var dataParam = {
 							"username" : $("#name").val(),
-							"u_email" : $("#username").val(),
+							"useremail" : $("#username").val(),
 							"u_password" : $("#password").val(),
 							"age" : $("#age").val(),
 							"u_tel" : $("#tel").val(),
