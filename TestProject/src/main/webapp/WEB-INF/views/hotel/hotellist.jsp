@@ -8,24 +8,23 @@
 	<a href="hotelInsert"><button class="btn btn-secondary bt -sm">숙소 등록</button></a>
 	</div>
 		 <div class="row ">
-		
 			<c:forEach items="${hotels }" var="hotel">
-			 <h2 class="card-title">${hotel.h_name }</h2>
+			
 				<div class="col-3 mb-3" style="width:400px">
-				<div class="card" style="width: 18rem;">
+				<div class="card" >
 					<img class="card-img-top" 
 						 src="/resources/img/${hotel.fileimage }" alt="Card image" style="width:100%">
 						    
-						    
-							      <span class="card-body"> 위치: ${hotel.location }</span>
-							      <span class="card-body"> 설명 : ${hotel.content }</p>
-							      <span class="content"> 가격 : ${hotel.price }</p>
+						    <div class ="card-body">
+						     <h2 class="card-title">${hotel.h_name }</h2>
+							      <span class="card-text" > 위치: ${hotel.location }</span>
+							      <p class="card-text"> 설명 : ${hotel.content }</p>
+							      <p class="card-text"> 가격 : ${hotel.price }</p>
 						     </div> <!--card-body  -->
 					  </div> <!--card  -->
 					 </div> <!-- col --> 
 				</c:forEach>
-
-</div>
+</div> 
 </div>
 
 

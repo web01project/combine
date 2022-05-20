@@ -32,12 +32,13 @@
 	<nav class="navbar navbar-light bg-light static-top">
 		<div class="container">
 			<div >
-
+<!-- 왼쪽 -->
 				<ul class="navbar-nav text-uppercase left py-4 py-lg-0">
 					<li class="nav-item"><a class="nav-link" href="/">홈</a></li>
 					<li class="nav-item"><a class="nav-link" href="/ad/listForm">회원리스트</a></li>
 				</ul>
 			</div>
+			<!-- 오른쪽  -->
 			<div>
 				<ul class="navbar-nav text-uppercase py-4 py-lg-0">
 					<sec:authorize access="isAnonymous()">
@@ -49,6 +50,8 @@
 							href="/hotel/hotelInsert">숙소등록</a></li>
 						<li class="nav-item"><a class="navbar-brand" href="/logout">
 								로그아웃 </a></li>
+						<li class="nav-item"><a class="navbar-brand" href="/hotel/hotellist">
+								숙소리스트 </a></li>
 					</sec:authorize>
 				</ul>
 			</div>
