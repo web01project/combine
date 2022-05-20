@@ -12,7 +12,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Landing Page - Start Bootstrap Theme</title>
+<title>숙박 예약 사이트</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Bootstrap icons-->
@@ -31,20 +31,27 @@
 	<!-- Navigation-->
 	<nav class="navbar navbar-light bg-light static-top">
 		<div class="container">
+			<div >
 
-			<a class="navbar-brand" href="/">Home</a> <a class="navbar-brand"
-				href="/ad/listForm">list</a>
-			<div>
-				<sec:authorize access="isAnonymous()">
-					<a class="navbar-brand" href="/login">로그인</a>
-					<a class="navbar-brand" href="/joinform">회원가입</a>
-				</sec:authorize>
-				<sec:authorize access="isAuthenticated()">
-					<li class="nav-item"><a class="navbar-brand"
-						href="/hotel/hotelInsert">숙소등록</a></li>
-					<li class="nav-item"><a class="navbar-brand" href="/logout">
-							로그아웃 </a></li>
-				</sec:authorize>
+				<ul class="navbar-nav text-uppercase left py-4 py-lg-0">
+					<li class="nav-item"><a class="nav-link" href="/">홈</a></li>
+					<li class="nav-item"><a class="nav-link" href="/ad/listForm">회원리스트</a></li>
+				</ul>
 			</div>
+			<div>
+				<ul class="navbar-nav text-uppercase py-4 py-lg-0">
+					<sec:authorize access="isAnonymous()">
+						<a class="btn btn-primary" href="/login">로그인</a>
+						<a class="btn btn-primary" href="/joinform">회원가입</a>
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+						<li class="nav-item"><a class="navbar-brand"
+							href="/hotel/hotelInsert">숙소등록</a></li>
+						<li class="nav-item"><a class="navbar-brand" href="/logout">
+								로그아웃 </a></li>
+					</sec:authorize>
+				</ul>
+			</div>
+
 		</div>
 	</nav>
