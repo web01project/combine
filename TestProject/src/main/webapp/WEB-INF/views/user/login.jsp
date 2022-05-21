@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <div class="container">
 <c:if test="${not empty errorMsg }">
@@ -16,16 +16,6 @@
 		<label for="password">비밀번호:</label> <input type="password"
 			class="form-control" id="password" placeholder="Enter password"
 			name="password">
-	</div>
-	<div class="form-check-inline">
-		<label class="form-check-label"> <input type="radio"
-			class="form-check-input" name="role" value="0" checked>일반회원
-		</label>
-	</div>
-	<div class="form-check-inline">
-		<label class="form-check-label"> <input type="radio"
-			class="form-check-input" name="role" value="1">관리자
-		</label>
 	</div>
 	<div class="form-group" align="right">
 		<button class="btn btn-primary">로그인</button>

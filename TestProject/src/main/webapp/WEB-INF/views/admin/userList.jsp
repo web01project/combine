@@ -4,7 +4,7 @@
 
 <div class="container">
 <!-- 일반회원리스트 -->
-<h3>일반회원리스트</h3>
+<h3>회원리스트</h3>
 <table class="table table-hover">
 	<thead>
 		<tr>

@@ -1,13 +1,11 @@
 package com.example0.config.auth;
 
 import java.util.ArrayList;
-
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.example0.model.Manager;
 import com.example0.model.User;
 
 import lombok.Getter;
@@ -16,14 +14,10 @@ import lombok.Getter;
 public class PrincipalDetails implements UserDetails{
 
 	private User user;
-//	private Manager manager;
-	
+
 	public PrincipalDetails(User user) {
 		this.user = user;
 	}
-//	public PrincipalDetails(Manager manager) {
-//		this.manager = manager;
-//	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -37,7 +31,7 @@ public class PrincipalDetails implements UserDetails{
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return user.getU_password();
+		return user.getPassword();
 	}
 
 	@Override

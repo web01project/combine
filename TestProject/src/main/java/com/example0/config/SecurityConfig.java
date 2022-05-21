@@ -1,6 +1,5 @@
 package com.example0.config;
 
-
 import org.springframework.context.annotation.Configuration;
 
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -13,14 +12,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.example0.config.auth.UserFailHandler;
 
-
-
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
-	@Autowired
-	private UserFailHandler userFailHandler;
+
 	@Bean
 	//암호화
 	public BCryptPasswordEncoder encodePwd() {
@@ -39,8 +35,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.loginPage("/login")
 			.defaultSuccessUrl("/")
 			.failureUrl("/login/error")
-//			.failureHandler(userFailHandler)
-//			.loginProcessingUrl("/loginPro")
 		.and()
 			.logout()
 			.logoutUrl("/logout")

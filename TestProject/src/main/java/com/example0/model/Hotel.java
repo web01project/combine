@@ -53,10 +53,10 @@ public class Hotel {
 	// 숙소 리뷰
 	@OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY)
 	private List<Review> reviews;
-	// 업주번호
-	@ManyToOne
-	@JoinColumn(name = "mnum")
-	private Manager manager;
+//	// 업주번호
+//	@ManyToOne
+//	@JoinColumn(name = "mnum")
+//	private Manager manager;
 	// 업로드 파일
 	@Transient //객체에서 빼기
 	private MultipartFile upload;
