@@ -45,9 +45,7 @@
 						<li class="nav-item"><a class="nav-link" href=" /register">회원가입</a></li>
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
-						<li class="nav-item"><a class="nav-link"
-							href="/hotel/hotelInsert">숙소등록</a></li>
-						<li class="nav-item"><a class="nav-link"
+						<li class="dropdown"><a class="nav-link"
 							href="/hotel/hotelInsert">숙소등록</a></li>
 						<li class="nav-item"><a class="nav-link" href="/logout">
 								로그아웃 </a></li>
