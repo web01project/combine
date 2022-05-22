@@ -13,7 +13,10 @@
 						<td><input type="radio" class="form-check-input" name="role"
 							value="ROLE_USER" id="role" checked>일반회원 <input
 							type="radio" class="form-check-input" name="role"
-							value="ROLE_MANAGER" id="role">관리자</td>
+							value="ROLE_MANAGER" id="role">관리자
+							<!-- <input type="radio" class="form-check-input" name="role"
+							value="ROLE_ADMIN" id="role">사이트관리자 -->
+						</td>
 					</tr>
 					<tr>
 						<td>이름(Name)</td>

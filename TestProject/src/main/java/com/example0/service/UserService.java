@@ -1,5 +1,7 @@
 package com.example0.service;
 
+import java.util.List;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +25,13 @@ public class UserService {
 		user.setPassword(encPassword);
 		
 		userRepository.save(user);
+	}
+	//유저리스트
+	public List<User> ulist(){
+		return userRepository.findAllUser();
+	}
+	//유저삭제
+	public void delete(Long id) {
+		userRepository.deleteById(id);
 	}
 }
