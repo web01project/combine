@@ -24,9 +24,13 @@
 								placeholder="Enter title" name="h_name"></td>
 						</tr>
 						<tr>
-							<td><label for="location">숙소 위치</label></td>
-							<td><input type="text" class="form-control" id="location"
-								placeholder="Enter location" name="location">
+							<td>숙소 주소</td>
+							<td><input type="text" class="form-control" id="location" name="location"
+								readonly /></td>
+						</tr>
+						<tr>
+							<td>상세 주소</td>
+							<td><input type="text" class="form-control" name="address2" /></td>
 						</tr>
 						<tr>
 							<td><label for="upload">숙소 사진</label></td>
@@ -36,7 +40,8 @@
 						<tr>
 							<td><label for="content">숙소 정보</label></td>
 							<td><textarea class="form-control" rows="5" id="content"
-								name="content"></textarea></td>
+									name="content"></textarea></td>
+
 						</tr>
 						<tr>
 							<td><label for="price">금액</label></td>
@@ -46,10 +51,34 @@
 
 
 					</table>
-					<button type="submit" class="btn btn-primary btn-sm">등록하기</button>	
+					<button type="submit" class="btn btn-primary btn-sm">등록하기</button>
 				</form>
 			</div>
 		</div>
 	</div>
 </header>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+	window.onload = function() {
+		document
+				.getElementById("location")
+				.addEventListener(
+						"click",
+						function() { //주소입력칸을 클릭하면
+							//카카오 지도 발생
+							new daum.Postcode(
+									{
+										oncomplete : function(data) { //선택시 입력값 세팅
+											document
+													.getElementById("location").value = data.address; // 주소 넣기
+											document
+													.querySelector(
+															"input[name=address2]")
+													.focus(); //상세입력 포커싱
+										}
+									}).open();
+						});
+	}
+</script>
 <%@ include file="../include/footer.jsp"%>
