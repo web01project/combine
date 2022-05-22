@@ -101,11 +101,16 @@ hr:not([size]) {
   height: 1px;
 }
 
-h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+h6, .h6, h5, .h5,  h2, .h2, h1, .h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-weight: 700;
   line-height: 1.2;
+}
+h3, .h3 ,h4, .h4{
+	align-content: center;
+	font-weight: 700;
+	margin-bottom: 3rem;
 }
 
 h1, .h1 {
@@ -302,6 +307,7 @@ svg {
 }
 
 table {
+	border-spacing:15px;
   caption-side: bottom;
   border-collapse: collapse;
 }
@@ -321,8 +327,16 @@ th {
 thead,
 tbody,
 tfoot,
-tr,
-td,
+tr{
+	border :10px;
+}
+td{
+	padding-bottom:15px;
+	border :10px;
+	 border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+}
 th {
   border-color: inherit;
   border-style: solid;
@@ -11300,6 +11314,11 @@ textarea.form-control-lg {
   font-size: 4.5rem;
 }
 
+div.panel{
+	border: 1px solid black;
+	padding : 16px 24px 24px;
+	width: 500px;
+}
 header.masthead {
   position: relative;
   background-color: #343a40;
@@ -11307,6 +11326,13 @@ header.masthead {
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
+}
+header.normal{
+	 position: relative;
+	  background-color: #fff;
+	 background-size: cover;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
 }
 header.masthead:before {
   content: "";

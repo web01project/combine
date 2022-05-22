@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<div class="container">
+<title>회원 로그인</title>
+<header class="normal">
+	<div class="container position-relative">
+		<div class="row justify-content-center">
+<div class="panel">
 <c:if test="${not empty errorMsg }">
    ${errorMsg}
 </c:if>
@@ -22,4 +26,7 @@
 	</div>
 	</form>
 </div>
+</div>
+</div>
+</header>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

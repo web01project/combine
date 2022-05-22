@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 
-
+<header class="normal">
   <div class="container">
   <h3>숙소등록</h3>
   <form action="hotelInsert" method="post" enctype="multipart/form-data">
@@ -39,4 +39,5 @@
      </div> 
   </form>
 </div>
+</header>
 <%@ include file="../include/footer.jsp"%>
