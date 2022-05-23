@@ -51,6 +51,7 @@
 					</c:if>
 				</table>
 				<button class="btn btn-secondary" id="btnModify">수정</button>
+				<button class="btn btn-danger" id="btnDelete">회원탈퇴</button>
 		</div>
 	</div>
 </div>
@@ -131,6 +132,24 @@ $("#btnModify").click(function(){
 	})
 })
 
+$("#btnDelete").click(function(){
+	if(!confirm("정말 탈퇴하시겠습니까?")) return false;
+	$.ajax({
+		type:"delete",
+		url:"/user/delete/${user.id}"
+	})
+	.done(function(resp){
+		if(resp=="success"){
+			alert("탈퇴완료")
+			location.href="/logout"
+		}else{
+			alert("탈퇴오류")
+		}
+	})
+	.fail(function(){
+		alert("탈퇴실패")
+	})
+})
 
 </script>
 
