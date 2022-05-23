@@ -11,18 +11,17 @@
 
 				<h4>숙소상세보기</h4>
 
-				<form action="hotelInsert" method="post"
-					enctype="multipart/form-data">
+				
 					<table>
 						<tr>
 							<td><label for="h_num">관리 번호</label>
 							<td><input type="text" class="form-control" id="h_num"
-								placeholder="Enter hnum" name="h_num" value="${hotel.h_num }" readonly="readonly"></td>
+								 name="h_num" value="${hotel.h_num }" readonly="readonly"></td>
 						</tr>
 						<tr>
-							<td><label for="title">숙소 이름</label></td>
+							<td><label for="name">숙소 이름</label></td>
 							<td><input type="text" class="form-control" id="h_name"
-								placeholder="Enter title" name="h_name" value="${hotel.h_name }" readonly="readonly"></td>
+								 name="h_name" value="${hotel.h_name }" readonly="readonly"></td>
 						</tr>
 						<tr>
 							<td>숙소 주소</td>
@@ -50,25 +49,24 @@
 
 						</tr>
 						<tr>
-							<td><label for="content">숙소 정보</label></td>
-							<td><input type="text" class="form-control" rows="5" id="content"
-									name="content" value="${hotel.content }" readonly="readonly"></textarea></td>
+							<textarea class="form-control" id="content" name="content"
+								readonly="readonly">${hotel.content }</textarea>
 
 						</tr>
 						<tr>
 							<td><label for="title">전화번호</label></td>
 							<td><input type="text" class="form-control" id="h_tel"
-								placeholder="Enter tel" name="h_tel" value="${hotel.h_tel }" readonly="readonly"></td>
+								 name="h_tel" value="${hotel.h_tel }" readonly="readonly"></td>
 						</tr>
 						<tr>
 							<td><label for="price">금액</label></td>
 							<td><input type="text" class="form-control" id="price"
-								placeholder="Enter price" name="price" value="${hotel.price }" readonly="readonly"></td>
+								 name="price" value="${hotel.price }" readonly="readonly"></td>
 						</tr>
 
 
 					</table>
-					<button type="submit" class="btn btn-primary btn-sm">등록하기</button>
+					<button type="button" class="btn btn-primary btn-sm" >수정하기</button>
 				</form>
 			</div>
 		</div>
@@ -87,14 +85,14 @@ var init = function(){
 			   str+="<td>"+val.h_name+"</td>"
 			   str+="<td>"+val.content+"</td>"
 			   str+="<td>"+val.price+"</td>"
-			   if("${principal.h_name}"==val.h_name){
+			   if("${principal.username}"==val.username){
 				   str+="<td><a href='javascript:fdel("+val.cnum+")'>삭제</a></td>"
 			   }
 			   str+="</tr>"
 		   })
 		   str +="</table>"
 	  $("#replyResult").html(str);
-	})  //done
+	})  //done 
 
 }
 </script>
