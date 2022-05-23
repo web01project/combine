@@ -2,13 +2,17 @@ package com.example0.controller;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 //숙소관리 컨트롤러
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example0.model.Hotel;
 import com.example0.service.BoardService;
@@ -41,5 +45,18 @@ private BoardService boardService;
 	public String list(Model model) {
 		model.addAttribute("hotels",boardService.findAll());
 		return "/hotel/hotellist";
+	}
+	//숙소수정
+	@PutMapping("update")
+	@ResponseBody
+	public String update(@RequestBody Hotel hotel) {
+		boardService.update(hotel);
+		return "success";
+	}
+	//숙소상세보기
+	@GetMapping("view/{h_num}")
+	public String view(@PathVariable Long h_num, Model model) {
+		model.addAttribute("hotel", boardService.findById(h_num) );
+		return "/hotel/hotelview";
 	}
 }
