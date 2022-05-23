@@ -19,7 +19,7 @@
 											placeholder="Enter location" required="required">
 									</div>
 								</div>
-
+ 
 							</div>
 							<div class="row row-space">
 								<div class="col-2">

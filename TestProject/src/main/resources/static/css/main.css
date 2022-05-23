@@ -24,7 +24,8 @@
 
 .row-refine {
   margin: 0 -15px;
-}
+} 
+
 .col-1{
 	width: -webkit-calc((100% - 20px));
   width: -moz-calc((100% - 20px) );
