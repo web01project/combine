@@ -1,19 +1,88 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
+<link href="/css/main.css" rel="stylesheet" />
 <title>숙박 예약 사이트</title>
 <!-- Masthead-->
 <header class="masthead">
 	<div class="container position-relative">
-		<div class="row justify-content-center">
-			<div class="col-xl-6">
-				<div class="text-center text-white">
-					<!-- Page heading-->
-					<h1 class="mb-5">여행지를 검색해 보세요!</h1>
-					<!-- 숙소 검색하기 -->
-					<div class="search-bar">
-						<i class="fas fa-search"></i> <input class="search-bar__input"
-							type="search" placeholder="검색" />
+		<div class="page-wrapper bg-img-3 p-t-240 p-b-120">
+			<div class="wrapper wrapper--w900">
+				<div class="card card-6">
+					<div class="card-body">
+						<form method="POST" action="#">
+							<div class="row row-space">
+								<div class="col-2">
+									<div class="input-group">
+										<label class="label">from</label> <input
+											class="input--style-1" type="text" name="from"
+											placeholder="City, Region or Airport" required="required">
+									</div>
+								</div>
+								<div class="col-2">
+									<div class="input-group">
+										<label class="label">to</label> <input class="input--style-1"
+											type="text" name="to" placeholder="City, Region or Airport"
+											required="required">
+									</div>
+								</div>
+							</div>
+							<div class="row row-space">
+								<div class="col-2">
+									<div class="input-group">
+										<label class="label">Depart</label> <input
+											class="input--style-1" type="text" name="depart"
+											placeholder="DD MMM YYYY" id="input-start">
+									</div>
+								</div>
+								<div class="col-2">
+									<div class="input-group">
+										<label class="label">Return</label> <input
+											class="input--style-1" type="text" name="return"
+											placeholder="DD MMM YYYY" id="input-end">
+									</div>
+								</div>
+							</div>
+							<div class="row row-space">
+								<div class="col-2">
+									<div class="input-group m-b-0">
+										<label class="label">Passengers</label>
+										<div class="input-group-icon" id="js-select-special">
+											<input class="input--style-1 input--text-small" type="text"
+												name="passengers" value="1 Adult, 0 Children, 1 Room"
+												disabled="disabled" id="info"> <i
+												class="zmdi zmdi-plus input-icon"></i>
+										</div>
+										<div class="dropdown-select">
+											<ul class="list-room">
+												<li class="list-room__item"><span
+													class="list-room__name">Room 1</span>
+													<ul class="list-person">
+														<li class="list-person__item"><span class="name">Adults</span>
+															<div class="quantity quantity1">
+																<span class="minus">-</span> <input class="inputQty"
+																	type="number" min="0" value="1"> <span
+																	class="plus">+</span>
+															</div></li>
+														<li class="list-person__item"><span class="name">Children</span>
+															<div class="quantity quantity2">
+																<span class="minus">-</span> <input class="inputQty"
+																	type="number" min="0" value="0"> <span
+																	class="plus">+</span>
+															</div></li>
+													</ul></li>
+											</ul>
+											<div class="list-room__footer">
+												<a href="#" id="btn-add-room">Add room</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-2">
+									<button class="btn-submit m-b-0" type="submit">search</button>
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -70,14 +139,17 @@
 </section>
 
 
-<!-- Bootstrap core JS-->
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script src="js/scripts.js"></script>
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-<!-- * *                               SB Forms JS                               * *-->
-<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-</html>
+    <!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/jquery-validate/jquery.validate.min.js"></script>
+    <script src="vendor/bootstrap-wizard/bootstrap.min.js"></script>
+    <script src="vendor/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
