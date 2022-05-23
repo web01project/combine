@@ -6,12 +6,8 @@
 <header class="normal">
 	<div class="container position-relative">
 		<div class="row justify-content-center">
-
 			<div class="panel" align="center">
-
 				<h4>숙소상세보기</h4>
-
-				
 					<table>
 						<tr>
 							<td><label for="h_num">관리 번호</label>
