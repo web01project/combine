@@ -10,34 +10,28 @@
 			<div class="wrapper wrapper--w900">
 				<div class="card card-6">
 					<div class="card-body">
-						<form method="POST" action="#">
+						<form method="POST" action="/hotel/hotellist">
 							<div class="row row-space">
-								<div class="col-2">
+								<div class="col-1">
 									<div class="input-group">
-										<label class="label">from</label> <input
+										<label class="label">장소를 입력하세요.</label> <input
 											class="input--style-1" type="text" name="from"
-											placeholder="City, Region or Airport" required="required">
+											placeholder="Enter location" required="required">
 									</div>
 								</div>
-								<div class="col-2">
-									<div class="input-group">
-										<label class="label">to</label> <input class="input--style-1"
-											type="text" name="to" placeholder="City, Region or Airport"
-											required="required">
-									</div>
-								</div>
+
 							</div>
 							<div class="row row-space">
 								<div class="col-2">
 									<div class="input-group">
-										<label class="label">Depart</label> <input
+										<label class="label">체크인</label> <input
 											class="input--style-1" type="text" name="depart"
 											placeholder="DD MMM YYYY" id="input-start">
 									</div>
 								</div>
 								<div class="col-2">
 									<div class="input-group">
-										<label class="label">Return</label> <input
+										<label class="label">체크아웃</label> <input
 											class="input--style-1" type="text" name="return"
 											placeholder="DD MMM YYYY" id="input-end">
 									</div>
@@ -46,7 +40,7 @@
 							<div class="row row-space">
 								<div class="col-2">
 									<div class="input-group m-b-0">
-										<label class="label">Passengers</label>
+										<label class="label">인원</label>
 										<div class="input-group-icon" id="js-select-special">
 											<input class="input--style-1 input--text-small" type="text"
 												name="passengers" value="1 Adult, 0 Children, 1 Room"
@@ -72,9 +66,9 @@
 															</div></li>
 													</ul></li>
 											</ul>
-											<div class="list-room__footer">
+							<!-- 				<div class="list-room__footer">
 												<a href="#" id="btn-add-room">Add room</a>
-											</div>
+											</div> -->
 										</div>
 									</div>
 								</div>
@@ -139,17 +133,18 @@
 </section>
 
 
-    <!-- Jquery JS-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <!-- Vendor JS-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <script src="vendor/jquery-validate/jquery.validate.min.js"></script>
-    <script src="vendor/bootstrap-wizard/bootstrap.min.js"></script>
-    <script src="vendor/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
-    <script src="vendor/datepicker/moment.min.js"></script>
-    <script src="vendor/datepicker/daterangepicker.js"></script>
+<!-- Jquery JS-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<!-- Vendor JS-->
+<script src="vendor/select2/select2.min.js"></script>
+<script src="vendor/jquery-validate/jquery.validate.min.js"></script>
+<script src="vendor/bootstrap-wizard/bootstrap.min.js"></script>
+<script src="vendor/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+<script src="vendor/datepicker/moment.min.js"></script>
+<script src="vendor/datepicker/daterangepicker.js"></script>
 
-    <!-- Main JS-->
-    <script src="js/global.js"></script>
+<!-- Main JS-->
+<script src="js/global.js"></script>
 
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
+<!-- This templates was made by Colorlib (https://colorlib.com) -->
