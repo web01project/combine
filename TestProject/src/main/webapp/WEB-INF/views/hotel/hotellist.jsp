@@ -17,7 +17,7 @@
 						    
 						    <div class ="card-body">
 						     <h2 class="card-title">${hotel.h_name }</h2>
-							      <span class="card-text" > 위치: ${hotel.location }</span>
+							      <span class="card-text" > 위치: ${hotel.location1}</span>
 							      <p class="card-text"> 설명 : ${hotel.content }</p>
 							      <p class="card-text"> 가격 : ${hotel.price }</p>
 						     </div> <!--card-body  -->

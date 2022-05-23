@@ -38,9 +38,6 @@ public class Hotel {
 	private Long h_num;
 	// 숙소이름
 	private String h_name;
-	// 숙소주소
-	@Embedded
-	private Address h_address;
 	// 숙소번호
 	private String h_tel;
 	// 숙소 등급

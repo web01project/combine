@@ -25,12 +25,16 @@
 						</tr>
 						<tr>
 							<td>숙소 주소</td>
-							<td><input type="text" class="form-control" id="location" name="location"
+							<td><input type="text" class="form-control" id="location1" name="location1"
 								readonly /></td>
 						</tr>
 						<tr>
 							<td>상세 주소</td>
-							<td><input type="text" class="form-control" name="address2" /></td>
+							<td><input type="text" class="form-control" id="location2" name="location2" /></td>
+						</tr>
+						<tr>
+							<td>우편번호</td>
+							<td><input type="text" class="form-control" id="zipcode" name="zipcode" readonly="readonly" /></td>
 						</tr>
 						<tr>
 							<td><label for="upload">숙소 사진</label></td>
@@ -42,6 +46,11 @@
 							<td><textarea class="form-control" rows="5" id="content"
 									name="content"></textarea></td>
 
+						</tr>
+						<tr>
+							<td><label for="title">전화번호</label></td>
+							<td><input type="text" class="form-control" id="h_tel"
+								placeholder="Enter tel" name="h_tel"></td>
 						</tr>
 						<tr>
 							<td><label for="price">금액</label></td>
@@ -61,21 +70,17 @@
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	window.onload = function() {
-		document
-				.getElementById("location")
+		document.getElementById("location1")
 				.addEventListener(
 						"click",
 						function() { //주소입력칸을 클릭하면
-							//카카오 지도 발생
-							new daum.Postcode(
-									{
+							new daum.Postcode({
 										oncomplete : function(data) { //선택시 입력값 세팅
-											document
-													.getElementById("location").value = data.address; // 주소 넣기
-											document
-													.querySelector(
-															"input[name=address2]")
-													.focus(); //상세입력 포커싱
+											document.getElementById("location1").value = data.address; // 주소 넣기
+											document.getElementById("zipcode").value = data.zonecode; // 주소 넣기
+											document.querySelector("input[name=location2]").focus(); //상세입력 포커싱
+											
+											
 										}
 									}).open();
 						});

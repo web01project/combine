@@ -2,6 +2,10 @@ package com.example0.model;
 
 import javax.persistence.Embeddable;
 
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
 @Embeddable
 public class Address {
 	// 우편번호
