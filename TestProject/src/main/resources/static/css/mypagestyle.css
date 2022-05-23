@@ -1,5 +1,10 @@
 @charset "EUC-KR";
 
+a{
+	text-decoration: none;
+	color: black;
+}
+
 body{
   padding: 0;
   margin: 0;
@@ -28,6 +33,24 @@ div{
 .wrap{
   background-color: #F8F8F8;  
 }
+/* ÇÏ´Ã»ö¹è°æ */
+.blueContanier{	
+  height: 132px;
+  background-color: #0E72A7;    
+  
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+}
+.blueContanier .name{
+   font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+} 
+.blueContanier .modify{
+  margin-left: auto;
+}
+
 /* ³ì»ö¹è°æ */
 .greenContainer{  
   height: 132px;
