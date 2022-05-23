@@ -4,9 +4,11 @@
 
 <div class="container">
 <h2>숙소 리스트</h2>
-	<div class="form-group text-right">
-	<a href="hotelInsert"><button class="btn btn-secondary bt -sm">숙소 등록</button></a>
-	</div>
+	<c:if test="${principal.user.role == 'ROLE_MANAGER'}">
+		<div class="form-group text-right" align="right">
+			<a href="hotelInsert"><button class="btn btn-secondary bt -sm">숙소 등록</button></a>
+		</div>
+	</c:if>
 		 <div class="row ">
 			<c:forEach items="${hotels }" var="hotel">
 			

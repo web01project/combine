@@ -34,4 +34,9 @@ public class UserService {
 	public void delete(Long id) {
 		userRepository.deleteById(id);
 	}
+	
+	//유저상세보기
+	public User detail(Long id) {
+		return userRepository.findById(id).get();
+	}
 }

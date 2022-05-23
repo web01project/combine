@@ -45,13 +45,13 @@ public class HomeController {
 		  return "/user/login";
 	  }
 	  
-	//member가입 폼
+	//user가입 폼
 	@GetMapping("register")
 	public String memberJoin() {
 		return "/user/join";
 	}
 	
-	//member생성
+	//user생성
 	@PostMapping("register")
 	@ResponseBody
 	public String register(@RequestBody User user) {
@@ -63,30 +63,4 @@ public class HomeController {
 		System.out.println(user);
 		return "success";
 	}
-	  
-	  
-		/*
-		 * @GetMapping("joinform") public String join() { return "/user/joinform"; }
-		 * 
-		 * // user가입 폼
-		 * 
-		 * @GetMapping("userjoin") public String userjoin() { return "/user/userjoin"; }
-		 * 
-		 * @PostMapping("userjoin")
-		 * 
-		 * @ResponseBody public String join(@RequestBody User user) {
-		 * uservice.userjoin(user); return "success"; }
-		 * 
-		 * // manager가입 폼
-		 * 
-		 * @GetMapping("managerjoin") public String managerjoin() { return
-		 * "/user/managerjoin"; }
-		 * 
-		 * // manager가입
-		 * 
-		 * @PostMapping("managerjoin")
-		 * 
-		 * @ResponseBody public String managerjoin(@RequestBody Manager manager) {
-		 * mservice.managerjoin(manager); return "success"; }
-		 */
 }

@@ -65,7 +65,7 @@
 		</div>
 	</div>
 </div>
-</div>
+
 
 
 
@@ -84,18 +84,7 @@ $("input[type=radio][name=role]").on("click",function(){
 		$("#business2").css("display","none");
 	}
 })
-/* 
-$("#role").on("click", function(){
-	var valueCheck = $("input[id=role]:checked").val()
-	
-	alert(valueCheck)
-	
-	if(valueCheck == "ROLE_MANAGER"){
-		alert("매니저" + valueCheck)
-	}else if(valueCheck == "ROLE_USER"){
-		alert("일반" + valueCheck)
-	}
-}) */
+
 //회원가입버튼
 $("#btnJoin").click(function() {
 	//전화번호 정규식
