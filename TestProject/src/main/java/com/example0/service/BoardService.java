@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -34,8 +36,25 @@ public class BoardService {
 			}
 		}//if
 	}//hotelInsert
-	
+	//전체보기
 	public List<Hotel> findAll(){
 		return boardRepository.findAll();
+	}
+	//수정하기
+	@Transactional
+	public void update(Hotel hotel) {
+		Hotel b = boardRepository.findById(hotel.getH_num()).get();
+		b.setH_name(hotel.getH_name());
+		b.setLocation1(hotel.getLocation1());
+		b.setUpload(hotel.getUpload());
+		b.setContent(hotel.getContent());
+		b.setPrice(hotel.getPrice());
+	}
+	//상세보기
+	@Transactional
+	public Hotel findById(Long h_num) {
+		Hotel hotel = boardRepository.findById(h_num).get();
+		return hotel;
+		
 	}
 }
