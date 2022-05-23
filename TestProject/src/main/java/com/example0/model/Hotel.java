@@ -60,7 +60,9 @@ public class Hotel {
 	// 파일이름
 	private String fileimage;
 	//숙소 위치(임시)
-	private String location;
+	private String location1;
+	private String location2;
+	private String zipcode;
 	//숙소 설명(임시)
 	private String content;
 }

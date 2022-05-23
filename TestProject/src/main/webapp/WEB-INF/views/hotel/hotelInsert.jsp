@@ -25,21 +25,41 @@
 						</tr>
 						<tr>
 							<td>숙소 주소</td>
-							<td><input type="text" class="form-control" id="location1" name="location1"
-								readonly /></td>
+							<td><input type="text" class="form-control" id="location1"
+								name="location1" readonly /></td>
 						</tr>
 						<tr>
 							<td>상세 주소</td>
-							<td><input type="text" class="form-control" id="location2" name="location2" /></td>
+							<td><input type="text" class="form-control" id="location2"
+								name="location2" /></td>
 						</tr>
 						<tr>
 							<td>우편번호</td>
-							<td><input type="text" class="form-control" id="zipcode" name="zipcode" readonly="readonly" /></td>
+							<td><input type="text" class="form-control" id="zipcode"
+								name="zipcode" readonly="readonly" /></td>
 						</tr>
 						<tr>
 							<td><label for="upload">숙소 사진</label></td>
 							<td><input type="file" class="form-control" id="upload"
 								placeholder="Enter File" name="upload"></td>
+						</tr>
+						<tr>
+							<td><label for="content">숙소 등급</label></td>
+							<td>
+							<label id="star1"> <input type="radio"
+									class="form-check-input" name="grade" value="STAR1"
+									id="grade" checked="checked">1성급
+							</label>
+							<label id="star2"> <input type="radio"
+									class="form-check-input" name="grade" value="STAR2"
+									id="grade" checked="checked">2성급
+							</label>
+							<label id="star3"> <input type="radio"
+									class="form-check-input" name="grade" value="STAR3"
+									id="grade" checked="checked">3성급
+							</label>
+							</td>
+
 						</tr>
 						<tr>
 							<td><label for="content">숙소 정보</label></td>
@@ -64,23 +84,27 @@
 				</form>
 			</div>
 		</div>
-	</div> 
+	</div>
 </header>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	window.onload = function() {
-		document.getElementById("location1")
+		document
+				.getElementById("location1")
 				.addEventListener(
 						"click",
 						function() { //주소입력칸을 클릭하면
-							new daum.Postcode({
+							new daum.Postcode(
+									{
 										oncomplete : function(data) { //선택시 입력값 세팅
-											document.getElementById("location1").value = data.address; // 주소 넣기
+											document
+													.getElementById("location1").value = data.address; // 주소 넣기
 											document.getElementById("zipcode").value = data.zonecode; // 주소 넣기
-											document.querySelector("input[name=location2]").focus(); //상세입력 포커싱
-											
-											
+											document.querySelector(
+													"input[name=location2]")
+													.focus(); //상세입력 포커싱
+
 										}
 									}).open();
 						});
