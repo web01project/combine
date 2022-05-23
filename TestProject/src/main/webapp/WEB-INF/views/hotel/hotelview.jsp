@@ -49,9 +49,11 @@
 
 						</tr>
 						<tr>
+							<td><label for="content">숙소 정보</label></td>
+							<td>
 							<textarea class="form-control" id="content" name="content"
 								readonly="readonly">${hotel.content }</textarea>
-
+							</td>
 						</tr>
 						<tr>
 							<td><label for="title">전화번호</label></td>
