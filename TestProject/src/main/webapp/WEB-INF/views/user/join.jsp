@@ -57,7 +57,7 @@
 					<tr>
 						<td><div id="business1" style="display: none;">사업자번호</div></td>
 						<td><div id="business2" style="display: none;"><input type="text" class="form-control"
-								 id="business"placeholder="Enter business" name="business"></div></td>
+								 id="businessnum"placeholder="Enter business" name="businessnum"></div></td>
 					</tr>
 
 				</table>
