@@ -64,36 +64,23 @@
 
 
 					</table>
-					<button type="button" class="btn btn-primary btn-sm" >수정하기</button>
+					<a href="/hotel/update/${hotel.h_num }"><button type="button" class="btn btn-primary btn-sm" ">수정하기</button></a>
 				</form>
 			</div>
 		</div>
 	</div>
 </header>
-<script>
-var init = function(){
-	$.ajax({
-		type:"get",
-		url : "/hotel/hotellist/"+$("#h_num").val()
-	}) //ajax
-	.done(function(resp){
-		   var str="<table class='table table-hover' >"
-		   $.each(resp, function(key, val){
-			   str+="<tr>"
-			   str+="<td>"+val.h_name+"</td>"
-			   str+="<td>"+val.content+"</td>"
-			   str+="<td>"+val.price+"</td>"
-			   if("${principal.username}"==val.username){
-				   str+="<td><a href='javascript:fdel("+val.cnum+")'>삭제</a></td>"
-			   }
-			   str+="</tr>"
-		   })
-		   str +="</table>"
-	  $("#replyResult").html(str);
-	})  //done 
+	<br />
+	<br />
+	<div align="center">
+		<textarea rows="3" cols="50" id="msg"></textarea>
+		<button type="button" class="btn btn-secondary btn-sm" id="btnComment">리뷰쓰기</button>
+	</div>
+	<hr />
+	<div id="replyResult"></div>
+</div>
+<form id ="frm" action="post">
 
-}
-</script>
 
 
 <%@ include file="../include/footer.jsp"%>
