@@ -44,7 +44,10 @@ public class HomeController {
 		  model.addAttribute("errorMsg",  "아이디 또는 비밀번호가 일치하지 않습니다.");
 		  return "/user/login";
 	  }
-	  
+	  @GetMapping("index")
+	  public String search() {
+		  return "/hotel/hotellist";
+	  }
 	//user가입 폼
 	@GetMapping("register")
 	public String memberJoin() {

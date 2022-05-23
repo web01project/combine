@@ -10,7 +10,7 @@
 			<div class="wrapper wrapper--w900">
 				<div class="card card-6">
 					<div class="card-body">
-						<form method="POST" action="/hotel/hotellist">
+						<form method="" action="/hotel/hotellist">
 							<div class="row row-space">
 								<div class="col-1">
 									<div class="input-group">
