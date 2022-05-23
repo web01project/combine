@@ -28,7 +28,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor 
 @Entity
 @Table(name = "hotel")
 public class Hotel {
