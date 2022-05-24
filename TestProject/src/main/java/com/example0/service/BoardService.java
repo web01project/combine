@@ -2,6 +2,7 @@ package com.example0.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,9 +37,14 @@ public class BoardService {
 			}
 		}//if
 	}//hotelInsert
+	
+	@Transactional
 	//전체보기
 	public List<Hotel> findAll(){
 		return boardRepository.findAll();
+	}
+	public int getCount(HashMap<String, Object> map) {
+		return boardRepository.getCount(map);
 	}
 	//수정하기
 	@Transactional

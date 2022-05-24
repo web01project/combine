@@ -8,15 +8,21 @@
 <section class="filters">
 	<h2>category filter</h2>
 	<div class="category_menu">
+	<form class="form-inline" action="/hotellist" method="get" >
+			<select name='field' class="form-control mr-sm-1">
+				<option value="price">금액</option>
+				<option value="grade">평점</option>
+			</select>
+			<button class='btn btn-secondary'>정렬하기</button>
+		</form>
 		<a href="/hotel/hotelInsert/"><button type="button" >숙소 등록</button></a>
-		<button class="button-19" onclick="price()">요금순</button>
-		<button class="button-19" onclick="grade()">등급순</button>
-	
 	</div>
+	
+	
 </section>
 <Section>
 	<div class="container">
-		<h2>숙소 리스트</h2>
+		<h4>${count}개의 예약가능한 숙소가 있습니다.</h4>
 		<div class="form-group text-right"></div>
 		<div class="row ">
 			<c:forEach items="${hotels }" var="hotel">
@@ -60,9 +66,7 @@ $.ajax({
 	})
 }
     
-    $.ajax({
-    	
-    })
+    
 </script>
 
 
