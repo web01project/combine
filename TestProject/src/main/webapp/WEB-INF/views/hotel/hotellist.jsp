@@ -15,8 +15,9 @@
 			</select>
 			<button class='btn btn-secondary'>정렬하기</button>
 		</form>
-	
+		<a href="/hotel/hotelInsert/"><button type="button" >숙소 등록</button></a>
 	</div>
+	
 	
 </section>
 <Section>
