@@ -23,6 +23,7 @@ import com.example0.service.BoardService;
 import lombok.RequiredArgsConstructor;
 
 @RequestMapping("/hotel/*") //hotel
+
 @RequiredArgsConstructor
 @Controller
 public class BoardController {
