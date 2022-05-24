@@ -4,6 +4,7 @@ package com.example0.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,7 +20,7 @@ public class AdminController {
 	private final UserService uservice;
 	
 	//유저리스트
-	@RequestMapping("userList")
+	@GetMapping("userList")
 	public String userlist(Model model) {
 		model.addAttribute("users",uservice.ulist());
 		return "admin/userList";
