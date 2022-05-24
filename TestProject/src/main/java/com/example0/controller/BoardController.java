@@ -55,6 +55,7 @@ private BoardService boardService;
 	
 	
 	
+	
 	//숙소수정
 	@PutMapping("update")
 	@ResponseBody

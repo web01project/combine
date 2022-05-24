@@ -37,6 +37,7 @@ public class BoardService {
 			}
 		}//if
 	}//hotelInsert
+	
 	@Transactional
 	//전체보기
 	public List<Hotel> findAll(){
