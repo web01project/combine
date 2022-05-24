@@ -16,7 +16,7 @@ public class ReservationService {
 	
 	private final ReservationRepository reservationRepository;
 	
-	//예약리스트(유저)
+	//예약리스트(유저)//
 	public List<Reservation> rlist(Long id){
 		return reservationRepository.findByUserid(id);
 	}
