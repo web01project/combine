@@ -49,7 +49,8 @@
 							<span><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
 							</c:if>
 							
-					
+							<a href="/hotel/detail/${hotel.h_num }"><button
+										class="button-19">선택하기</button></a>
 							<c:if test="${principal.user.role == 'ROLE_MANAGER'}">
 								<a href="/hotel/view/${hotel.h_num }"><button
 										class="button-19">수정하기</button></a>

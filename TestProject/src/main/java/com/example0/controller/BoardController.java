@@ -53,9 +53,12 @@ private BoardService boardService;
 		model.addAttribute("count",boardService.getCount(map));
 		return "/hotel/hotellist";
 	}   
-	
-	
-	
+	//숙소 상세보기
+	@GetMapping("detail/{h_num}")
+	public String detail(@PathVariable Long h_num,Model model) {
+		model.addAttribute("hotel",boardService.findById(h_num));
+		return "/hotel/hotelDetail";
+	}
 	
 	
 	//숙소수정
