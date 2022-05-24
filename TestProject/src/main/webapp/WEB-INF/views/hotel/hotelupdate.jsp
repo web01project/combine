@@ -20,7 +20,7 @@
 						<tr>
 							<td>숙소 주소</td>
 							<td><input type="text" class="form-control" id="location1"
-								name="location1" value="${hotel.location1 }"  /></td>
+								name="location1" value="${hotel.location1 }" readonly="readonly"  /></td>
 						</tr>
 						<tr>
 							<td>상세 주소</td>
@@ -57,8 +57,8 @@
 						</tr>
 						<tr>
 							<td><label for="content">숙소 정보</label></td>
-							<td><textarea class="form-control" rows="5" id="content"
-									name="content" value="${hotel.content }"></textarea></td>
+							<td><textarea class="form-control"  id="content"
+									name="content" >${hotel.content }</textarea></td>
 
 						</tr>
 						<tr>
@@ -83,13 +83,14 @@
 //수정
 $("#btnModify").click(function(){
 	data = {
-			"num" : $("#h_num").val(),
-			"name" : $("#h_name").val(),
+			"h_num" : $("#h_num").val(),
+			"h_name" : $("#h_name").val(),
 			"location1" : $("#location1").val(),
 			"location2" : $("#location2").val(),
 			"zipcode" : $("#zipcode").val(),
 			"grade" : $("#grade").val(),
-			"tel" : $("#h_tel").val(),
+			"fileimage" : $("fileimage").val(),
+			"h_tel" : $("#h_tel").val(),
 			"price" : $("#price").val()
 	}
 	 $.ajax({
@@ -123,7 +124,7 @@ $("#btnModify").click(function(){
 											document
 													.getElementById("location1").value = data.address; // 주소 넣기
 											document.getElementById("zipcode").value = data.zonecode; // 주소 넣기
-													.querySelector(
+											document.querySelector(
 															"input[name=location2]")
 													.focus(); //상세입력 포커싱
 										}
