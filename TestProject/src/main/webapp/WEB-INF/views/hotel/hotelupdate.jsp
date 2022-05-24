@@ -82,6 +82,7 @@
 <script>
 //수정
 $("#btnModify").click(function(){
+	if(!confirm("정말 수정 할까요?")) return false;
 	data = {
 			"h_num" : $("#h_num").val(),
 			"h_name" : $("#h_name").val(),
@@ -95,7 +96,7 @@ $("#btnModify").click(function(){
 	}
 	 $.ajax({
 		 type:"put",
-		 url : "hotel/update",
+		 url : "/hotel/update",
 		 contentType : "application/json;charset=utf-8",
 		 data : JSON.stringify(data),
 		 success: function(resp){
