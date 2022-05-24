@@ -11,6 +11,7 @@ public interface UserRepository
 			extends JpaRepository<User, Long>{
 	User findByUseremail(String useremail);
 	
+	//쿼리 어드민제외 리스트
 	@Query(value = "select * from user where role != 'ROLE_ADMIN'",
 					nativeQuery = true)
 	public List<User> findAllUser();
