@@ -2,6 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <link href="/css/main.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
 <title>숙박 예약 사이트</title>
 <!-- Masthead-->
 <header class="masthead">
@@ -26,14 +31,16 @@
 									<div class="input-group">
 										<label class="label">체크인</label> <input
 											class="input--style-1" type="text" name="depart"
-											placeholder="DD MMM YYYY" id="input-start">
+											placeholder="DD-MM-YYYY" id="datepicker" 
+											onclick="javascript:a_datepicker(this);" readonly="readonly">
 									</div>
 								</div>
 								<div class="col-2">
 									<div class="input-group">
 										<label class="label">체크아웃</label> <input
 											class="input--style-1" type="text" name="return"
-											placeholder="DD MMM YYYY" id="input-end">
+											placeholder="DD-MM-YYYY" id="datepicker2" 
+											onclick="javascript:a_datepicker(this);" readonly="readonly">
 									</div>
 								</div>
 							</div>
@@ -129,8 +136,29 @@
 
 <section>
 	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
-
 </section>
+
+<script>
+
+function a_datepicker(obj){
+	$(obj).datepicker({
+		changeMonth: true,
+		dayNames:['월요일','화요일','수요일','목요일','금요일','토요일','일요일'],
+		dayNamesMin:['월','화','수','목','금','토','일'],
+		monthNamesShort:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		changeYear:true,
+		buttonText:"Select date",
+		nextText:'다음 달',
+		prevText:'이전 달',
+		showButtonPanel:true,
+		currentText:'오늘 날짜',
+		closeText:'닫기',
+		dateFormat:'yy-mm-dd'
+	}).datepicker("show");
+}
+
+</script>
+
 
 
 <!-- Jquery JS-->
