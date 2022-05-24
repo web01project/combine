@@ -53,6 +53,12 @@ private BoardService boardService;
 		boardService.update(hotel);
 		return "success";
 	}
+	//숙소수정폼
+	@GetMapping("update/{h_num}")
+	 public String update(@PathVariable Long h_num, Model model) {
+		model.addAttribute("hotel", boardService.findById(h_num));
+		return "/hotel/hotelupdate";
+	}
 	//숙소상세보기
 	@GetMapping("view/{h_num}")
 	public String view(@PathVariable Long h_num, Model model) {

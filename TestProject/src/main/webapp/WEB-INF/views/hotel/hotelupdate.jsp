@@ -4,9 +4,8 @@
 
 
   <div class="container">
-  <h3>{hotel.h_name} 숙소수정하기</h3>
-  
-				<%-- 	<input type="hidden" name="h_num" id="h_num" value="${hotel.h_num }"/> --%>
+  <h3> 숙소수정하기</h3>
+ <%--  <input type="hidden" name="h_num" id="h_num" value="${hotel.h_num }"/> --%>
 					<table> 
 						<tr>
 							<td><label for="h_num">관리 번호</label>
@@ -31,7 +30,7 @@
 						<tr>
 							<td>우편번호</td>
 							<td><input type="text" class="form-control" id="zipcode"
-								name="zipcode" value="${hotel.zipcode }" /></td>
+								name="zipcode" value="${hotel.zipcode }" readonly="readonly"/></td>
 						</tr>
 						<tr>
 							<td><label for="upload">숙소 사진</label></td>
@@ -59,7 +58,7 @@
 						<tr>
 							<td><label for="content">숙소 정보</label></td>
 							<td><textarea class="form-control" rows="5" id="content"
-									name="content" value="${hotel.upload }"></textarea></td>
+									name="content" value="${hotel.content }"></textarea></td>
 
 						</tr>
 						<tr>
@@ -72,21 +71,19 @@
 							<td><input type="text" class="form-control" id="price"
 								placeholder="Enter price" name="price" value="${hotel.price }"></td>
 						</tr>
-    	
+    </table>
     <div class="form-group text-right">
-      <button type="button" id="btnModify" >수정하기</button>
+  		<button type="button" class="btn btn-secondary btn-sm" id="btnModify" >수정하기</button>
       </div>
-      </table>
+      
      </div> 
   </form>
 </div>
 <script>
 //수정
-//전화번호 정규식
-//수정
 $("#btnModify").click(function(){
 	data = {
-			"num" : $("#num").val(),
+			"num" : $("#h_num").val(),
 			"name" : $("#h_name").val(),
 			"location1" : $("#location1").val(),
 			"location2" : $("#location2").val(),
@@ -97,7 +94,7 @@ $("#btnModify").click(function(){
 	}
 	 $.ajax({
 		 type:"put",
-		 url : "/hotel/update",
+		 url : "hotel/update",
 		 contentType : "application/json;charset=utf-8",
 		 data : JSON.stringify(data),
 		 success: function(resp){
@@ -109,14 +106,13 @@ $("#btnModify").click(function(){
 		 }
 	 }) //ajax
 }) 
-
 </script>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	window.onload = function() {
 		document
-				.getElementById("location")
+				.getElementById("location1")
 				.addEventListener(
 						"click",
 						function() { //주소입력칸을 클릭하면
@@ -125,8 +121,8 @@ $("#btnModify").click(function(){
 									{
 										oncomplete : function(data) { //선택시 입력값 세팅
 											document
-													.getElementById("location").value = data.address; // 주소 넣기
-											document
+													.getElementById("location1").value = data.address; // 주소 넣기
+											document.getElementById("zipcode").value = data.zonecode; // 주소 넣기
 													.querySelector(
 															"input[name=location2]")
 													.focus(); //상세입력 포커싱

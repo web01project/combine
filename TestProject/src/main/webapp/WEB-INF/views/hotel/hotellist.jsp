@@ -8,7 +8,7 @@
 <section class="filters">
 	<h2>category filter</h2>
 	<div class="category_menu">
-	
+		<a href="/hotel/hotelInsert/"><button type="button" >숙소 등록</button></a>
 		<button class="button-19" onclick="price()">요금순</button>
 		<button class="button-19" onclick="grade()">등급순</button>
 	

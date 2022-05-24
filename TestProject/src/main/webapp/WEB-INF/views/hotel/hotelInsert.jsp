@@ -26,7 +26,7 @@
 						<tr>
 							<td>숙소 주소</td>
 							<td><input type="text" class="form-control" id="location1"
-								name="location1" readonly /></td>
+								name="location1"  /></td>
 						</tr>
 						<tr>
 							<td>상세 주소</td>
