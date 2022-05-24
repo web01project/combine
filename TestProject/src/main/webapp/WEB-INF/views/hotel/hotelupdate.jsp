@@ -92,7 +92,8 @@ $("#btnModify").click(function(){
 			"grade" : $("#grade").val(),
 			"fileimage" : $("fileimage").val(),
 			"h_tel" : $("#h_tel").val(),
-			"price" : $("#price").val()
+			"price" : $("#price").val(),
+			"content" : $("#content").val()
 	}
 	 $.ajax({
 		 type:"put",
