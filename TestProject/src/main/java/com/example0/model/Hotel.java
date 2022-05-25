@@ -30,7 +30,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor 
 @Entity
-@Table(name = "hotel")
+@Table(name = "hotel") 
 public class Hotel {
 	// 숙소번호
 	@Id
@@ -65,4 +65,7 @@ public class Hotel {
 	private String zipcode;
 	//숙소 설명(임시)
 	private String content;
+	
+	private long x;
+	private long y;
 }
