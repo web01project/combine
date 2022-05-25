@@ -34,6 +34,7 @@
 </div>
 <div id="wrapper">
 	<span class="price_tag">금액</span>
+	
 	<button class="button-19">예약하기</button>
 </div>
 <script type="text/javascript"

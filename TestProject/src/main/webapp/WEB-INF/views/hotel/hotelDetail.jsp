@@ -32,6 +32,7 @@
 	</section> 
 	<!--사이드바-->
 	<aside id="aside_detail">
+	
 		
 			<!-- 지도를 표시할 div 영역 -->
 			<div id="map" style="width: 100%; height: 350px;">맵정보</div>
