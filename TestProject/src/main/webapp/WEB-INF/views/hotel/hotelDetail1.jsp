@@ -4,7 +4,11 @@
 <link href="/css/detail.css" rel="stylesheet" />
 <div id="wapper">
 	<!--헤더시작-->
+	<header>
+	<h3>${hotel.h_name }</h3>
 
+		<span id="span_detail">지도에서 보기</span>
+	</header>
 	<!--네비게이션-->
 	<nav id="nav_detail">
 		<p>리뷰</p>
@@ -16,14 +20,12 @@
 	</nav>
 	<!--콘텐츠부분-->
 	<section id="section_detail">
-		<h3 style="font-size: 1rem; margin: 0 0 0 0;">${hotel.h_name }</h3>
-
-		<span id="span_detail">지도에서 보기</span>
 		<article id="article_detail">
 			<div>
-				<img class="card-img-top" src="/resources/img/${hotel.fileimage }">
+				<img class="center" src="/resources/img/${hotel.fileimage }">
 			</div>
-			<div>${hotel.content }</div>
+			<p>숙소 상세정보</p>
+			<div> ${hotel.content }</div>
 		</article>
 	</section>
 	<!--사이드바-->
@@ -80,7 +82,7 @@
 							// 인포윈도우로 장소에 대한 설명을 표시합니다
 							var infowindow = new kakao.maps.InfoWindow(
 									{
-										content : '<div style="width:150px;text-align:center;padding:6px 0;">위치</div>'
+										content : '<div style="width:150px;text-align:center;padding:6px 0;">${hotel.h_name}</div>'
 									});
 							infowindow.open(map, marker);
 
