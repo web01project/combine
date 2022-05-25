@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,12 +25,17 @@
 	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/css/styles.css" rel="stylesheet" />
+
 <!-- principal로 유저정보 연결 -->
 <sec:authorize access="isAuthenticated()">
 	<sec:authentication property="principal" var="principal"/>
 </sec:authorize>
+
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- 달력 -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <body>
 	<!-- Responsive navbar-->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-black">
@@ -62,6 +67,8 @@
 								로그아웃 </a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="/user/mypage">${principal.user.name}님 반갑습니다!</a></li>
+						<li class="nav-item"><a class="nav-link" href="/user/test">
+								테스트 </a></li>	
 					</sec:authorize>
 				</ul>
 			</div>

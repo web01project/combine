@@ -2,11 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <link href="/css/main.css" rel="stylesheet" />
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-
 <title>숙박 예약 사이트</title>
 <!-- Masthead-->
 <header class="masthead">
@@ -31,7 +26,7 @@
 									<div class="input-group">
 										<label class="label">체크인</label> <input
 											class="input--style-1" type="text" name="depart"
-											placeholder="DD-MM-YYYY" id="datepicker" 
+											placeholder="YYYY-MM-DD" id="datepicker" 
 											onclick="javascript:a_datepicker(this);" readonly="readonly">
 									</div>
 								</div>
@@ -39,7 +34,7 @@
 									<div class="input-group">
 										<label class="label">체크아웃</label> <input
 											class="input--style-1" type="text" name="return"
-											placeholder="DD-MM-YYYY" id="datepicker2" 
+											placeholder="YYYY-MM-DD" id="datepicker2" 
 											onclick="javascript:a_datepicker(this);" readonly="readonly">
 									</div>
 								</div>
@@ -139,7 +134,7 @@
 </section>
 
 <script>
-
+/* 달력설정 */
 function a_datepicker(obj){
 	$(obj).datepicker({
 		changeMonth: true,
@@ -156,7 +151,6 @@ function a_datepicker(obj){
 		dateFormat:'yy-mm-dd'
 	}).datepicker("show");
 }
-
 </script>
 
 

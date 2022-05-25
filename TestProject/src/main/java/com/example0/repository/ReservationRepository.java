@@ -14,4 +14,6 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long>{
 	@Query(value = "select * from reservation where u_num=id",
 					nativeQuery = true)
 	public List<Reservation> findByUserid(@Param("id") Long id);
+	
+	
 }
