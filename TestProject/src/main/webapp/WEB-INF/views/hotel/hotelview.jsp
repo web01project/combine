@@ -83,6 +83,7 @@
 	<hr />
 	<div align="center">
 		<textarea rows="3" cols="50" id="msg"></textarea>
+		
 		<button type="button" class="btn btn-secondary btn-sm" id="btnComment">리뷰쓰기</button>
 	</div>
 <form id ="frm" action="post">
@@ -125,11 +126,13 @@ $("#btnComment").click(function() {
 	}
 	data = {
 		"h_num" : $("#num").val(),
-		"content" : $("#msg").val()
+		"content" : $("#msg").val(),
+		
+		
 	}
 	$.ajax({
 		type : "post",
-		url : "/reply/insert",
+		url : "/reply/insert/${hotel.h_num }",
 		contentType : "application/json;charset=utf-8",
 		data : JSON.stringify(data)
 	}).done(function() {
