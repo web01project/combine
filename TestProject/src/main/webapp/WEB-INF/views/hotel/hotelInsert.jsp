@@ -26,12 +26,17 @@
 						<tr>
 							<td>숙소 주소</td>
 							<td><input type="text" class="form-control" id="location1"
-								name="location1"  /></td>
+								name="location1" /></td>
+
 						</tr>
 						<tr>
 							<td>상세 주소</td>
 							<td><input type="text" class="form-control" id="location2"
 								name="location2" /></td>
+						</tr>
+						<tr> <!-- 위도 경도 -->
+							<td><input type="text" name="x"> <input
+								type="text" name="y"></td>
 						</tr>
 						<tr>
 							<td>우편번호</td>
@@ -45,20 +50,16 @@
 						</tr>
 						<tr>
 							<td><label for="content">숙소 등급</label></td>
-							<td>
-							<label id="star1"> <input type="radio"
-									class="form-check-input" name="grade" value="STAR1"
-									id="grade" checked="checked">1성급
-							</label>
-							<label id="star2"> <input type="radio"
-									class="form-check-input" name="grade" value="STAR2"
-									id="grade" checked="checked">2성급
-							</label>
-							<label id="star3"> <input type="radio"
-									class="form-check-input" name="grade" value="STAR3"
-									id="grade" checked="checked">3성급
-							</label>
-							</td>
+							<td><label id="star1"> <input type="radio"
+									class="form-check-input" name="grade" value="STAR1" id="grade"
+									checked="checked">1성급
+							</label> <label id="star2"> <input type="radio"
+									class="form-check-input" name="grade" value="STAR2" id="grade"
+									checked="checked">2성급
+							</label> <label id="star3"> <input type="radio"
+									class="form-check-input" name="grade" value="STAR3" id="grade"
+									checked="checked">3성급
+							</label></td>
 
 						</tr>
 						<tr>
@@ -89,6 +90,7 @@
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+var geocoder = new kakao.maps.services.Geocoder();
 	window.onload = function() {
 		document
 				.getElementById("location1")

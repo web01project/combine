@@ -1,33 +1,45 @@
-h2, .h2 {
-	text-align: center;
-	padding-bottom: 10px;
-}
 
-#wrapper{
-	width:1000px;
-	margin-left: 50px;
-}
-#mainContent{
-	float: left;
-	width: 60%;
-	
-}
-#subContent{
-	float:right;
-	width:40%;
-	
-	margin: 0 0 10px 10px;
-}
-/* <!-- HTML !-->
-<button class="button-19" role="button">Button 19</button>
- */
-/* CSS */
-.category_menu {
-	padding: 10px;
-	margin-bottom: 20px;
-}
+	#wapper {
+		width: 100%;
+		text-align: left;
+		min-height: 300px;
+		margin: 0 auto;
+		height:500px;
+	}
+	 #nav_detail, #aside_detail, #section_detail {
+		/* 보더 차후에 삭제 */
+		border: 1px solid #999;
+		margin: 5px;
+		padding: 10px;
+	}
 
+	#nav_detail, #section_detail, #aside_detail {
+		float: left;
+		
+	}
+	
+	#nav_detail {
+		width: 200px;
+		height:500px;
+		
+		
+	}
+	#section_detail {
+		width: 600px;
+		height:500px;
+		 
+	}
+	#aside_detail {
+		width: 300px; 
+		height:500px;
+	}
+	
+	#article_detail {
+		width: 90%;
+		margin: 20px;
+	}
 .button-19 {
+	
 	appearance: button;
 	background-color: #1899D6;
 	border: solid transparent;
@@ -55,9 +67,11 @@ h2, .h2 {
 	-webkit-user-select: none;
 	vertical-align: middle;
 	white-space: nowrap;
-	width: 100%;
+	width: 30%;
 }
-
+.price_tag{
+	background-color: #1CB0F6;
+}
 .button-19:after {
 	background-clip: padding-box;
 	background-color: #1CB0F6;
@@ -85,5 +99,4 @@ h2, .h2 {
 .button-19:disabled {
 	cursor: auto;
 }
-
-
+	

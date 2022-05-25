@@ -65,4 +65,7 @@ public class Hotel {
 	private String zipcode;
 	//숙소 설명(임시)
 	private String content;
+	
+	private long x;
+	private long y;
 }
