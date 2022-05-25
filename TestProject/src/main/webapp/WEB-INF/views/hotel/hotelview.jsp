@@ -49,7 +49,7 @@
 							<td>
 							<textarea class="form-control" id="content" name="content"
 								readonly="readonly">${hotel.content }</textarea>
-							</td>
+						</td>
 						</tr>
 						<tr>
 							<td><label for="title">전화번호</label></td>
@@ -62,11 +62,12 @@
 								 name="price" value="${hotel.price }" readonly="readonly"></td>
 						</tr>
 			
-				</table>
+			</table>
 				
-						 <a href="/hotel/update/${hotel.h_num }"><button type="button" class="btn btn-primary btn-sm" ">수정하기</button></a>
-					</div>
-					</div>	
+				<a href="/hotel/update/${hotel.h_num }"><button type="button" class="btn btn-primary btn-sm" >수정하기</button></a>
+				<button type="button" class="btn btn-danger btn-sm" id="btnDelete">삭제</button>
+			</div>
+			</div>	
 		
 		</header>
 			
@@ -80,12 +81,14 @@
 	
 	
 	<div id="replyResult"></div>
-	<hr />
+	
 	<div align="center">
 		<textarea rows="3" cols="50" id="msg"></textarea>
 		
 		<button type="button" class="btn btn-secondary btn-sm" id="btnComment">리뷰쓰기</button>
+		
 	</div>
+	<hr />
 <form id ="frm" action="post">
 
 </form>
@@ -95,13 +98,13 @@
 var init = function(){
 	$.ajax({
 		type:"get",
-		url : "/reply/list/${hotel.h_num }"
+		url : "/reply/list/"+$("#review_num").val()
 	}) //ajax
 	.done(function(resp){
 		   var str="<table class='table table-hover' >"
 		   $.each(resp, function(key, val){
 			   str+="<tr>"
-			   str+="<td>"+val.user.id+"</td>"
+			   str+="<td>"+val.u_num+"</td>"
 			   str+="<td>"+val.content+"</td>"
 			   str+="<td>"+val.regdate+"</td>"
 			   if("${principal.user.id}"==val.user.id){
@@ -114,6 +117,21 @@ var init = function(){
 	})  //done
 
 } //init
+//댓글삭제
+function fdel(cnum){
+	$.ajax({
+		type:"delete",
+		url : "/reply/delete/"+review_num
+	})
+	.done(function(resp){
+		alert(resp+" 번 글 삭제 성공")
+		init()
+	})
+	.fail(function(){
+		alert("댓글 삭제 실패")
+	})
+}
+
 $("#btnComment").click(function() {
 	if(${empty principal.user}){
 		alert("로그인하세요")
@@ -125,7 +143,7 @@ $("#btnComment").click(function() {
 		return;
 	}
 	data = {
-		"h_num" : $("#num").val(),
+		"review_num" : $("#review_num").val(),
 		"content" : $("#msg").val(),
 		
 		
@@ -142,6 +160,23 @@ $("#btnComment").click(function() {
 		alert("댓글 추가 실패")
 	})
 })
+
+$("#btnDelete").click(function(){
+	if(!confirm("정말 삭제할까요?")) return
+	$.ajax({
+		type:"delete",
+		url : "/hotel/delete/${hotel.h_num}",
+		success: function(resp){
+			if(resp=="success"){
+				alert("삭제성공")
+				location.href="/hotel/hotellist"
+			}
+		},//success
+		error :function(e){
+			alert("삭제실패 : " + e)
+		}
+	})
+	})
 </script>
 
 
