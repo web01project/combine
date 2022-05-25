@@ -61,26 +61,88 @@
 							<td><input type="text" class="form-control" id="price"
 								 name="price" value="${hotel.price }" readonly="readonly"></td>
 						</tr>
-
-
-					</table>
-					<a href="/hotel/update/${hotel.h_num }"><button type="button" class="btn btn-primary btn-sm" ">수정하기</button></a>
-				</form>
-			</div>
-		</div>
-	</div>
-</header>
+			
+				</table>
+				
+						 <a href="/hotel/update/${hotel.h_num }"><button type="button" class="btn btn-primary btn-sm" ">수정하기</button></a>
+					</div>
+					</div>	
+		
+		</header>
+			
+	
+	
 	<br />
 	<br />
+	<br />
+	<br />
+	
+	
+	
+	<div id="replyResult"></div>
+	<hr />
 	<div align="center">
 		<textarea rows="3" cols="50" id="msg"></textarea>
 		<button type="button" class="btn btn-secondary btn-sm" id="btnComment">리뷰쓰기</button>
 	</div>
-	<hr />
-	<div id="replyResult"></div>
-</div>
 <form id ="frm" action="post">
 
+</form>
+
+<script>
+var init = function(){
+	$.ajax({
+		type:"get",
+		url : "/reply/list/"+$("#num").val()
+	}) //ajax
+	.done(function(resp){
+		   var str="<table class='table table-hover' >"
+		   $.each(resp, function(key, val){
+			   str+="<tr>"
+			   str+="<td>"+val.user.id+"</td>"
+			   str+="<td>"+val.content+"</td>"
+			   str+="<td>"+val.regdate+"</td>"
+			   if("${principal.user.id}"==val.user.id){
+				   str+="<td><a href='javascript:fdel("+val.cnum+")'>삭제</a></td>"
+			   }
+			   str+="</tr>"
+		   })
+		   str +="</table>"
+	  $("#replyResult").html(str);
+	})  //done
+
+} //init
+$("#btnComment").click(function(){
+if(${empty principal.user}){
+	alert("로그인 하세요");
+	location.href="/login";
+	return;
+}
+ if($("#msg").val()==""){
+	alert("댓글을 적으세요")
+	return;
+ }
+
+var data ={
+		"num" : $("#h_num").val(),
+		"content" :$("#msg").val()
+}
+$.ajax({
+	type:"POST",
+	url : "/reply/insert/"+$("#review_num").val(),
+	contentType:"application/json;charset=utf-8",
+	data:JSON.stringify(data)
+})
+.done(function(resp,status){
+	alert(status)
+	alert("댓글 추가 성공")
+	init();
+})
+.fail(function(){
+	alert("댓글 추가 실패");
+});
+})
+</script>
 
 
 

@@ -90,7 +90,7 @@ $("#btnModify").click(function(){
 			"location2" : $("#location2").val(),
 			"zipcode" : $("#zipcode").val(),
 			"grade" : $("#grade").val(),
-			"fileimage" : $("fileimage").val(),
+			"upload" : $("upload").val(),
 			"h_tel" : $("#h_tel").val(),
 			"price" : $("#price").val(),
 			"content" : $("#content").val()
