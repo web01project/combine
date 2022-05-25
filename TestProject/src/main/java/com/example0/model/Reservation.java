@@ -34,7 +34,7 @@ public class Reservation {
 	@ManyToOne
 	@JoinColumn(name = "u_num")
 	private User user;
-	//숙소번호
+	//숙소번호	
 	@ManyToOne
 	@JoinColumn(name = "h_num")
 	private Hotel hotel;
@@ -42,11 +42,11 @@ public class Reservation {
 	private int people;
 	//체크인시간
 	@Temporal(TemporalType.TIMESTAMP)
-	@JsonFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "YYYY-MM-DD")
 	private Date check_in;
 	//체크아웃시간
 	@Temporal(TemporalType.TIMESTAMP)
-	@JsonFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "YYYY-MM-DD")
 	private Date check_out;
 
 }
