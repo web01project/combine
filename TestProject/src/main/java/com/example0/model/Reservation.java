@@ -42,11 +42,11 @@ public class Reservation {
 	private int people;
 	//체크인시간
 	@Temporal(TemporalType.TIMESTAMP)
-	@JsonFormat(pattern = "YYYY-MM-DD")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date check_in;
 	//체크아웃시간
 	@Temporal(TemporalType.TIMESTAMP)
-	@JsonFormat(pattern = "YYYY-MM-DD")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date check_out;
 
 }

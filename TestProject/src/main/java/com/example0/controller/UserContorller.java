@@ -1,5 +1,8 @@
 package com.example0.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -75,6 +78,7 @@ public class UserContorller {
 //			rservice.reservationInsert(reservation);
 //			return "success";
 //		}
-		return "fail";
+		rservice.reservationInsert(reservation);
+		return "success";
 	}
 }

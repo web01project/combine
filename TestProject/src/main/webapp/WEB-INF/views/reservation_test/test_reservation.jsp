@@ -6,7 +6,7 @@
 		<div class="input-group">
 			<label class="label">체크인</label> <input
 			class="input--style-1" type="text" name="depart"
-			placeholder="YYYY-MM-DD" id="datepicker" 
+			placeholder="YYYY-MM-DD" id="CheckIn" 
 			onclick="javascript:a_datepicker(this);" readonly="readonly">
 		</div>
 	</div>
@@ -14,19 +14,23 @@
 		<div class="input-group">
 			<label class="label">체크아웃</label> <input
 			class="input--style-1" type="text" name="return"
-			placeholder="YYYY-MM-DD" id="datepicker2" 
+			placeholder="YYYY-MM-DD" id="CheckOut" 
 			onclick="javascript:a_datepicker(this);" readonly="readonly">
 		</div>
 	</div>
 </div>
 
+
 user id : <input type="text" id="userid" value="${principal.user.id }"/>
 hotel id : <input type="text" id="hotelid">
 인원수 : <input type="text" id="people">
-
-<button type="button" class="btn btn-secondary btn-sm" id="btnReservation" >예약</button>
-
 <br/>
+<button type="button" class="btn btn-secondary btn-sm" id="btnReservation" >예약</button>
+<br/>
+
+<input type="text" value="${datepicker}"/>
+<br/>
+
 <c:forEach items="${reservation}" var="rsv">
 	<fmt:formatDate var="rsvInDt" value="${rsv.check_in}" 
 	pattern="yyyy-MM-dd"/>
@@ -50,13 +54,13 @@ hotel id : <input type="text" id="hotelid">
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 
 <script>
+/* 
 function disableDate(date){
 	var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
 	for(i = 0; i< rsv.length; i++){
 		
 	}
-	
-	
+
 	var dateRange = [];
 	var startdate = ${rsvInDt};
 	var enddate = ${rsvOutDt}
@@ -66,7 +70,7 @@ function disableDate(date){
 	}
 	return [dateRange.indexOf(dateString) == -1];
 }
-
+ */
 
 function a_datepicker(obj){
 	$(obj).datepicker({
@@ -81,19 +85,18 @@ function a_datepicker(obj){
 		showButtonPanel:true,
 		currentText:'오늘 날짜',
 		closeText:'닫기',
-		dateFormat:'yy-mm-dd',
-//		beforeShowDay:disableDate
+		dateFormat:'yy-mm-dd'
 	}).datepicker("show");
 }
 
 $("#btnReservation").click(function(){
 	if(!confirm("예약 하시겠습니까?")) return false;
 	data={
-			"check_in" : $("#datepicker").val(),
-			"check_out" : $("#datepicker2").val(),
+			"check_in" : $("#CheckIn").val(),
+			"check_out" : $("#CheckOut").val(),
+			"people" : $("#people").val(),
 			"u_num" : $("#userid").val(),
-			"h_num" : $("#hotelid").val(),
-			"people" : $("people").val()
+			"h_num" : $("#hotelid").val()
 	}
 	$.ajax({
 		type:"post",
