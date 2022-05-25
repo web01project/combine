@@ -18,6 +18,7 @@
 			<li><a href="">link</a></li>
 		</ul>
 	</nav>
+	 
 	<!--콘텐츠부분-->
 	<section id="section_detail">
 		<article id="article_detail">
