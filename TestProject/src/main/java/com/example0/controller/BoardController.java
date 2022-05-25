@@ -57,7 +57,7 @@ private BoardService boardService;
 	@GetMapping("detail/{h_num}")
 	public String detail(@PathVariable Long h_num,Model model) {
 		model.addAttribute("hotel",boardService.findById(h_num));
-		return "/hotel/hotelDetail";
+		return "/hotel/hotelDetail1";
 	}
 	
 	
