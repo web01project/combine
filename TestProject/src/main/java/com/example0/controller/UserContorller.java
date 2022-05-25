@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example0.model.Reservation;
 import com.example0.model.User;
+import com.example0.service.ReservationService;
 import com.example0.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -21,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 public class UserContorller {
 
 	private final UserService uservice;
+	private final ReservationService rservice;
 	
 	//마이페이지
 	@GetMapping("mypage")
@@ -49,5 +52,12 @@ public class UserContorller {
 	public String delete(@PathVariable Long id) {
 		uservice.delete(id);
 		return "success";
+	}
+	
+	//테스트
+	@GetMapping("test")
+	public String test(Model model) {
+		model.addAttribute("reservation", rservice.reservationList());
+		return "/reservation_test/test_reservation";
 	}
 }

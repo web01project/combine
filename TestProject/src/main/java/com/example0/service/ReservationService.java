@@ -2,6 +2,7 @@ package com.example0.service;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.example0.model.Reservation;
@@ -20,4 +21,13 @@ public class ReservationService {
 	public List<Reservation> rlist(Long id){
 		return reservationRepository.findByUserid(id);
 	}
+	
+	//예약리스트 전체
+	public List<Reservation> reservationList(){
+		return reservationRepository.findAll();
+	}
+	
+	
+	
+	
 }
