@@ -68,10 +68,13 @@ public class UserContorller {
 	@PostMapping("reservation")
 	@ResponseBody
 	public String insert(@RequestBody Reservation reservation) {
-		if(reservationRepository.findByCheckDate().isEmpty()) {
-			rservice.reservationInsert(reservation);
-			return "success";
-		}
+		System.out.println(reservation.getCheck_in());
+		System.out.println(reservation.getCheck_out());
+//		System.out.println(reservation.getHotel().getH_num());
+//		if(reservationRepository.findByCheckDate(reservation.getCheck_in(), reservation.getCheck_out(), reservation.getHotel().getH_num()).isEmpty()) {
+//			rservice.reservationInsert(reservation);
+//			return "success";
+//		}
 		return "fail";
 	}
 }
