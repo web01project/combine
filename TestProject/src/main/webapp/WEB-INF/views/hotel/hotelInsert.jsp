@@ -78,7 +78,7 @@
 							<td><input type="text" class="form-control" id="price"
 								placeholder="Enter price" name="price"></td>
 						</tr>
-
+ 
 
 					</table>
 					<button type="submit" class="btn btn-primary btn-sm">등록하기</button>

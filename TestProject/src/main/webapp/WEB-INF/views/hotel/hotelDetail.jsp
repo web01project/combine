@@ -29,7 +29,7 @@
 			${hotel.content }
 			</div>
 		</article>
-	</section>
+	</section> 
 	<!--사이드바-->
 	<aside id="aside_detail">
 		

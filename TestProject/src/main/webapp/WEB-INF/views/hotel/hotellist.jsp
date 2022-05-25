@@ -81,7 +81,7 @@ $.ajax({
 		.fail(function(e){
 		alert("삭제실패 : "+e)
 	})
-}
+} 
     
     
 </script>
