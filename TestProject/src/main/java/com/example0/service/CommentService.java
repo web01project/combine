@@ -25,9 +25,9 @@ public class CommentService {
 	//댓글쓰기
 	@Transactional
 	public void insert(Review review) {
-			Hotel h = boardRepository
-					       .findById(review.getHotel().getH_num()).get();
-			
+		/*
+		 * Hotel h = boardRepository .findById(review.getHotel().getH_num()).get();
+		 */
 			
 			commentRepository.commentInsert(
 			   review.getContent(),

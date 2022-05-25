@@ -39,13 +39,13 @@ public class CommentController {
 		}
 	//댓글추가
 	@PostMapping("insert/{num}")
-	public ResponseEntity<String> commentInsert(@PathVariable Long review_num,
+	public ResponseEntity<String> commentInsert(@PathVariable Long num,
 				@RequestBody Review review,
 				@AuthenticationPrincipal PrincipalDetails principal) {
 			System.out.println("principal : " + principal);
 			
 			Hotel h = new Hotel();
-			h.setH_num(review_num);
+			h.setH_num(num);
 			review.setHotel(h);
 			
 			/*

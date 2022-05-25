@@ -94,7 +94,7 @@
 var init = function(){
 	$.ajax({
 		type:"get",
-		url : "/reply/list/"+$("#num").val()
+		url : "/reply/list/${hotel.h_num }"
 	}) //ajax
 	.done(function(resp){
 		   var str="<table class='table table-hover' >"
@@ -113,35 +113,31 @@ var init = function(){
 	})  //done
 
 } //init
-$("#btnComment").click(function(){
-if(${empty principal.user}){
-	alert("로그인 하세요");
-	location.href="/login";
-	return;
-}
- if($("#msg").val()==""){
-	alert("댓글을 적으세요")
-	return;
- }
-
-var data ={
-		"num" : $("#h_num").val(),
-		"content" :$("#msg").val()
-}
-$.ajax({
-	type:"POST",
-	url : "/reply/insert/"+$("#review_num").val(),
-	contentType:"application/json;charset=utf-8",
-	data:JSON.stringify(data)
-})
-.done(function(resp,status){
-	alert(status)
-	alert("댓글 추가 성공")
-	init();
-})
-.fail(function(){
-	alert("댓글 추가 실패");
-});
+$("#btnComment").click(function() {
+	if(${empty principal.user}){
+		alert("로그인하세요")
+		location.href="/login"
+		return
+	}
+	if ($("#msg").val() == "") {
+		alert("댓글 입력하세요")
+		return;
+	}
+	data = {
+		"h_num" : $("#num").val(),
+		"content" : $("#msg").val()
+	}
+	$.ajax({
+		type : "post",
+		url : "/reply/insert",
+		contentType : "application/json;charset=utf-8",
+		data : JSON.stringify(data)
+	}).done(function() {
+		alert("댓글추가");
+		init();
+	}).fail(function() {
+		alert("댓글 추가 실패")
+	})
 })
 </script>
 
