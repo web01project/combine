@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example0.config.auth.PrincipalDetails;
 import com.example0.model.Hotel;
 import com.example0.model.Review;
+import com.example0.model.User;
 import com.example0.service.CommentService;
 
 @RestController
@@ -38,6 +40,7 @@ public class CommentController {
 			return review_num;
 		}
 	//댓글추가
+	
 	@PostMapping("insert/{num}")
 	public ResponseEntity<String> commentInsert(@PathVariable Long num,
 				@RequestBody Review review,
@@ -51,8 +54,10 @@ public class CommentController {
 			/*
 			 * User user = new User(); user.setId(1L); user.setUsername("11");
 			 */
+			
 			//System.out.println("princopal.getUser():"+principal.getUser());
 			review.setUser(principal.getUser());//user
+			review.setPoint(10);
 			//comment.setUser(p.getUser());
 			commentService.insert(review);
 			return new ResponseEntity<String>("success",HttpStatus.OK);
