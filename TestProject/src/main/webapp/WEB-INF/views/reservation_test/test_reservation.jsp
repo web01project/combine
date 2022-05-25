@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-
 <div class="row row-space">
 	<div class="col-2">
 		<div class="input-group">
@@ -21,27 +20,54 @@
 	</div>
 </div>
 
-<c:forEach var="rsv" items="${reservation}">
+user id : <input type="text" id="userid" value="${principal.user.id }"/>
+hotel id : <input type="text" id="hotelid">
+인원수 : <input type="text" id="people">
+
+<button type="button" class="btn btn-secondary btn-sm" id="btnReservation" >예약</button>
+
+<br/>
+<c:forEach items="${reservation}" var="rsv">
 	<fmt:formatDate var="rsvInDt" value="${rsv.check_in}" 
-	pattern="YYYY-MM-dd"/>
+	pattern="yyyy-MM-dd"/>
 	<fmt:formatDate var="rsvOutDt" value="${rsv.check_out}" 
-	pattern="YYYY-MM-dd"/>
+	pattern="yyyy-MM-dd"/>
 	
 	체크인 : ${rsvInDt}<br/>
 	체크아웃 : ${rsvOutDt}<br/>
-	var startdate = "${rsvInDt}"<br/>
-	var enddate = "${rsvOutDt}";<br/>
-
-	for (var d = new Date(startdate); d <= new Date(enddate); d.setDate(d.getDate() + 1)) {
-		dateRange.push($.datepicker.formatDate('yy-mm-dd', d));
-	}
-	return [dateRange.indexOf(dateString) == -1];
+	<!-- 체크인을 체크아웃과 같아질때까지 증가시키면서
+		 datepicker 해당날짜 비활성화하기
+	 -->
+<!-- 
+		for (var d = new Date(startdate); d <= new Date(enddate); d.setDate(d.getDate() + 1)) {
+			dateRange.push($.datepicker.formatDate('yy-mm-dd', d));
+		}
+		return [dateRange.indexOf(dateString) == -1];
+-->
 	<br/>
 </c:forEach>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 
 <script>
+function disableDate(date){
+	var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
+	for(i = 0; i< rsv.length; i++){
+		
+	}
+	
+	
+	var dateRange = [];
+	var startdate = ${rsvInDt};
+	var enddate = ${rsvOutDt}
+	
+	for (var d = new Date(startdate); d <= new Date(enddate); d.setDate(d.getDate() + 1)) {
+		dateRange.push($.datepicker.formatDate('yy-mm-dd', d));
+	}
+	return [dateRange.indexOf(dateString) == -1];
+}
+
+
 function a_datepicker(obj){
 	$(obj).datepicker({
 		changeMonth: true,
@@ -55,11 +81,33 @@ function a_datepicker(obj){
 		showButtonPanel:true,
 		currentText:'오늘 날짜',
 		closeText:'닫기',
-		dateFormat:'yy-mm-dd'
+		dateFormat:'yy-mm-dd',
+//		beforeShowDay:disableDate
 	}).datepicker("show");
 }
 
-function disableDates(){
-	
-}
+$("#btnReservation").click(function(){
+	if(!confirm("예약 하시겠습니까?")) return false;
+	data={
+			"check_in" : $("#datepicker").val(),
+			"check_out" : $("#datepicker2").val(),
+			"u_num" : $("#userid").val(),
+			"h_num" : $("#hotelid").val(),
+			"people" : $("people").val()
+	}
+	$.ajax({
+		type:"post",
+		url:"/user/reservation",
+		contentType : "application/json;charset=utf-8",
+		data : JSON.stringify(data),
+		success:function(resp){
+			alert("예약완료")
+			location.href="/user/test";
+		},
+		error : function(e){
+			alert("예약실패 : "+e)
+		}
+	})
+})
+
 </script>

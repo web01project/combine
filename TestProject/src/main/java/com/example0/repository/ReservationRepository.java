@@ -15,5 +15,6 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long>{
 					nativeQuery = true)
 	public List<Reservation> findByUserid(@Param("id") Long id);
 	
-	
+	@Query(value = "select * from where check")//
+	public List<Reservation> findByCheckDate();
 }

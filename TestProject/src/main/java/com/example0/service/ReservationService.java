@@ -27,7 +27,10 @@ public class ReservationService {
 		return reservationRepository.findAll();
 	}
 	
-	
+	//예약
+	public Reservation reservationInsert(Reservation reservation) {
+		return reservationRepository.save(reservation);
+	}
 	
 	
 }
