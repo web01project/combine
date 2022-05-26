@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -46,6 +47,7 @@ public class Hotel {
 	@Enumerated(EnumType.STRING)
 	private Grade grade;
 	// 숙소 찜
+	@ColumnDefault("0")
 	private Long h_like;
 	// 숙소금액
 	private int price;
