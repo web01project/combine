@@ -63,18 +63,14 @@
 				<a href="/hotel/update/${hotel.h_num }"><button type="button" class="btn btn-primary btn-sm" >수정하기</button></a>
 				<button type="button" class="btn btn-danger btn-sm" id="btnDelete">삭제</button>
 			</div>
-			</div>	 
-		
-		</header>
+		</div>	 
+	</div>
+</header>
 			
-	
-	
 	<br />
 	<br />
 	<br />
 	<br />
-	
-	
 	
 	<div id="replyResult"></div>
 	
@@ -92,6 +88,7 @@
 
 
 <script>
+/* 
 var init = function(){
 	$.ajax({
 		type:"get",
@@ -112,13 +109,14 @@ var init = function(){
 			   if("${principal.user.id}"==val.user.id){
 				   str+="<td><a href='javascript:fdel("+val.cnum+")'>삭제</a></td>"
 			   }
-			   str+="</tr>" */
+			   str+="</tr>" 
 		   })
 		   str +="</table>"
 	  $("#replyResult").html(str);
 	})  //done
-
 } //init
+
+ */
 //댓글삭제
 function fdel(cnum){
 	$.ajax({
@@ -127,7 +125,7 @@ function fdel(cnum){
 	})
 	.done(function(resp){
 		alert(resp+" 번 글 삭제 성공")
-		init()
+//		init()
 	})
 	.fail(function(){
 		alert("댓글 삭제 실패")
@@ -138,23 +136,23 @@ $("#btnComment").click(function() {
 	if(${empty principal.user}){
 		alert("로그인하세요")
 		location.href="/login"
-		return
+		return;
 	}
 	if ($("#msg").val() == "") {
 		alert("댓글 입력하세요")
 		return;
 	}
 	data = {
-		"content" : $("#msg").val(),
+		"content":$("#msg").val()
 	}
 	$.ajax({
 		type : "post",
-		url : "/reply/insert/${hotel.h_num }",
+		url : "/reply/insert/${h_num}",
 		contentType : "application/json;charset=utf-8",
 		data : JSON.stringify(data)
 	}).done(function() {
 		alert("댓글추가");
-		init();
+//		init();
 	}).fail(function() {
 		alert("댓글 추가 실패")
 	})
@@ -176,7 +174,7 @@ $("#btnDelete").click(function(){
 		}
 	})
 	})
-	init();
+//	init();
 </script>
 
 

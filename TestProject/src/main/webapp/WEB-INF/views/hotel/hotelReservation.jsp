@@ -5,50 +5,54 @@
 <input type="hidden" value="${hotel.h_num}" id=""/>
 
 <div class="row row-space">
+	<div>
 	<!-- 체크인달력 -->
-	<div class="col-2">
-		<div class="input-group">
-			<label class="label">체크인</label> <input
-			class="input--style-1" type="text" name="depart"
-			placeholder="YYYY-MM-DD" id="CheckIn" 
-			onclick="javascript:a_datepicker(this);" readonly="readonly">
+		<div class="col-2">
+			<div class="input-group">
+				<label class="label">체크인</label> <input
+				class="input--style-1" type="text" name="depart"
+				placeholder="YYYY-MM-DD" id="CheckIn" 
+				onclick="javascript:a_datepicker(this);" readonly="readonly">
+			</div>
 		</div>
-	</div>
-	<!-- 체크아웃달력 -->
-	<div class="col-2">
-		<div class="input-group">
-			<label class="label">체크아웃</label> <input
-			class="input--style-1" type="text" name="return"
-			placeholder="YYYY-MM-DD" id="CheckOut" 
-			onclick="javascript:a_datepicker(this);" readonly="readonly">
+		<!-- 체크아웃달력 -->
+		<div class="col-2">
+			<div class="input-group">
+				<label class="label">체크아웃</label> <input
+				class="input--style-1" type="text" name="return"
+				placeholder="YYYY-MM-DD" id="CheckOut" 
+				onclick="javascript:a_datepicker(this);" readonly="readonly">
+			</div>
 		</div>
+		<!-- 인원수넣기 -->
+		인원수 : <input type="text" id="people">
+		<br/>
+		<button type="button" class="btn btn-secondary btn-sm" id="btnReservation" >예약</button>
+		<br/>
+		
+		<!-- 체크인 체크아웃 확인 -->
+		<c:forEach items="${reservation}" var="rsv">
+			<fmt:formatDate var="rsvInDt" value="${rsv.check_in}" 
+			pattern="yyyy-MM-dd"/>
+			<fmt:formatDate var="rsvOutDt" value="${rsv.check_out}" 
+			pattern="yyyy-MM-dd"/>
+			
+			체크인 : ${rsvInDt}<br/>
+			체크아웃 : ${rsvOutDt}<br/>
+			<!-- 체크인을 체크아웃과 같아질때까지 증가시키면서
+				 datepicker 해당날짜 비활성화하기
+			 -->
+			<!-- 
+				for (var d = new Date(startdate); d <= new Date(enddate); d.setDate(d.getDate() + 1)) {
+					dateRange.push($.datepicker.formatDate('yy-mm-dd', d));
+				}
+				return [dateRange.indexOf(dateString) == -1];
+			-->
+			<br/>
+		</c:forEach>
 	</div>
 </div>
-<!-- 인원수넣기 -->
-인원수 : <input type="text" id="people">
-<br/>
-<button type="button" class="btn btn-secondary btn-sm" id="btnReservation" >예약</button>
-<br/>
-<!-- 체크인 체크아웃 확인 -->
-<c:forEach items="${reservation}" var="rsv">
-	<fmt:formatDate var="rsvInDt" value="${rsv.check_in}" 
-	pattern="yyyy-MM-dd"/>
-	<fmt:formatDate var="rsvOutDt" value="${rsv.check_out}" 
-	pattern="yyyy-MM-dd"/>
-	
-	체크인 : ${rsvInDt}<br/>
-	체크아웃 : ${rsvOutDt}<br/>
-	<!-- 체크인을 체크아웃과 같아질때까지 증가시키면서
-		 datepicker 해당날짜 비활성화하기
-	 -->
-<!-- 
-		for (var d = new Date(startdate); d <= new Date(enddate); d.setDate(d.getDate() + 1)) {
-			dateRange.push($.datepicker.formatDate('yy-mm-dd', d));
-		}
-		return [dateRange.indexOf(dateString) == -1];
--->
-	<br/>
-</c:forEach>
+
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 

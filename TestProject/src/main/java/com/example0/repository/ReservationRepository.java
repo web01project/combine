@@ -11,10 +11,10 @@ import com.example0.model.Reservation;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long>{
 	
-	// user 의 예약 
+	// user 의 예약 리스트확인
 	@Query(value = "select * from reservation where u_num=:id",
 					nativeQuery = true)
-	public List<Reservation> findByUserid(@Param("id") Long id);
+	public List<Reservation> rservationUserid(@Param("id") Long id);
 	
 	@Query(value = "select * from reservation where h_num=:id order by check_in",
 					nativeQuery = true)

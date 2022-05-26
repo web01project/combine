@@ -49,12 +49,10 @@ public class Review {
 	private float point;
 	// 리뷰:유저 다:1 연결
 	@ManyToOne
-	@JsonManagedReference
 	@JoinColumn(name = "u_num")
 	private User user;
 	// 리뷰:호텔 다:1 연결
 	@ManyToOne
-	@JsonManagedReference
 	@JoinColumn(name = "h_num")
 	private Hotel hotel;
 	// 업로드 파일

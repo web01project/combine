@@ -65,4 +65,11 @@ public class UserContorller {
 		uservice.delete(id);
 		return "success";
 	}
+	
+	//내 예약목록보기
+	@GetMapping("reserlist/{id}")
+	public String reserlist(@PathVariable Long id, Model model) {
+		model.addAttribute("reservation", rservice.rlist(id));
+		return "user/myreservation";
+	}
 }

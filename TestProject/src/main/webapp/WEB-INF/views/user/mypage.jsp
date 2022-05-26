@@ -85,7 +85,7 @@
 		</div>
 	</div>  
 	<div class="listContainer">
-		<a href="#" class="item">
+		<a href="/user/reserlist/${principal.user.id}" class="item">
 	        <div class="icon">ii</div>
 	        <div class="text">예약목록<span class="circle"></span></div>
 	        <div class="right"> > </div>
