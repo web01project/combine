@@ -34,6 +34,7 @@ public class CommentController {
 		System.out.println("size : " + rlist.size());
 		return rlist;
 	}
+	
 	//댓글삭제
 		@DeleteMapping("delete/{num}")
 		public Long delete(@PathVariable Long review_num) {

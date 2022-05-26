@@ -18,7 +18,6 @@ public class CommentService {
 	private final BoardRepository boardRepository;
 	private final CommentRepository commentRepository;
 	
-	
 	//댓글리스트 
 	public List<Review> list(Long review_num){
 		return commentRepository.findByhNum(review_num);
