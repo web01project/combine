@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-<input type="hidden" value="${hotel.h_num}" />
+<input type="hidden" value="${hotel.h_num}" id=""/>
 
 <div class="row row-space">
 	<!-- 체크인달력 -->
@@ -105,23 +105,28 @@ $("#btnReservation").click(function(){
 		return false;
 	}
 	if(!confirm("예약 하시겠습니까?")) return false;
+	
 	data={
 			"check_in" : $("#CheckIn").val(),
 			"check_out" : $("#CheckOut").val(),
-			"people" : $("#people").val(),
+			"people" : $("#people").val()
 	}
 	$.ajax({
 		type:"post",
-		url:"/user/reservation/${hotel.h_num}",
+		url:"/hotel/reservation/${hotel.h_num}",
 		contentType : "application/json;charset=utf-8",
-		data : JSON.stringify(data),
-		success:function(resp){
-			alert("예약완료")
+		data : JSON.stringify(data)
+	})
+	.done(function(resp){
+		if(resp == "success"){
+			alert("예약 성공")
 			location.href="/hotel/reservationform/${hotel.h_num}";
-		},
-		error : function(e){
-			alert("예약실패 : "+e)
+		}else{
+			alert("예약 중복")
 		}
+	})
+	.fail(function(){
+		alert("예약 오류")
 	})
 })
 
