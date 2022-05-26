@@ -22,6 +22,7 @@ import com.example0.config.auth.PrincipalDetails;
 import com.example0.model.Hotel;
 import com.example0.model.Reservation;
 import com.example0.repository.BoardRepository;
+import com.example0.repository.ReservationRepository;
 import com.example0.service.BoardService;
 import com.example0.service.ReservationService;
 
@@ -38,6 +39,8 @@ private BoardService boardService;
 private BoardRepository boardRepository;
 @Autowired
 private ReservationService rservice;
+@Autowired
+private ReservationRepository reservationRepository;
 
 	
 	//호텔등록
@@ -97,17 +100,21 @@ private ReservationService rservice;
 	@PostMapping("reservation/{h_num}")
 	@ResponseBody
 	public String insert(@RequestBody Reservation reservation,
-						@AuthenticationPrincipal PrincipalDetails principal) {
-		Hotel hotel = boardRepository.findById((long) 1).get();
+						@AuthenticationPrincipal PrincipalDetails principal,
+						@PathVariable Long h_num) {
+		Hotel hotel = boardRepository.findById(h_num).get();
 		
 		reservation.setHotel(hotel);
 		reservation.setUser(principal.getUser());
-//		if(reservationRepository.findByCheckDate(reservation.getCheck_in(), reservation.getCheck_out(), reservation.getHotel().getH_num()).isEmpty()) {
-//			rservice.reservationInsert(reservation);
-//			return "success";
-//		}
-		rservice.reservationInsert(reservation);
-		return "success";
+		if(reservationRepository.CheckDate
+				(reservation.getCheck_in(), 
+				reservation.getCheck_out(),
+				hotel.getH_num()).isEmpty()) {
+			rservice.reservationInsert(reservation);
+			return "success";
+		}
+//		rservice.reservationInsert(reservation);
+		return "fail";
 	}
 	
 	//예약폼
