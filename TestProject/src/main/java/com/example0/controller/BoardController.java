@@ -52,6 +52,7 @@ private ReservationRepository reservationRepository;
 	public String insert(Hotel hotel,HttpSession session,
 				@AuthenticationPrincipal PrincipalDetails principal) {
 		String uploadFolder = session.getServletContext().getRealPath("/")+"\\resources\\img";
+		hotel.setUser(principal.getUser());
 		boardService.hotelInsert(hotel,uploadFolder);
 		return "redirect:hotellist";
 	}
@@ -78,6 +79,13 @@ private ReservationRepository reservationRepository;
 	public String like(@RequestBody Hotel hotel) {
 		boardService.like(hotel);
 		return "success";
+	}
+	
+	//좋아요 추가 임시
+	@GetMapping("like/{h_num}")
+	public String like(@PathVariable Long h_num) {
+		boardService.liketest(h_num);
+		return "/hotel/hotellist";
 	}
 	
 	
