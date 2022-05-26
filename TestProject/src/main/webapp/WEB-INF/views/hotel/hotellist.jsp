@@ -39,9 +39,10 @@
 						</div>
 						<!-- hotel like -->
 						<div style="position: relative; left: 10px; top: -70px;">
-							
+							<a href="/hotel/liketest/${hotel.h_num }">
 							<button type="button" class="btn btn-secondary btn_sm"
 								id="btnLike">좋아요</button>
+							</a>	
 						</div>
 						<div class="card-body">
 							<h2 class="card-title">${hotel.h_name }</h2>
@@ -81,7 +82,11 @@
 		</div>
 </Section>
 <script>
+
+
+
  //좋아요 증가
+ /* 
  $("#btnLike").click(function(){
 	 if(!confirm("정말 숙소를 찜할까요?")) return false;
 	 if(${empty principal.user}){
@@ -107,7 +112,7 @@
 		 }) //ajax
 
  })//btnlike
-      
+       */
 </script>
 
 

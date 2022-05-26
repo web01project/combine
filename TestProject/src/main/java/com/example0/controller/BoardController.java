@@ -82,7 +82,7 @@ private ReservationRepository reservationRepository;
 	}
 	
 	//좋아요 추가 임시
-	@GetMapping("like/{h_num}")
+	@GetMapping("liketest/{h_num}")
 	public String like(@PathVariable Long h_num) {
 		boardService.liketest(h_num);
 		return "/hotel/hotellist";
