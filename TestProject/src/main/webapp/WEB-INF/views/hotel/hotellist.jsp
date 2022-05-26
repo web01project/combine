@@ -104,7 +104,7 @@
 			alert("댓글 추가 실패")
 		})
  }//btnlike
-     
+      
 </script>
 
 
