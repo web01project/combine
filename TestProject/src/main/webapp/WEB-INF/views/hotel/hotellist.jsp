@@ -89,21 +89,21 @@
 			return
 		}
 	 data = {
-		"h_num" :$("#h_num").val()
-		"h_like" :$("#h_like").val()
+		"h_like" :$("#h_like").val(),
+		"h_num" :$("#h_num").val(),
 	 }
 	 $.ajax({
 		 type:"post",
-		 url : "/hotel/like/${hotel.h_num }",
+		 url : "/hotel/like/?",
 		 contentType : "application/json;charset=utf-8",
 		 data : JSON.stringify(data)
-	 })//ajax
-	 .done(function() {
-			alert("좋아요 추가");
+		}).done(function() {
+			alert("댓글추가");
+			init();
 		}).fail(function() {
-			alert("좋아요 추가 실패")
+			alert("댓글 추가 실패")
 		})
- })//btnlike
+ }//btnlike
     
 </script>
 
