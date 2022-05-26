@@ -22,7 +22,7 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long>{
 	
 	@Query(value = "select * from reservation "
 			+ "where h_num=:hnum "
-			+ "and (chcek_out between :indate and :outdate "
+			+ "and (check_out between :indate and :outdate "
 			+ "or check_in between :indate and :outdate)",
 			nativeQuery = true)//
 	public List<Reservation> CheckDate
