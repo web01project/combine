@@ -23,8 +23,8 @@ public class ReservationService {
 	}
 	
 	//예약리스트 전체
-	public List<Reservation> reservationList(){
-		return reservationRepository.findAll();
+	public List<Reservation> reservationList(Long h_num){
+		return reservationRepository.hnumReservation(h_num);
 	}
 	
 	//예약

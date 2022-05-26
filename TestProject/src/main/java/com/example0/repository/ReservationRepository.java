@@ -12,16 +12,21 @@ import com.example0.model.Reservation;
 public interface ReservationRepository extends JpaRepository<Reservation, Long>{
 	
 	// user 의 예약 
-	@Query(value = "select * from reservation where u_num=id",
+	@Query(value = "select * from reservation where u_num=:id",
 					nativeQuery = true)
 	public List<Reservation> findByUserid(@Param("id") Long id);
 	
-//	@Query(value = "select * from reservation "
-//			+ "where check_in between indate and outdate "
-//			+ "and chcek_out between indate and outdate "
-//			+ "and h_num=hid")//
-//	public List<Reservation> findByCheckDate
-//	(@Param("indate")Date indate, 
-//	@Param("outdate")Date outdate, 
-//	@Param("hid")Long hid);
+	@Query(value = "select * from reservation where h_num=:id",
+					nativeQuery = true)
+	public List<Reservation> hnumReservation(@Param("id") Long id);
+	
+	@Query(value = "select * from reservation "
+			+ "where h_num=:hnum "
+			+ "and (chcek_out between :indate and :outdate "
+			+ "or check_in between :indate and :outdate)",
+			nativeQuery = true)//
+	public List<Reservation> findByCheckDate
+	(@Param("indate")Date inDate,
+	@Param("outdate")Date outDate,
+	@Param("hnum")Long hnum);
 }
