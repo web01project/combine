@@ -25,7 +25,7 @@
 </section>
 <Section>
 	<div class="container">
-		<h4>${count}개의예약가능한숙소가있습니다.</h4>
+		<h4>${count}개의 예약가능한 숙소가 있습니다.</h4>
 		<div class="form-group text-right"></div>
 		<div class="row ">
 			<c:forEach items="${hotels }" var="hotel">
@@ -40,8 +40,8 @@
 						<!-- hotel like -->
 						<div style="position: relative; left: 10px; top: -70px;">
 							
-							<button type="button" class="btn btn-secondary btn-sm"
-								id="btnLike">숙소 좋아요</button>
+							<button type="button" class="btn btn-secondary btn_sm"
+								id="btnLike">좋아요</button>
 						</div>
 						<div class="card-body">
 							<h2 class="card-title">${hotel.h_name }</h2>
@@ -62,14 +62,14 @@
 								<span><i class="fa-solid fa-star"></i><i
 									class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span><br/>
 							</c:if>
-							<span class="card-text"> 좋아요 : ${hotel.h_like }</span> <a
+							<span class="card-text" id="h_like"> 좋아요 : ${hotel.h_like }</span> <a
 								href="/hotel/detail/${hotel.h_num }"><button
 									class="button-19">선택하기</button></a>
 							<c:if test="${principal.user.role == 'ROLE_MANAGER'}">
 								<a href="/hotel/view/${hotel.h_num }"><button
 										class="button-19">수정하기</button></a>
 							</c:if>
-						</div>
+						</div> 
 						<!--card-body  -->
 
 					</div>
@@ -78,33 +78,36 @@
 				<!-- col -->
 			</c:forEach>
 		</div>
+		</div>
 </Section>
 <script>
-
  //좋아요 증가
  $("#btnLike").click(function(){
+	 if(!confirm("정말 숙소를 찜할까요?")) return false;
 	 if(${empty principal.user}){
 			alert("로그인하세요")
 			location.href="/login"
 			return
 		}
 	 data = {
-		"h_num" :$("#h_num").val()
-		"h_like" :$("#h_like").val()
+		"h_like" : $("#h_like").val()
 	 }
-	 $.ajax({
-		 type:"post",
-		 url : "/hotel/like/${hotel.h_num }",
-		 contentType : "application/json;charset=utf-8",
-		 data : JSON.stringify(data)
-	 })//ajax
-	 .done(function() {
-			alert("좋아요 추가");
-		}).fail(function() {
-			alert("좋아요 추가 실패")
-		})
+		 $.ajax({
+			 type:"put",
+			 url : "/hotel/like",
+			 contentType : "application/json;charset=utf-8",
+			 data : JSON.stringify(data),
+			 success: function(resp){
+				 alert("추가완료")
+				 location.href="/hotel/hotellist";
+			 },
+			 error : function(e){
+				 alert("추가실패 : " + e);
+			 }
+		 }) //ajax
+
  })//btnlike
-    
+      
 </script>
 
 

@@ -37,7 +37,7 @@ public class BoardService {
 				e.printStackTrace();
 			}
 		}//if
-	}//hotelInsert
+	}//hotelInsert 
 	
 	@Transactional
 	//전체보기
@@ -60,6 +60,10 @@ public class BoardService {
 		b.setContent(hotel.getContent());
 		b.setH_tel(hotel.getH_tel());
 		b.setPrice(hotel.getPrice());
+	}
+	public void like(Hotel hotel) {
+		Hotel h = boardRepository.findById(hotel.getH_num()).get();
+		h.setH_like(hotel.getH_like()+1);
 	}
 	//상세보기
 	@Transactional
