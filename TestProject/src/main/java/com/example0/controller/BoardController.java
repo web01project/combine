@@ -122,7 +122,7 @@ private ReservationRepository reservationRepository;
 	public String test(Model model, @PathVariable Long h_num) {
 		System.out.println(h_num);
 		model.addAttribute("reservation", rservice.reservationList(h_num));
-		model.addAttribute("hotel", boardRepository.findById(h_num));
+		model.addAttribute("hotel", boardService.findById(h_num));
 		return "/hotel/hotelReservation";
 	}
 }

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-<input type="text" value="${hotel.h_num}" size="500"/>
+<input type="hidden" value="${hotel.h_num}" />
 
 <div class="row row-space">
 	<!-- 체크인달력 -->
@@ -112,12 +112,12 @@ $("#btnReservation").click(function(){
 	}
 	$.ajax({
 		type:"post",
-		url:"/user/reservation/?",
+		url:"/user/reservation/${hotel.h_num}",
 		contentType : "application/json;charset=utf-8",
 		data : JSON.stringify(data),
 		success:function(resp){
 			alert("예약완료")
-			location.href="/hotel/reservationform/?";
+			location.href="/hotel/reservationform/${hotel.h_num}";
 		},
 		error : function(e){
 			alert("예약실패 : "+e)
