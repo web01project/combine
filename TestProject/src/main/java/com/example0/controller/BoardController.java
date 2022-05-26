@@ -85,7 +85,7 @@ private ReservationRepository reservationRepository;
 	@GetMapping("liketest/{h_num}")
 	public String like(@PathVariable Long h_num) {
 		boardService.liketest(h_num);
-		return "/hotel/hotellist";
+		return "redirect:/hotel/hotellist";
 	}
 	
 	
