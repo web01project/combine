@@ -17,7 +17,8 @@ public interface CommentRepository
 			nativeQuery = true)
 	public void commentInsert(String content, Long h_num, Long u_num);
 	
-	//@Query("select sc from Review sc join fetch sc.hotel where h_num=?1")
-	@Query(value ="select * from review where h_num=?1" , nativeQuery = true)
+	//@Query("select sc from Review sc  where h_num=?1")
+	//@Query("select sc from Review sc join fetch sc.hotel where sc.hotel.h_num=?1") 
+	@Query(value ="select * from review where  h_num=?1" , nativeQuery = true) 
 	public List<Review> findByhNum(Long h_num);
 }

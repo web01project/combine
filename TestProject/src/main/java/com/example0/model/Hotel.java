@@ -54,14 +54,12 @@ public class Hotel {
 	// 숙소 리뷰
 	@OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY)
 	@JsonIgnoreProperties("hotel")
-	@JsonBackReference
+	//@JsonBackReference
 	private List<Review> reviews;
-
-	// 유저번호
-	@ManyToOne
-	@JoinColumn(name = "u_num")
-	private User user;
-	
+//	// 유저번호
+//	@ManyToOne
+//	@JoinColumn(name = "uid")
+//	private User user;
 	// 업로드 파일
 	@Transient //객체에서 빼기
 	private MultipartFile upload;

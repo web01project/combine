@@ -14,21 +14,20 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
+
 
 @Getter
 @Setter
-//@Tostring
+//@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -49,10 +48,12 @@ public class Review {
 	private float point;
 	// 리뷰:유저 다:1 연결
 	@ManyToOne
+	//@JsonIgnore
 	@JoinColumn(name = "u_num")
 	private User user;
 	// 리뷰:호텔 다:1 연결
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "h_num")
 	private Hotel hotel;
 	// 업로드 파일

@@ -29,10 +29,11 @@ public class CommentService {
 		 * Hotel h = boardRepository .findById(review.getHotel().getH_num()).get();
 		 */
 			
-		/*
-		 * commentRepository.commentInsert( review.getContent(),
-		 * review.getHotel().getH_num(), review.getUser().getId() );
-		 */
+//			commentRepository.commentInsert(
+//			   review.getContent(),
+//			   review.getHotel().getH_num(),
+//			   review.getUser().getId()
+//	     	);
 		commentRepository.save(review);
 		}
 	//삭제
