@@ -11,6 +11,7 @@ import com.example0.model.Review;
 public interface CommentRepository 
 	extends JpaRepository<Review, Long>{
 	
+	
 	//댓글추가
 	@Modifying
 	@Query(value="insert into Review(content, regdate, h_num, u_num) values(?1,now(),?2,?3)",
