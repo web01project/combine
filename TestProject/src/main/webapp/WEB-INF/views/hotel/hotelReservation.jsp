@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-<input type="text" value="${hotel}"/>
+<input type="text" value="${hotel.h_num}" size="500"/>
 
 <div class="row row-space">
 	<!-- 체크인달력 -->
