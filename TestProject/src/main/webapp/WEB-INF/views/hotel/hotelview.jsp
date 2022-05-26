@@ -2,7 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
-
 <link href="/css/list.css" rel="stylesheet" />
 <header class="normal">
 	<div class="container position-relative">
@@ -35,6 +34,11 @@
 							<td><input type="text" class="form-control" id="zipcode"
 								name="zipcode" value="${hotel.zipcode }" readonly="readonly" /></td>
 						</tr>
+						<%-- <tr>
+							<td><label for="upload">숙소 사진</label></td>
+							<td><input type="image" class="form-control" id="upload"
+								placeholder="Enter File" name="upload" value="${hotel.upload }"></td>
+						</tr> --%>
 						<tr>
 							<td><label for="content">숙소 등급</label></td>
 							<td><input type="text" class="form-control"  value="${hotel.grade }" readonly="readonly"></td>
@@ -63,14 +67,18 @@
 				<a href="/hotel/update/${hotel.h_num }"><button type="button" class="btn btn-primary btn-sm" >수정하기</button></a>
 				<button type="button" class="btn btn-danger btn-sm" id="btnDelete">삭제</button>
 			</div>
-		</div>	 
-	</div>
-</header>
+			</div>	
+		
+		</header>
 			
+	
+	
 	<br />
 	<br />
 	<br />
 	<br />
+	
+	
 	
 	<div id="replyResult"></div>
 	
@@ -86,37 +94,31 @@
 </form>
 
 
-
 <script>
-/* 
 var init = function(){
 	$.ajax({
 		type:"get",
 		url : "/reply/list/${hotel.h_num }"
 	}) //ajax
 	.done(function(resp){
-		alert(resp)
+	
 		   var str="<table class='table table-hover' >"
 		   $.each(resp, function(key, val){
-			     str+="<tr>"
-				   str+="<td>11</td>"
-				   str+="<td>22</td>"
-				   str+="</tr>"
-			 /*   str+="<tr>"
-			   str+="<td>"+val.user.id+"</td>"
+				
+			   str+="<tr>"
+			    str+="<td>"+val.user.id+"</td>"
 			   str+="<td>"+val.content+"</td>"
 			   str+="<td>"+val.regdate+"</td>"
-			   if("${principal.user.id}"==val.user.id){
+			    if("${principal.user.id}"==val.user.id){
 				   str+="<td><a href='javascript:fdel("+val.cnum+")'>삭제</a></td>"
-			   }
+			   } 
 			   str+="</tr>" 
 		   })
 		   str +="</table>"
-	  $("#replyResult").html(str);
+			  $("#replyResult").html(str);
 	})  //done
-} //init
 
- */
+} //init
 //댓글삭제
 function fdel(cnum){
 	$.ajax({
@@ -125,7 +127,7 @@ function fdel(cnum){
 	})
 	.done(function(resp){
 		alert(resp+" 번 글 삭제 성공")
-//		init()
+		init()
 	})
 	.fail(function(){
 		alert("댓글 삭제 실패")
@@ -136,23 +138,24 @@ $("#btnComment").click(function() {
 	if(${empty principal.user}){
 		alert("로그인하세요")
 		location.href="/login"
-		return;
+		return
 	}
 	if ($("#msg").val() == "") {
 		alert("댓글 입력하세요")
 		return;
 	}
 	data = {
-		"content":$("#msg").val()
+		"content" : $("#msg").val(),
+		"h_num": ${hotel.h_num }
 	}
 	$.ajax({
 		type : "post",
-		url : "/reply/insert/${h_num}",
+		url : "/reply/insert/${hotel.h_num }",
 		contentType : "application/json;charset=utf-8",
 		data : JSON.stringify(data)
 	}).done(function() {
 		alert("댓글추가");
-//		init();
+		init();
 	}).fail(function() {
 		alert("댓글 추가 실패")
 	})
@@ -174,7 +177,7 @@ $("#btnDelete").click(function(){
 		}
 	})
 	})
-//	init();
+	init();
 </script>
 
 
