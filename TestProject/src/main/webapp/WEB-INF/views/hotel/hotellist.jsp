@@ -39,6 +39,7 @@
 						</div>
 						<!-- hotel like -->
 						<div style="position: relative; left: 10px; top: -70px;">
+							
 							<button type="button" class="btn btn-secondary btn-sm"
 								id="btnLike">숙소 좋아요</button>
 						</div>
@@ -48,20 +49,20 @@
 								class="card-text">설명 : ${hotel.content }</span><br /> <span
 								class="card-text">가격 : ${hotel.price }원</span><br /> <span
 								class="card-text">등급 </span>
-
+							
 							<c:if test="${hotel.grade=='STAR1' }">
-								<span><i class="fa-solid fa-star"></i></span>
+								<span><i class="fa-solid fa-star"></i></span><br/>
 							</c:if>
 
 							<c:if test="${hotel.grade=='STAR2' }">
 								<span><i class="fa-solid fa-star"></i><i
-									class="fa-solid fa-star"></i></span>
+									class="fa-solid fa-star"></i></span><br/>
 							</c:if>
 							<c:if test="${hotel.grade=='STAR3' }">
 								<span><i class="fa-solid fa-star"></i><i
-									class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+									class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span><br/>
 							</c:if>
-							<span class="card-text"> 위치: ${hotel.h_like }</span> <a
+							<span class="card-text"> 좋아요 : ${hotel.h_like }</span> <a
 								href="/hotel/detail/${hotel.h_num }"><button
 									class="button-19">선택하기</button></a>
 							<c:if test="${principal.user.role == 'ROLE_MANAGER'}">
@@ -87,21 +88,22 @@
 			location.href="/login"
 			return
 		}
+	 data = {
+		"h_num" :$("#h_num").val()
+		"h_like" :$("#h_like").val()
+	 }
 	 $.ajax({
 		 type:"post",
-		 url : "/hotel/like",
-			success: function(resp){
-				if(resp=="success"){
-					alert("좋아요 성공")
-					location.href="/hotel/hotellist"
-				}
-			},//success
-			error :function(e){
-				alert("좋아요실패 : " + e)
-			}
-		 
-	 })
- })
+		 url : "/hotel/like/${hotel.h_num }",
+		 contentType : "application/json;charset=utf-8",
+		 data : JSON.stringify(data)
+	 })//ajax
+	 .done(function() {
+			alert("좋아요 추가");
+		}).fail(function() {
+			alert("좋아요 추가 실패")
+		})
+ })//btnlike
     
 </script>
 
