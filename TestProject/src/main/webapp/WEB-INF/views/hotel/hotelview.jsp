@@ -34,11 +34,6 @@
 							<td><input type="text" class="form-control" id="zipcode"
 								name="zipcode" value="${hotel.zipcode }" readonly="readonly" /></td>
 						</tr>
-						<%-- <tr>
-							<td><label for="upload">숙소 사진</label></td>
-							<td><input type="image" class="form-control" id="upload"
-								placeholder="Enter File" name="upload" value="${hotel.upload }"></td>
-						</tr> --%>
 						<tr>
 							<td><label for="content">숙소 등급</label></td>
 							<td><input type="text" class="form-control"  value="${hotel.grade }" readonly="readonly"></td>

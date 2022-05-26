@@ -56,6 +56,10 @@ public class BoardService {
 		b.setContent(hotel.getContent());
 		b.setPrice(hotel.getPrice());
 	}
+	public void like(Hotel hotel) {
+		Hotel h = boardRepository.findById(hotel.getH_num()).get();
+		h.setH_like(hotel.getH_like()+1);
+	}
 	//상세보기
 	@Transactional
 	public Hotel findById(Long h_num) {

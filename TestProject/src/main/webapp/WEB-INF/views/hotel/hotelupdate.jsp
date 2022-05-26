@@ -5,7 +5,6 @@
 
   <div class="container">
   <h3> 숙소수정하기</h3>
- <%--  <input type="hidden" name="h_num" id="h_num" value="${hotel.h_num }"/> --%>
 					<table> 
 						<tr>
 							<td><label for="h_num">관리 번호</label>
@@ -77,8 +76,6 @@
       </div>
       
      </div> 
-  </form>
-</div>
 <script>
 //수정
 $("#btnModify").click(function(){

@@ -11,7 +11,7 @@ public interface BoardRepository extends JpaRepository<Hotel, Long> {
 	
 	@Query("select count(*) from Hotel")
 	public int getCount(HashMap<String, Object> map);
-	
+
 	
 }
 

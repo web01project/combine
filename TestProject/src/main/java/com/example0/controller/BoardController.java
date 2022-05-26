@@ -73,7 +73,13 @@ private ReservationRepository reservationRepository;
 		model.addAttribute("hotel",boardService.findById(h_num));
 		return "/hotel/hotelDetail1";
 	}
-	
+	//좋아요 추가
+	@PutMapping("like")
+	@ResponseBody
+	public String like(@RequestBody Hotel hotel) {
+		boardService.like(hotel);
+		return "success";
+	}
 	
 	
 	//숙소수정
