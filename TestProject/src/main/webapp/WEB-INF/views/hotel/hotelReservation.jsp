@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
+
+<input type="text" value="${hotel}"/>
+
 <div class="row row-space">
+	<!-- 체크인달력 -->
 	<div class="col-2">
 		<div class="input-group">
 			<label class="label">체크인</label> <input
@@ -10,6 +14,7 @@
 			onclick="javascript:a_datepicker(this);" readonly="readonly">
 		</div>
 	</div>
+	<!-- 체크아웃달력 -->
 	<div class="col-2">
 		<div class="input-group">
 			<label class="label">체크아웃</label> <input
@@ -19,15 +24,12 @@
 		</div>
 	</div>
 </div>
-
-
-user id : <input type="text" name="userid" id="userid" value="${principal.user.id }"/>
-hotel id : <input type="text" name="" id="hotelid">
+<!-- 인원수넣기 -->
 인원수 : <input type="text" id="people">
 <br/>
 <button type="button" class="btn btn-secondary btn-sm" id="btnReservation" >예약</button>
 <br/>
-
+<!-- 체크인 체크아웃 확인 -->
 <c:forEach items="${reservation}" var="rsv">
 	<fmt:formatDate var="rsvInDt" value="${rsv.check_in}" 
 	pattern="yyyy-MM-dd"/>
@@ -110,12 +112,12 @@ $("#btnReservation").click(function(){
 	}
 	$.ajax({
 		type:"post",
-		url:"/user/reservation",
+		url:"/user/reservation/?",
 		contentType : "application/json;charset=utf-8",
 		data : JSON.stringify(data),
 		success:function(resp){
 			alert("예약완료")
-			location.href="/user/test";
+			location.href="/hotel/reservationform/?";
 		},
 		error : function(e){
 			alert("예약실패 : "+e)

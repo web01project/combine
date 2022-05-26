@@ -38,7 +38,9 @@
 <div id="wrapper">
 	<span class="price_tag">금액:${hotel.price }</span>
 	
+	<a href="/hotel/reservationform/${hotel.h_num }">
 	<button class="button-19">예약하기</button>
+	</a>
 </div>
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6fa928439db918e52edfb39bd62d69f5&libraries=services,clusterer,drawing"></script>

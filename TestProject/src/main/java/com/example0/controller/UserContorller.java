@@ -3,6 +3,7 @@ package com.example0.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,9 +15,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example0.config.auth.PrincipalDetails;
+import com.example0.model.Hotel;
 import com.example0.model.Reservation;
 import com.example0.model.User;
+import com.example0.repository.BoardRepository;
 import com.example0.repository.ReservationRepository;
+import com.example0.service.BoardService;
 import com.example0.service.ReservationService;
 import com.example0.service.UserService;
 
@@ -29,6 +34,7 @@ public class UserContorller {
 
 	private final UserService uservice;
 	private final ReservationService rservice;
+	private final BoardRepository boardRepository;
 	private final ReservationRepository reservationRepository;
 	
 	//마이페이지
@@ -57,28 +63,6 @@ public class UserContorller {
 	@ResponseBody
 	public String delete(@PathVariable Long id) {
 		uservice.delete(id);
-		return "success";
-	}
-	
-	//테스트
-	@GetMapping("test")
-	public String test(Model model) {
-		model.addAttribute("reservation", rservice.reservationList());
-		return "/reservation_test/test_reservation";
-	}
-	
-	//예약
-	@PostMapping("reservation")
-	@ResponseBody
-	public String insert(@RequestBody Reservation reservation) {
-		System.out.println(reservation.getCheck_in());
-		System.out.println(reservation.getCheck_out());
-//		System.out.println(reservation.getHotel().getH_num());
-//		if(reservationRepository.findByCheckDate(reservation.getCheck_in(), reservation.getCheck_out(), reservation.getHotel().getH_num()).isEmpty()) {
-//			rservice.reservationInsert(reservation);
-//			return "success";
-//		}
-		rservice.reservationInsert(reservation);
 		return "success";
 	}
 }

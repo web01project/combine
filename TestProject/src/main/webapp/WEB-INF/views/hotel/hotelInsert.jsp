@@ -14,9 +14,9 @@
 					enctype="multipart/form-data">
 					<table>
 						<tr>
-							<td><label for="h_num">관리 번호</label>
-							<td><input type="text" class="form-control" id="h_num"
-								placeholder="Enter hnum" name="h_num"></td>
+							<td><label for="h_num">유저 번호</label>
+							<td><input type="text" class="form-control" id="u_num"
+								name="u_num" readonly="readonly" value="${principal.user.id }"></td>
 						</tr>
 						<tr>
 							<td><label for="title">숙소 이름</label></td>

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,8 +18,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 //숙소관리 컨트롤러
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example0.config.auth.PrincipalDetails;
 import com.example0.model.Hotel;
+import com.example0.model.Reservation;
+import com.example0.repository.BoardRepository;
 import com.example0.service.BoardService;
+import com.example0.service.ReservationService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -29,6 +34,10 @@ import lombok.RequiredArgsConstructor;
 public class BoardController {
 @Autowired
 private BoardService boardService;
+@Autowired
+private BoardRepository boardRepository;
+@Autowired
+private ReservationService rservice;
 
 	
 	//호텔등록
@@ -37,8 +46,10 @@ private BoardService boardService;
 		return "/hotel/hotelInsert";
 	}
 	@PostMapping("hotelInsert")
-	public String insert(Hotel hotel,HttpSession session) {
+	public String insert(Hotel hotel,HttpSession session,
+				@AuthenticationPrincipal PrincipalDetails principal) {
 		String uploadFolder = session.getServletContext().getRealPath("/")+"\\resources\\img";
+		hotel.setUser(principal.getUser());
 		boardService.hotelInsert(hotel,uploadFolder);
 		return "redirect:hotellist";
 	}
@@ -82,4 +93,29 @@ private BoardService boardService;
 		return "/hotel/hotelview";
 	}
 	
+	//숙소예약
+	@PostMapping("reservation/{h_num}")
+	@ResponseBody
+	public String insert(@RequestBody Reservation reservation,
+						@AuthenticationPrincipal PrincipalDetails principal) {
+		Hotel hotel = boardRepository.findById((long) 1).get();
+		
+		reservation.setHotel(hotel);
+		reservation.setUser(principal.getUser());
+//		if(reservationRepository.findByCheckDate(reservation.getCheck_in(), reservation.getCheck_out(), reservation.getHotel().getH_num()).isEmpty()) {
+//			rservice.reservationInsert(reservation);
+//			return "success";
+//		}
+		rservice.reservationInsert(reservation);
+		return "success";
+	}
+	
+	//예약폼
+	@GetMapping("reservationform/{h_num}")
+	public String test(Model model, @PathVariable Long h_num) {
+		System.out.println(h_num);
+		model.addAttribute("reservation", rservice.reservationList(h_num));
+		model.addAttribute("hotel", boardRepository.findById(h_num));
+		return "/hotel/hotelReservation";
+	}
 }
