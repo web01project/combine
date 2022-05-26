@@ -15,3 +15,4 @@ public interface BoardRepository extends JpaRepository<Hotel, Long> {
 	
 }
 
+ 

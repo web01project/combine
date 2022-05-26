@@ -88,7 +88,7 @@ private ReservationRepository reservationRepository;
 	public String update(@RequestBody Hotel hotel) {
 		boardService.update(hotel);
 		return "success";
-	}
+	} 
 	//숙소수정폼
 	@GetMapping("update/{h_num}")
 	 public String update(@PathVariable Long h_num, Model model) {

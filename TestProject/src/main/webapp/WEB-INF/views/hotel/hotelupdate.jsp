@@ -76,7 +76,7 @@
       </div>
       
      </div> 
-<script>
+<script> 
 //수정
 $("#btnModify").click(function(){
 	if(!confirm("정말 수정 할까요?")) return false;

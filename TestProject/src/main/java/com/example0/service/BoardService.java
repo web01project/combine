@@ -36,7 +36,7 @@ public class BoardService {
 				e.printStackTrace();
 			}
 		}//if
-	}//hotelInsert
+	}//hotelInsert 
 	
 	@Transactional
 	//전체보기

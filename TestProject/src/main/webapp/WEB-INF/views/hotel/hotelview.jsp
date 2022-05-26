@@ -62,7 +62,7 @@
 				<a href="/hotel/update/${hotel.h_num }"><button type="button" class="btn btn-primary btn-sm" >수정하기</button></a>
 				<button type="button" class="btn btn-danger btn-sm" id="btnDelete">삭제</button>
 			</div>
-			</div>	
+			</div>	 
 		
 		</header>
 			

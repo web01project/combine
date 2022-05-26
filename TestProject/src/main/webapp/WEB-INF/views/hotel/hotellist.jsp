@@ -69,7 +69,7 @@
 								<a href="/hotel/view/${hotel.h_num }"><button
 										class="button-19">수정하기</button></a>
 							</c:if>
-						</div>
+						</div> 
 						<!--card-body  -->
 
 					</div>
