@@ -106,7 +106,7 @@ private ReservationRepository reservationRepository;
 		reservation.setHotel(hotel);
 		reservation.setUser(principal.getUser());
 		if(reservationRepository.CheckDate
-				(reservation.getCheck_in(), 
+				(reservation.getCheck_in(),
 				reservation.getCheck_out(),
 				hotel.getH_num()).isEmpty()) {
 			rservice.reservationInsert(reservation);
