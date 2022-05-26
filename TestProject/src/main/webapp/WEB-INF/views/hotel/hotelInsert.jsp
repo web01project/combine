@@ -34,10 +34,6 @@
 							<td><input type="text" class="form-control" id="location2"
 								name="location2" /></td>
 						</tr>
-						<tr> <!-- 위도 경도 -->
-							<td><input type="text" name="x"> <input
-								type="text" name="y"></td>
-						</tr>
 						<tr>
 							<td>우편번호</td>
 							<td><input type="text" class="form-control" id="zipcode"

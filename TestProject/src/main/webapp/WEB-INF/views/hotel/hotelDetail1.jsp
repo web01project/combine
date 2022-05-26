@@ -36,7 +36,7 @@
 	</aside>
 </div>
 <div id="wrapper">
-	<span class="price_tag">금액</span>
+	<span class="price_tag">금액:${hotel.price }</span>
 	
 	<button class="button-19">예약하기</button>
 </div>
