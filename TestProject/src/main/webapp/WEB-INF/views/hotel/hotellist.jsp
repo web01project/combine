@@ -39,7 +39,7 @@
 						</div>
 						<!-- hotel like -->
 						<div style="position: relative; left: 10px; top: -70px;">
-							<a href="/hotel/liketest/${hotel.h_num }">
+							<a href="/hotel/liketest/${hotel.h_num }" onclick="return confirm('찜하시겠습니까? ?');">
 							<button type="button" class="btn btn-secondary btn_sm"
 								id="btnLike">좋아요</button>
 							</a>	
@@ -82,6 +82,7 @@
 		</div>
 </Section>
 <script>
+
 
 
 
