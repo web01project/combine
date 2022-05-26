@@ -18,6 +18,9 @@ import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +29,6 @@ import lombok.ToString;
 
 @Setter
 @Getter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor 
 @Entity
@@ -49,11 +51,15 @@ public class Hotel {
 	private int price;
 	// 숙소 리뷰
 	@OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY)
+	@JsonIgnoreProperties("hotel")
+	@JsonBackReference
 	private List<Review> reviews;
-	// 유저번호
-	@ManyToOne
-	@JoinColumn(name = "u_num")
-	private User user;
+	/*
+	 * // 유저번호
+	 * @ManyToOne
+	 * @JoinColumn(name = "u_num") 
+	 * private User user;
+	 */	
 	// 업로드 파일
 	@Transient //객체에서 빼기
 	private MultipartFile upload;

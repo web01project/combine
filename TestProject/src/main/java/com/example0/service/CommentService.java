@@ -19,8 +19,8 @@ public class CommentService {
 	private final CommentRepository commentRepository;
 	
 	//댓글리스트 
-	public List<Review> list(Long h_num){
-		return commentRepository.findByhNum(h_num);
+	public List<Review> list(Long review_num){
+		return commentRepository.findByhNum(review_num);
 	}
 	//댓글쓰기
 	@Transactional
@@ -29,16 +29,16 @@ public class CommentService {
 		 * Hotel h = boardRepository .findById(review.getHotel().getH_num()).get();
 		 */
 			
-			commentRepository.commentInsert(
-			   review.getContent(),
-			   review.getHotel().getH_num(),
-			   review.getUser().getId()
-	     	);
+		/*
+		 * commentRepository.commentInsert( review.getContent(),
+		 * review.getHotel().getH_num(), review.getUser().getId() );
+		 */
+		commentRepository.save(review);
 		}
 	//삭제
 	@Transactional
-	public void delete(Long h_num) {
-		commentRepository.deleteById(h_num);
+	public void delete(Long review_num) {
+		commentRepository.deleteById(review_num);
 		
 	}
 }

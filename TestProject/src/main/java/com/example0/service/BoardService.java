@@ -21,6 +21,7 @@ public class BoardService {
 	private BoardRepository boardRepository;
 	//숙소등록
 	public void hotelInsert(Hotel hotel,String uploadFolder) {
+		System.out.println("hotelInsert");
 		UUID uuid = UUID.randomUUID();
 		MultipartFile file = hotel.getUpload(); //실제 업로드할 파일(숙소 이미지)
 		String uploadFileName="";
@@ -52,8 +53,12 @@ public class BoardService {
 		Hotel b = boardRepository.findById(hotel.getH_num()).get();
 		b.setH_name(hotel.getH_name());
 		b.setLocation1(hotel.getLocation1());
+		b.setLocation2(hotel.getLocation2());
 		b.setUpload(hotel.getUpload());
+		b.setGrade(hotel.getGrade());
+		b.setFileimage(hotel.getFileimage());
 		b.setContent(hotel.getContent());
+		b.setH_tel(hotel.getH_tel());
 		b.setPrice(hotel.getPrice());
 	}
 	//상세보기

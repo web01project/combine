@@ -98,19 +98,24 @@
 var init = function(){
 	$.ajax({
 		type:"get",
-		url : "/reply/list/"+$("#review_num").val()
+		url : "/reply/list/${hotel.h_num }"
 	}) //ajax
 	.done(function(resp){
+		alert(resp)
 		   var str="<table class='table table-hover' >"
 		   $.each(resp, function(key, val){
-			   str+="<tr>"
-			   str+="<td>"+val.u_num+"</td>"
+			     str+="<tr>"
+				   str+="<td>11</td>"
+				   str+="<td>22</td>"
+				   str+="</tr>"
+			 /*   str+="<tr>"
+			   str+="<td>"+val.user.id+"</td>"
 			   str+="<td>"+val.content+"</td>"
 			   str+="<td>"+val.regdate+"</td>"
 			   if("${principal.user.id}"==val.user.id){
 				   str+="<td><a href='javascript:fdel("+val.cnum+")'>삭제</a></td>"
 			   }
-			   str+="</tr>"
+			   str+="</tr>" */
 		   })
 		   str +="</table>"
 	  $("#replyResult").html(str);
@@ -143,10 +148,7 @@ $("#btnComment").click(function() {
 		return;
 	}
 	data = {
-		"review_num" : $("#review_num").val(),
 		"content" : $("#msg").val(),
-		
-		
 	}
 	$.ajax({
 		type : "post",
@@ -177,6 +179,7 @@ $("#btnDelete").click(function(){
 		}
 	})
 	})
+	init();
 </script>
 
 

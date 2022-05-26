@@ -52,7 +52,6 @@ private ReservationRepository reservationRepository;
 	public String insert(Hotel hotel,HttpSession session,
 				@AuthenticationPrincipal PrincipalDetails principal) {
 		String uploadFolder = session.getServletContext().getRealPath("/")+"\\resources\\img";
-		hotel.setUser(principal.getUser());
 		boardService.hotelInsert(hotel,uploadFolder);
 		return "redirect:hotellist";
 	}

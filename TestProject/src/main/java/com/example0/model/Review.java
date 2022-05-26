@@ -18,15 +18,18 @@ import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
+//@Tostring
+@NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table
@@ -46,10 +49,12 @@ public class Review {
 	private float point;
 	// 리뷰:유저 다:1 연결
 	@ManyToOne
+	@JsonManagedReference
 	@JoinColumn(name = "u_num")
 	private User user;
 	// 리뷰:호텔 다:1 연결
 	@ManyToOne
+	@JsonManagedReference
 	@JoinColumn(name = "h_num")
 	private Hotel hotel;
 	// 업로드 파일

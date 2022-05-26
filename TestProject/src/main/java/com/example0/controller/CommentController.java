@@ -27,10 +27,11 @@ public class CommentController {
 	@Autowired
 	private CommentService commentService;
 	
-	@GetMapping("list/{num}")
-	public List<Review> list(@PathVariable Long review_num){
-		System.out.println("review_num"+review_num );
-		List<Review> rlist = commentService.list(review_num);
+	@GetMapping("list/{h_num}")
+	public List<Review> list(@PathVariable Long h_num){
+		System.out.println(" h_num : "+h_num );
+		List<Review> rlist = commentService.list(h_num);
+		System.out.println("size : " + rlist.size());
 		return rlist;
 	}
 	//댓글삭제
@@ -49,6 +50,7 @@ public class CommentController {
 			
 			Hotel h = new Hotel();
 			h.setH_num(num);
+			review.setPoint(2.3f);
 			review.setHotel(h);
 			
 			/*

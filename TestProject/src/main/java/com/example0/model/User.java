@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.transaction.Transactional;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -22,7 +23,7 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
+//@Tostring
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -50,6 +51,7 @@ public class User {
 	//유저:리뷰 1:다 연결
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
 	@JsonIgnoreProperties("user")
+	@JsonBackReference
 	private List<Review> reviews;
 	
 }
