@@ -38,8 +38,11 @@ public class UserContorller {
 	private final ReservationRepository reservationRepository;
 	
 	//마이페이지
-	@GetMapping("mypage")
-	public String mypage() {
+	@GetMapping("mypage/{id}")
+	public String mypage(Model model,@PathVariable Long id) {
+		//내예약 돈합계
+		model.addAttribute("price", rservice.pricesum(id));
+		model.addAttribute("count",rservice.count(id));
 		return "user/mypage";
 	}
 	
@@ -69,7 +72,7 @@ public class UserContorller {
 	//내 예약목록보기
 	@GetMapping("reserlist/{id}")
 	public String reserlist(@PathVariable Long id, Model model) {
-		model.addAttribute("reservation", rservice.rlist(id));
+		model.addAttribute("reservations", rservice.rlist(id));
 		return "user/myreservation";
 	}
 }
