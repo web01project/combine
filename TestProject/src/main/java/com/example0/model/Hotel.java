@@ -48,7 +48,7 @@ public class Hotel {
 	private Grade grade;
 	// 숙소 찜
 	@ColumnDefault("0")
-	private Long h_like;
+	private int h_like;
 	// 숙소금액
 	private int price;
 	// 숙소 리뷰
