@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.hibernate.boot.jaxb.hbm.spi.JaxbHbmOneToManyCollectionElementType;
 import org.springframework.beans.factory.annotation.Autowired;import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +26,6 @@ import com.example0.config.auth.PrincipalDetails;
 import com.example0.model.Hotel;
 import com.example0.model.HotelLike;
 import com.example0.model.Reservation;
-import com.example0.model.User;
 import com.example0.repository.BoardRepository;
 import com.example0.repository.ReservationRepository;
 import com.example0.service.BoardService;
@@ -59,6 +59,7 @@ private ReservationRepository reservationRepository;
 				@AuthenticationPrincipal PrincipalDetails principal) {
 		String uploadFolder = session.getServletContext().getRealPath("/")+"\\resources\\img";
 		hotel.setUser(principal.getUser());
+		hotel.setH_like(0L);
 		boardService.hotelInsert(hotel,uploadFolder);
 		return "redirect:hotellist";
 	}
@@ -79,13 +80,29 @@ private ReservationRepository reservationRepository;
 		model.addAttribute("hotel",boardService.findById(h_num));
 		return "/hotel/hotelDetail1";
 	}
-	//좋아요 추가
-	 @ResponseBody
-	    @RequestMapping(value = "/heart", method = RequestMethod.POST, produces = "application/json")
-	    public int heart(HttpServletRequest httpRequest,@AuthenticationPrincipal PrincipalDetails principal,@PathVariable Long h_num) {
+	 @RequestMapping(value = "/read", method = RequestMethod.GET)
+	    public void read(@RequestParam("h_num") Long h_num, Model model, @AuthenticationPrincipal PrincipalDetails principal,HttpServletRequest httpRequest) throws Exception {
 
-	        int heart = Integer.parseInt(httpRequest.getParameter("h_like"));
-	        Hotel hotel = boardRepository.findById(h_num).get();
+		 Hotel hotel = boardRepository.findById(h_num).get();
+	        HotelLike hotelLike = new HotelLike();
+	        
+	        hotelLike.setHotel(hotel);
+	        hotelLike.setUser(principal.getUser());
+
+	        Long h_like = likeService.getBoardLike(hotelLike);
+	        System.out.println(h_like);
+
+	        model.addAttribute("heart",h_like);
+	    }
+	//좋아요 추가
+	    @ResponseBody
+	    @PreAuthorize("isAuthenticated()")
+	    @RequestMapping(value = "/heart/{h_num}", method = RequestMethod.POST, produces = "application/json")
+	    public int heart(HttpServletRequest httpRequest,@AuthenticationPrincipal PrincipalDetails principal,@PathVariable("h_num") Long h_num) {
+
+	       int heart = Integer.parseInt(httpRequest.getParameter("h_like"));
+	      
+		   Hotel hotel = boardRepository.findById(h_num).get();
 	        HotelLike hotelLike = new HotelLike();
 	        
 	        hotelLike.setHotel(hotel);

@@ -43,7 +43,7 @@
 								id="btnLike">좋아요</button>
 							</a> --%>
 						<div style="text-align: right;">
-							<a class="btn btn-outline-dark heart"> <img id="heart" src="">
+							<a class="btn btn-outline-dark heart" data-h_num="${hotel.h_num }"> <img id="heart" src="">
 							</a>
 						</div>
 						<div class="card-body">
@@ -88,38 +88,43 @@
 </Section>
 <script>
 	$(document).ready(function() {
-
-		var heartval = ${heart};
-		
+		 
+		var heartval = $
+		{
+heart/{#$hotel.h_num}}
+		;
+	
+		//좋아요 처리
 		if (heartval > 0) {
 			console.log(heartval);
-			$("#heart").prop("src", "/resources/img/like2.png");
+			$("#heart").prop("src", "../resources/img/like2.png");
 			$(".heart").prop('name', heartval)
 		} else { 
 			console.log(heartval);
-			$("#heart").prop("src", "../resources/img/like1.png");
+			$("#heart").prop("src", "../resources/img/like2.png");
 			$(".heart").prop('name', heartval)
 		}
-		//허트그림 클릭시 
+
 		$(".heart").on("click", function() {
-
+      
 			var that = $(".heart");
-
+		         
 			var sendData = {
-				'h_num' : '${hotel.h_num}',
-				'heart' : that.prop('name')
+				'h_num' : $(that).data("h_num"),
+				'heart' : that.prop('name'),
+				'h_like' : $("h_like").val()
 			};
 			$.ajax({
-				url : '/hotel/heart/${hotel.h_num}',
+				url : '/hotel/heart/'+$(that).data("h_num"),
 				type : 'POST',
 				data : sendData,
 				success : function(data) {
 					that.prop('name', data);
-					if (data == 1) {
-						$('#heart').prop("src", "./resources/img/like2.png");
+				 	if (data == 1) {
+						$('#heart').prop("src", "../resources/img/like2.png");
 					} else {
-						$('#heart').prop("src", "./resources/img/like1.png");
-					}
+						$('#heart').prop("src", "../resources/img/like1.png");
+					} 
 
 				}
 			}); //ajax
