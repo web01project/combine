@@ -66,7 +66,7 @@
 						<li class="nav-item"><a class="nav-link" href="/logout">
 								로그아웃 </a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="/user/mypage">${principal.user.name}님 반갑습니다!</a></li>
+							href="/user/mypage/${principal.user.id }">${principal.user.name}님 반갑습니다!</a></li>
 					</sec:authorize>
 				</ul>
 			</div>

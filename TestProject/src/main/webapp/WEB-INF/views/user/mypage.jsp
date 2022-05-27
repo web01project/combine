@@ -34,7 +34,7 @@
 		<div class="item">
 			<a href="#" >
 			<div class="number">0</div>
-			<div>상품후기</div>
+			<div>호텔후기</div>
 			</a>
 		</div>
 		<div class="item">
@@ -74,9 +74,9 @@
 		<div class="icon" style="font-size: 25px;"> > </div>
 		
 		<div class="item">
-			<a href="#" >
+			<a href="/user/reserlist/${principal.user.id}" >
 			<div>
-				<div class="green number">0</div>
+				<div class="green number">${count }</div>
 				<div class="text">예약한호텔</div>
 			</div>
 			</a>
@@ -108,17 +108,17 @@
 	</div>
 	
 	<div class="listContainer">
-		<a href="#" class="item">
+		<a href="/user/reserlist/${principal.user.id}" class="item">
 			<div class="icon">ii</div>
 			<div class="text">
 				<span>내지갑</span>
 				<span class="smallLight">
 					<span>|</span>
 					<span>결제내역</span>
-				</span>          
-			</div>                
+				</span>
+			</div>
 			<div class="right">
-			<span class="blct">&#8361; 0</span>
+			<span class="blct">&#8361; ${price }</span>
 			> </div>
 		</a>
 	</div>

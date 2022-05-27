@@ -31,6 +31,14 @@ public class ReservationService {
 	public Reservation reservationInsert(Reservation reservation) {
 		return reservationRepository.save(reservation);
 	}
+	//내 예약 돈 합계
+	public String pricesum(Long id) {
+		return reservationRepository.pricesum(id);
+	}
+	//내 예약 카운트
+	public Long count(Long id) {
+		return reservationRepository.resercount(id);
+	}
 	
 	
 }

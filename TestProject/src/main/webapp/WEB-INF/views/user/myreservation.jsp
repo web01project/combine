@@ -32,28 +32,33 @@
 				<th colspan="3"><h2>내 예약 목록</h2></th>
 			</tr>
 		</thead>
-		
+			
 		<tbody>
-			<c:forEach items="${reservations }" var ="rev" varStatus="st">
+			<c:forEach items="${reservations }" var ="rsv" varStatus="st">
+			<fmt:formatDate var="rsvInDt" value="${rsv.check_in}" 
+			pattern="yyyy-MM-dd"/>
+			<fmt:formatDate var="rsvOutDt" value="${rsv.check_out}" 
+			pattern="yyyy-MM-dd"/>
 			<tr>
 				<td ><img class="card-img-top"
-								src="/resources/img/${rev.hotel.fileimage }" alt="Card image"
+								src="/resources/img/${rsv.hotel.fileimage }" alt="Card image"
 								width="" height="200px"/></td>
-				<td><font size="5em" >${rev.hotel.h_name }</font><br/>
-						주소 : ${rev.hotel.location1}<br/>
-						전화번호 : ${rev.hotel.h_tel}<br/>
-						체크인 시간 : ${rev.check_in}<br/>
-						체크아웃 시간 : ${rev.check_out}<br/>
-						인원 : ${rev.people }<br/>
-						금액 : ${rev.hotel.price }<br/>
-						좋아요 : ${rev.hotel.h_like }
+				<td>
+				<a href="/hotel/detail/${rsv.hotel.h_num}">
+				<font size="6em" >${rsv.hotel.h_name }(${rsvInDt} ~ ${rsvOutDt})
+				</font><br/>
+				</a>
+						주소 : ${rsv.hotel.location1}<br/>
+						전화번호 : ${rsv.hotel.h_tel}<br/>
+						금액 : ${rsv.hotel.price }<br/>
+						인원 : ${rsv.people }<br/>
 				</td>
 				<td align="center">
 				<div>
 				<button class="btn btn-secondary btn-sm">자세히보기</button>
 				</div>
 				<div>
-				좋아요 : ${rev.hotel.h_like }
+				좋아요 : ${rsv.hotel.h_like }
 				</div>
 				</td>
 				<td></td>
