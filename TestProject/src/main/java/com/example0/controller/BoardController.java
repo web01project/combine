@@ -5,8 +5,8 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.boot.jaxb.hbm.spi.JaxbHbmOneToManyCollectionElementType;
-import org.springframework.beans.factory.annotation.Autowired;import org.springframework.data.web.PageableDefault;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -148,7 +148,6 @@ private ReservationRepository reservationRepository;
 		model.addAttribute("hotel", boardService.findById(h_num) );
 		return "/hotel/hotelview";
 	}
-	
 	//삭제
 	@DeleteMapping("delete/{num}")
 	@ResponseBody
