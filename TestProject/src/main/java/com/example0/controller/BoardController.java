@@ -59,7 +59,7 @@ private ReservationRepository reservationRepository;
 				@AuthenticationPrincipal PrincipalDetails principal) {
 		String uploadFolder = session.getServletContext().getRealPath("/")+"\\resources\\img";
 		hotel.setUser(principal.getUser());
-		hotel.setH_like(0L);
+		hotel.setH_like(0);
 		boardService.hotelInsert(hotel,uploadFolder);
 		return "redirect:hotellist";
 	}
@@ -80,23 +80,9 @@ private ReservationRepository reservationRepository;
 		model.addAttribute("hotel",boardService.findById(h_num));
 		return "/hotel/hotelDetail1";
 	}
-	 @RequestMapping(value = "/read", method = RequestMethod.GET)
-	    public void read(@RequestParam("h_num") Long h_num, Model model, @AuthenticationPrincipal PrincipalDetails principal,HttpServletRequest httpRequest) throws Exception {
-
-		 Hotel hotel = boardRepository.findById(h_num).get();
-	        HotelLike hotelLike = new HotelLike();
-	        
-	        hotelLike.setHotel(hotel);
-	        hotelLike.setUser(principal.getUser());
-
-	        Long h_like = likeService.getBoardLike(hotelLike);
-	        System.out.println(h_like);
-
-	        model.addAttribute("heart",h_like);
-	    }
+	 
 	//좋아요 추가
 	    @ResponseBody
-	    @PreAuthorize("isAuthenticated()")
 	    @RequestMapping(value = "/heart/{h_num}", method = RequestMethod.POST, produces = "application/json")
 	    public int heart(HttpServletRequest httpRequest,@AuthenticationPrincipal PrincipalDetails principal,@PathVariable("h_num") Long h_num) {
 
@@ -116,7 +102,7 @@ private ReservationRepository reservationRepository;
 	            likeService.insertHotelLike(hotelLike);
 	            heart=1;
 	        }
-
+ 
 	        return heart;
 
 	    }
