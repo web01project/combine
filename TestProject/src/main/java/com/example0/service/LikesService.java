@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 public class LikesService {
 
 	private final LikeRepository likeRepository;
-
+ 
 	public void insertHotelLike(HotelLike h_like) {
 		likeRepository.save(h_like);
 		likeRepository.updateBoardLike(h_like.getHotellike_num(),h_like.getHotel().getH_num(),h_like.getUser().getId());
