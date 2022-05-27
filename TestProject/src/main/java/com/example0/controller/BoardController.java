@@ -29,7 +29,7 @@ import com.example0.model.Reservation;
 import com.example0.repository.BoardRepository;
 import com.example0.repository.ReservationRepository;
 import com.example0.service.BoardService;
-import com.example0.service.LikeService;
+import com.example0.service.LikesService;
 import com.example0.service.ReservationService;
 
 import lombok.RequiredArgsConstructor;
@@ -47,7 +47,7 @@ private BoardRepository boardRepository;
 private ReservationService rservice;
 @Autowired
 private ReservationRepository reservationRepository;
-@Autowired LikeService likeService;
+@Autowired LikesService likesService;
 	
 	//호텔등록
 	@GetMapping("hotelInsert")
@@ -96,10 +96,10 @@ private ReservationRepository reservationRepository;
  
 
 	        if(heart >= 1) {
-	            likeService.deleteHotelLike(hotelLike);
+	            likesService.deleteHotelLike(hotelLike);
 	            heart=0;
 	        } else {
-	            likeService.insertHotelLike(hotelLike);
+	            likesService.insertHotelLike(hotelLike);
 	            heart=1;
 	        }
  
