@@ -2,6 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>   
 <link rel="stylesheet" href="/css/mypagestyle.css">
+<link href="/css/list.css" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+	integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <title>내 예약</title>
 <!-- ↑마이페이지 헤더 -->
 <div class="wrap">
@@ -40,17 +45,39 @@
 			<fmt:formatDate var="rsvOutDt" value="${rsv.check_out}" 
 			pattern="yyyy-MM-dd"/>
 			<tr>
-				<td ><img class="card-img-top"
-								src="/resources/img/${rsv.hotel.fileimage }" alt="Card image"
-								width="" height="200px"/></td>
+				
+				<td >
+				<a href="/hotel/detail/${rsv.hotel.h_num}">
+					<img class="card-img-top"
+					src="/resources/img/${rsv.hotel.fileimage }" alt="Card image"
+					width="" height="200px"/>
+				</a>				
+				</td>
+				
 				<td>
+			
 				<a href="/hotel/detail/${rsv.hotel.h_num}">
 				<font size="6em" >${rsv.hotel.h_name }(${rsvInDt} ~ ${rsvOutDt})
 				</font><br/>
 				</a>
+						<font size ="5em">금액 : &#8361;${rsv.hotel.price }</font><br/><br/>
+						등급 
+						<c:if test="${rsv.hotel.grade=='STAR1' }">
+							<span><i class="fa-solid fa-star"></i></span>
+							<br />
+						</c:if>
+						<c:if test="${rsv.hotel.grade=='STAR2' }">
+							<span><i class="fa-solid fa-star"></i><i
+								class="fa-solid fa-star"></i></span>
+							<br />
+						</c:if>
+						<c:if test="${rsv.hotel.grade=='STAR3' }">
+							<span><i class="fa-solid fa-star"></i><i
+								class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+							<br />
+						</c:if>
 						주소 : ${rsv.hotel.location1}<br/>
 						전화번호 : ${rsv.hotel.h_tel}<br/>
-						금액 : ${rsv.hotel.price }<br/>
 						인원 : ${rsv.people }<br/>
 				</td>
 				<td align="center">

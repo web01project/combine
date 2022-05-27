@@ -63,9 +63,9 @@
 		<div class="icon" style="font-size: 25px;"> ＞ </div>
 		
 		<div class="item">
-			<a href="#" >
+			<a href="/user/reserlist/${principal.user.id}" >
 			<div>
-				<div class="number">0</div>
+				<div class="number">${count }</div>
 				<div class="text">결제완료</div>
 			</div>
 			</a>
@@ -74,10 +74,10 @@
 		<div class="icon" style="font-size: 25px;"> > </div>
 		
 		<div class="item">
-			<a href="/user/reserlist/${principal.user.id}" >
+			<a href="#" >
 			<div>
-				<div class="green number">${count }</div>
-				<div class="text">예약한호텔</div>
+				<div class="green number">0</div>
+				<div class="text">호텔후기</div>
 			</div>
 			</a>
 		</div>
