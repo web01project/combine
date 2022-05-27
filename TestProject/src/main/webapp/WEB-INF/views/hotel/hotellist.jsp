@@ -74,7 +74,7 @@
 							<a href="/hotel/detail/${hotel.h_num }"><button
 									class="button-19">선택하기</button></a>
 							<c:if test="${principal.user.role == 'ROLE_MANAGER'}">
-								<a href="/hotel/view/${hotel.h_num }"><button
+								<a href="/hotel/update/${hotel.h_num }"><button
 										class="button-19">수정하기</button></a>
 							</c:if>
 						</div>
@@ -93,9 +93,14 @@
 
 		var heartval = $
 		{
+<<<<<<< HEAD
 			heart
 		}
 		; 
+=======
+heart/{#$hotel.h_num}}
+		;
+>>>>>>> branch 'main' of https://github.com/web01project/combine.git
 
 		//좋아요 처리
 		if (heartval > 0) {

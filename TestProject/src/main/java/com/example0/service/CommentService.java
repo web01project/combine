@@ -38,8 +38,8 @@ public class CommentService {
 		}
 	//삭제
 	@Transactional
-	public void delete(Long review_num) {
-		commentRepository.deleteById(review_num);
+	public void delete(Long num) {
+		commentRepository.deleteById(num);
 		
 	}
 }

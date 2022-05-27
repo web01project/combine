@@ -49,8 +49,9 @@
 </div>
 <div id="wrapper">
 	<span class="price_tag">금액:${hotel.price }</span>
-	
-	<button class="button-19">예약하기</button>
+	<a href="/hotel/reservationform/${hotel.h_num }">
+	<button class="button-19" >예약하기</button>	
+	</a>
 	<button class="button-19" id="btnDelete">삭제하기</button>
 </div>
 <script type="text/javascript"
@@ -185,5 +186,6 @@
 		}
 	})
 	})
+	init();
 </script>
 <%@ include file="../include/footer.jsp"%>
