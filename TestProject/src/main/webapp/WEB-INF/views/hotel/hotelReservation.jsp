@@ -3,7 +3,7 @@
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
 <input type="hidden" value="${hotel.h_num}" id=""/>
-
+<input type="hidden" value= "${principal.user.id }" id="userid">
 <div class="row row-space">
 	<div>
 	<!-- 체크인달력 -->
@@ -97,9 +97,14 @@ function a_datepicker(obj){
 
 
 $("#btnReservation").click(function(){
+	if($("#userid").val()==""){
+		alert("로그인하세요");
+		location.href="/login";
+		return false;
+	}
 	if($("#CheckIn").val() == ""){
-	alert("체크인날짜를 선택하세요.")
-	return false;
+		alert("체크인날짜를 선택하세요.")
+		return false;
 	}
 	if($("#CheckOut").val() == ""){
 		alert("체크아웃날짜를 선택하세요.")
@@ -107,6 +112,10 @@ $("#btnReservation").click(function(){
 	}
 	if($("#CheckIn").val() > $("#CheckOut").val()){
 		alert("체크인 체크아웃 날짜를 확인하세요")
+		return false;
+	}
+	if($("#poeple").val() == ""){
+		alert("인원을 체크하세요")
 		return false;
 	}
 	if(!confirm("예약 하시겠습니까?")) return false;

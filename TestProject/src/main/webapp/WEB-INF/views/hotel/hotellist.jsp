@@ -93,7 +93,7 @@
 		{
 heart/{#$hotel.h_num}}
 		;
-	
+
 		//좋아요 처리
 		if (heartval > 0) {
 			console.log(heartval);

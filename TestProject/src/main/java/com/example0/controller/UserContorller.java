@@ -42,6 +42,7 @@ public class UserContorller {
 	public String mypage(Model model,@PathVariable Long id) {
 		//내예약 돈합계
 		model.addAttribute("price", rservice.pricesum(id));
+		//내예약 카운트
 		model.addAttribute("count",rservice.count(id));
 		return "user/mypage";
 	}
@@ -75,4 +76,19 @@ public class UserContorller {
 		model.addAttribute("reservations", rservice.rlist(id));
 		return "user/myreservation";
 	}
+	
+//	//내장바구니 추가
+//	@PostMapping("cartin")
+//	@ResponseBody
+//	public String cart(@RequestBody HotelCart hotelcart) {
+//		cservice.insertcart(hotelcart);
+//		return "success";
+//	}
+//	
+//	//내장바구니 폼
+//	@GetMapping("cartlist/{id}")
+//	public String cartlist(Model model, @PathVariable Long id) {
+//		model.addAttribute("cart", cservice.cartlist(id));
+//		return "redirect:/user/mycart";
+//	}
 }
