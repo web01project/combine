@@ -81,13 +81,13 @@ private ReservationRepository reservationRepository;
 	}
 	//좋아요 추가
 	 @ResponseBody
-	    @RequestMapping(value = "/heart", method = RequestMethod.POST, produces = "application/json")
+	 @RequestMapping(value = "/heart", method = RequestMethod.POST, produces = "application/json")
 	    public int heart(HttpServletRequest httpRequest,@AuthenticationPrincipal PrincipalDetails principal) {
-
+		 	
 	        int heart = Integer.parseInt(httpRequest.getParameter("h_like"));
 	        HotelLike hotelLike = new HotelLike();
-	        hotelLike.setH_num(hotel);
-	        hotelLike.setU_num(principal.getUser());
+//	        hotelLike.setH_num(hotel);
+	        hotelLike.setUser(principal.getUser());
 
 
 	        if(heart >= 1) {

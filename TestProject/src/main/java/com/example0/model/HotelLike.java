@@ -23,12 +23,13 @@ public class HotelLike {
 	private Long hotellike_num;
 	
 	// 유저번호
-		@ManyToOne
-		@JoinColumn(name = "u_num")
-		private User user;
-		// 유저번호
-		@ManyToOne
-		@JoinColumn(name = "h_num")
-		private Hotel hotel;
+	@ManyToOne
+	@JoinColumn(name = "u_num")
+	private User user;
+	
+	// 유저번호
+	@ManyToOne
+	@JoinColumn(name = "h_num")
+	private Hotel hotel;
 		
 }

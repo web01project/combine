@@ -69,7 +69,7 @@ public class UserContorller {
 	//내 예약목록보기
 	@GetMapping("reserlist/{id}")
 	public String reserlist(@PathVariable Long id, Model model) {
-		model.addAttribute("reservation", rservice.rlist(id));
+		model.addAttribute("reservations", rservice.rlist(id));
 		return "user/myreservation";
 	}
 }
