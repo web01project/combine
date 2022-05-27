@@ -61,6 +61,7 @@ public class BoardService {
 		b.setH_tel(hotel.getH_tel());
 		b.setPrice(hotel.getPrice());
 	}
+	
 	//삭제하기
 	@Transactional
 	public void delete(Long num) {
