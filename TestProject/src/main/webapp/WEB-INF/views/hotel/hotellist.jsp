@@ -84,7 +84,7 @@
 				<!-- col -->
 			</c:forEach>
 		</div>
-	</div>
+	</div> 
 </Section>
 <script>
 	$(document).ready(function() {

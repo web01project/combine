@@ -107,7 +107,7 @@ private ReservationRepository reservationRepository;
 	        
 	        hotelLike.setHotel(hotel);
 	        hotelLike.setUser(principal.getUser());
-
+ 
 
 	        if(heart >= 1) {
 	            likeService.deleteHotelLike(hotelLike);
