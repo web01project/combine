@@ -26,7 +26,7 @@ import com.example0.service.CommentService;
 public class CommentController {
 	@Autowired
 	private CommentService commentService;
-	
+	//댓글리스트
 	@GetMapping("list/{h_num}")
 	public List<Review> list(@PathVariable Long h_num){
 		System.out.println("h_num  :  "+h_num );
@@ -36,9 +36,9 @@ public class CommentController {
 	}
 	//댓글삭제
 		@DeleteMapping("delete/{num}")
-		public Long delete(@PathVariable Long review_num) {
-			commentService.delete(review_num);
-			return review_num;
+		public Long delete(@PathVariable Long num) {
+			commentService.delete(num);
+			return num;
 		}
 	//댓글추가
 	

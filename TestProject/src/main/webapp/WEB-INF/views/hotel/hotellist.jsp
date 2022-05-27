@@ -72,7 +72,7 @@
 							<a href="/hotel/detail/${hotel.h_num }"><button
 									class="button-19">선택하기</button></a>
 							<c:if test="${principal.user.role == 'ROLE_MANAGER'}">
-								<a href="/hotel/view/${hotel.h_num }"><button
+								<a href="/hotel/update/${hotel.h_num }"><button
 										class="button-19">수정하기</button></a>
 							</c:if>
 						</div>
