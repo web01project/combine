@@ -25,7 +25,7 @@
 </section>
 <Section>
 	<div class="container">
-		<h4>${count}개의 예약가능한 숙소가 있습니다.</h4>
+		<h4>${count}개의예약가능한숙소가있습니다.</h4>
 		<div class="form-group text-right"></div>
 		<div class="row ">
 			<c:forEach items="${hotels }" var="hotel">
@@ -38,11 +38,13 @@
 								width="100px" height="280px">
 						</div>
 						<!-- hotel like -->
-						<div style="position: relative; left: 10px; top: -70px;">
-							<a href="/hotel/liketest/${hotel.h_num }" onclick="return confirm('찜하시겠습니까? ?');">
+						<%-- <a href="/hotel/liketest/${hotel.h_num }" onclick="return confirm('찜하시겠습니까? ?');">
 							<button type="button" class="btn btn-secondary btn_sm"
 								id="btnLike">좋아요</button>
-							</a>	
+							</a> --%>
+						<div style="text-align: right;">
+							<a class="btn btn-outline-dark heart"> <img id="heart" src="">
+							</a>
 						</div>
 						<div class="card-body">
 							<h2 class="card-title">${hotel.h_name }</h2>
@@ -50,27 +52,30 @@
 								class="card-text">설명 : ${hotel.content }</span><br /> <span
 								class="card-text">가격 : ${hotel.price }원</span><br /> <span
 								class="card-text">등급 </span>
-							
+
 							<c:if test="${hotel.grade=='STAR1' }">
-								<span><i class="fa-solid fa-star"></i></span><br/>
+								<span><i class="fa-solid fa-star"></i></span>
+								<br />
 							</c:if>
 
 							<c:if test="${hotel.grade=='STAR2' }">
 								<span><i class="fa-solid fa-star"></i><i
-									class="fa-solid fa-star"></i></span><br/>
+									class="fa-solid fa-star"></i></span>
+								<br />
 							</c:if>
 							<c:if test="${hotel.grade=='STAR3' }">
 								<span><i class="fa-solid fa-star"></i><i
-									class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span><br/>
+									class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+								<br />
 							</c:if>
-							<span class="card-text" id="h_like"> 좋아요 : ${hotel.h_like }</span> <a
-								href="/hotel/detail/${hotel.h_num }"><button
+							<span class="card-text" id="h_like"> 좋아요 : ${hotel.h_like }</span>
+							<a href="/hotel/detail/${hotel.h_num }"><button
 									class="button-19">선택하기</button></a>
 							<c:if test="${principal.user.role == 'ROLE_MANAGER'}">
 								<a href="/hotel/view/${hotel.h_num }"><button
 										class="button-19">수정하기</button></a>
 							</c:if>
-						</div> 
+						</div>
 						<!--card-body  -->
 
 					</div>
@@ -79,41 +84,51 @@
 				<!-- col -->
 			</c:forEach>
 		</div>
-		</div>
+	</div>
 </Section>
 <script>
+	$(document).ready(function() {
 
-
-
-
- //좋아요 증가
- /* 
- $("#btnLike").click(function(){
-	 if(!confirm("정말 숙소를 찜할까요?")) return false;
-	 if(${empty principal.user}){
-			alert("로그인하세요")
-			location.href="/login"
-			return
+		var heartval = $
+		{
+			heart
 		}
-	 data = {
-		"h_like" : $("#h_like").val()
-	 }
-		 $.ajax({
-			 type:"put",
-			 url : "/hotel/like",
-			 contentType : "application/json;charset=utf-8",
-			 data : JSON.stringify(data),
-			 success: function(resp){
-				 alert("추가완료")
-				 location.href="/hotel/hotellist";
-			 },
-			 error : function(e){
-				 alert("추가실패 : " + e);
-			 }
-		 }) //ajax
+		;
 
- })//btnlike
-       */
+		if (heartval > 0) {
+			console.log(heartval);
+			$("#heart").prop("src", "/resources/img/like2.png");
+			$(".heart").prop('name', heartval)
+		} else {
+			console.log(heartval);
+			$("#heart").prop("src", "../resources/img/like2.png");
+			$(".heart").prop('name', heartval)
+		}
+
+		$(".heart").on("click", function() {
+
+			var that = $(".heart");
+
+			var sendData = {
+				'h_num' : '${hotel.h_num}',
+				'heart' : that.prop('name')
+			};
+			$.ajax({
+				url : '/hotel/heart',
+				type : 'POST',
+				data : sendData,
+				success : function(data) {
+					that.prop('name', data);
+					if (data == 1) {
+						$('#heart').prop("src", "./resources/img/like2.png");
+					} else {
+						$('#heart').prop("src", "./resources/img/like1.png");
+					}
+
+				}
+			});
+		});
+	});
 </script>
 
 

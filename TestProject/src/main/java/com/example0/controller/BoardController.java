@@ -2,8 +2,10 @@ package com.example0.controller;
 
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.boot.jaxb.hbm.spi.JaxbHbmOneToManyCollectionElementType;
 import org.springframework.beans.factory.annotation.Autowired;import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -14,16 +16,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 //숙소관리 컨트롤러
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example0.config.auth.PrincipalDetails;
 import com.example0.model.Hotel;
+import com.example0.model.HotelLike;
 import com.example0.model.Reservation;
+import com.example0.model.User;
 import com.example0.repository.BoardRepository;
 import com.example0.repository.ReservationRepository;
 import com.example0.service.BoardService;
+import com.example0.service.LikeService;
 import com.example0.service.ReservationService;
 
 import lombok.RequiredArgsConstructor;
@@ -41,7 +47,7 @@ private BoardRepository boardRepository;
 private ReservationService rservice;
 @Autowired
 private ReservationRepository reservationRepository;
-
+@Autowired LikeService likeService;
 	
 	//호텔등록
 	@GetMapping("hotelInsert")
@@ -74,12 +80,27 @@ private ReservationRepository reservationRepository;
 		return "/hotel/hotelDetail1";
 	}
 	//좋아요 추가
-	@PutMapping("like")
-	@ResponseBody
-	public String like(@RequestBody Hotel hotel) {
-		boardService.like(hotel);
-		return "success";
-	}
+	 @ResponseBody
+	    @RequestMapping(value = "/heart", method = RequestMethod.POST, produces = "application/json")
+	    public int heart(HttpServletRequest httpRequest,@AuthenticationPrincipal PrincipalDetails principal) {
+
+	        int heart = Integer.parseInt(httpRequest.getParameter("h_like"));
+	        HotelLike hotelLike = new HotelLike();
+	        hotelLike.setH_num(hotel);
+	        hotelLike.setU_num(principal.getUser());
+
+
+	        if(heart >= 1) {
+	            likeService.deleteHotelLike(hotelLike);
+	            heart=0;
+	        } else {
+	            likeService.insertHotelLike(hotelLike);
+	            heart=1;
+	        }
+
+	        return heart;
+
+	    }
 	
 	//좋아요 추가 임시
 	@GetMapping("liketest/{h_num}")
