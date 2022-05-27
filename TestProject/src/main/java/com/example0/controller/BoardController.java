@@ -148,6 +148,7 @@ private ReservationRepository reservationRepository;
 		model.addAttribute("hotel", boardService.findById(h_num) );
 		return "/hotel/hotelview";
 	}
+	
 	//숙소삭제
 	@DeleteMapping("delete/{num}")
 	@ResponseBody
