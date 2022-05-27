@@ -57,9 +57,9 @@ public class Hotel {
 	//@JsonBackReference
 	private List<Review> reviews;
 //	// 유저번호
-//	@ManyToOne
-//	@JoinColumn(name = "uid")
-//	private User user;
+	@ManyToOne
+	@JoinColumn(name = "uid")
+	private User user;
 	// 업로드 파일
 	@Transient //객체에서 빼기
 	private MultipartFile upload;
