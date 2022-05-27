@@ -30,6 +30,7 @@
 		<button type="button" class="btn btn-secondary btn-sm" id="btnReservation" >예약</button>
 		<br/>
 		
+		<h3>예약 현황</h3>
 		<!-- 체크인 체크아웃 확인 -->
 		<c:forEach items="${reservation}" var="rsv">
 			<fmt:formatDate var="rsvInDt" value="${rsv.check_in}" 
