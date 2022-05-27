@@ -89,22 +89,18 @@
 <script>
 	$(document).ready(function() {
 
-		var heartval = $
-		{
-			heart
-		}
-		;
-
+		var heartval = ${heart};
+		
 		if (heartval > 0) {
 			console.log(heartval);
 			$("#heart").prop("src", "/resources/img/like2.png");
 			$(".heart").prop('name', heartval)
-		} else {
+		} else { 
 			console.log(heartval);
-			$("#heart").prop("src", "../resources/img/like2.png");
+			$("#heart").prop("src", "../resources/img/like1.png");
 			$(".heart").prop('name', heartval)
 		}
-
+		//허트그림 클릭시 
 		$(".heart").on("click", function() {
 
 			var that = $(".heart");
@@ -114,7 +110,7 @@
 				'heart' : that.prop('name')
 			};
 			$.ajax({
-				url : '/hotel/heart',
+				url : '/hotel/heart/${hotel.h_num}',
 				type : 'POST',
 				data : sendData,
 				success : function(data) {
@@ -126,9 +122,9 @@
 					}
 
 				}
-			});
+			}); //ajax
 		});
-	});
+	}); //function
 </script>
 
 
