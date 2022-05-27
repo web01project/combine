@@ -59,7 +59,7 @@ public class Hotel {
 	// 유저번호
 	@ManyToOne
 	@JoinColumn(name = "uid")
-	private User user;
+	private User user;//
 	// 업로드 파일
 	@Transient //객체에서 빼기
 	private MultipartFile upload;
