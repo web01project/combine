@@ -100,11 +100,13 @@
 	        <div class="text">찜한호텔</div>
 	        <div class="right"> > </div>
 	    </a>
+	    <c:if test="${principal.user.role == 'ROLE_MANAGER' }">
 	    <a href="#" class="item">
 	        <div class="icon">ii</div>
-	        <div class="text">호텔문의</div>
+	        <div class="text">호텔관리</div>
 	        <div class="right"> > </div>
 	    </a>
+	    </c:if>
 	</div>
 	
 	<div class="listContainer">

@@ -58,7 +58,7 @@ public class Hotel {
 	private List<Review> reviews;
 //	// 유저번호
 	@ManyToOne
-	@JoinColumn(name = "uid")
+	@JoinColumn(name = "u_num")
 	private User user;
 	// 업로드 파일
 	@Transient //객체에서 빼기
