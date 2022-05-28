@@ -32,8 +32,8 @@
 			</a>
 		</div>	
 		<div class="item">
-			<a href="#" >
-			<div class="number">0</div>
+			<a href="/hotel/myreply/${principal.user.id }" >
+			<div class="number">${replycnt }</div>
 			<div>호텔후기</div>
 			</a>
 		</div>
@@ -55,7 +55,7 @@
 				<a href="#" >
 				<div>
 					<div class="green number">0</div>
-					<div class="text">장바구니</div>
+					<div class="text">찜한호텔</div>
 				</div>
 				</a>
 		</div>
@@ -74,9 +74,9 @@
 		<div class="icon" style="font-size: 25px;"> > </div>
 		
 		<div class="item">
-			<a href="#" >
+			<a href="/hotel/myreply/${principal.user.id }" >
 			<div>
-				<div class="green number">0</div>
+				<div class="green number">${replycnt }</div>
 				<div class="text">호텔후기</div>
 			</div>
 			</a>
@@ -90,7 +90,7 @@
 	        <div class="text">예약목록<span class="circle"></span></div>
 	        <div class="right"> > </div>
 		</a>
-	    <a href="#" class="item">
+	    <a href="/hotel/myreply/${principal.user.id }" class="item">
 	        <div class="icon">ii</div>
 	        <div class="text">호텔후기</div>
 	        <div class="right"> > </div>

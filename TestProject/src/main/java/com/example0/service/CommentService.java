@@ -18,7 +18,7 @@ public class CommentService {
 	private final BoardRepository boardRepository;
 	private final CommentRepository commentRepository;
 	
-	//댓글리스트 
+	//호텔댓글리스트 
 	public List<Review> list(Long review_num){
 		return commentRepository.findByhNum(review_num);
 	}
@@ -40,6 +40,15 @@ public class CommentService {
 	@Transactional
 	public void delete(Long num) {
 		commentRepository.deleteById(num);
-		
+	}
+	
+	//내댓글 리스트
+	public List<Review> myreply(Long n_num){
+		return commentRepository.myreply(n_num);
+	}
+	
+	//내 댓글 카운트
+	public int myreplycount(Long n_num) {
+		return commentRepository.myreplycount(n_num);
 	}
 }
