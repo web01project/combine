@@ -85,6 +85,11 @@ public class BoardService {
 	public Hotel findById(Long h_num) {
 		Hotel hotel = boardRepository.findById(h_num).get();
 		return hotel;
-		
 	}
+
+	//내호텔리스트
+	public List<Hotel> myhotel(Long u_num) {
+		return boardRepository.myHotel(u_num);
+	}
+
 }

@@ -34,6 +34,7 @@ public class UserContorller {
 
 	private final UserService uservice;
 	private final ReservationService rservice;
+	private final BoardService bservice;
 	private final BoardRepository boardRepository;
 	private final ReservationRepository reservationRepository;
 	
@@ -76,6 +77,14 @@ public class UserContorller {
 		model.addAttribute("reservations", rservice.rlist(id));
 		return "user/myreservation";
 	}
+	
+	//내 호텔 리스트
+	@GetMapping("myhotel/{u_num}")
+	public String myhotel(@PathVariable Long u_num, Model model) {
+		model.addAttribute("myhotel", bservice.myhotel(u_num));
+		return "user/myhotellist";
+	}
+	
 	
 //	//내장바구니 추가
 //	@PostMapping("cartin")

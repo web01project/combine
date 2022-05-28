@@ -101,7 +101,7 @@
 	        <div class="right"> > </div>
 	    </a>
 	    <c:if test="${principal.user.role == 'ROLE_MANAGER' }">
-	    <a href="#" class="item">
+	    <a href="/user/myhotel/${principal.user.id }" class="item">
 	        <div class="icon">ii</div>
 	        <div class="text">호텔관리</div>
 	        <div class="right"> > </div>
