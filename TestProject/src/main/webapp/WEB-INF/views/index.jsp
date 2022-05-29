@@ -9,13 +9,13 @@
 			<div class="wrapper wrapper--w900">
 				<div class="card card-6">
 					<div class="card-body">
-						<form method="" action="/hotel/hotellist" method="get">
+						<form action="/hotel/hotellist" method="get">
 							<div class="row row-space">
 								<div class="col-1">
 									<div class="input-group">
 										<input type="hidden" name='field' value="location1">
 										<label class="label">장소를 입력하세요.</label> <input
-											class="input--style-1" type="text" name="word" value="장소를 입력하세요"
+											class="input--style-1" type="text" name="word" 
 											placeholder="Enter location" required="required">
 									</div>
 								</div>

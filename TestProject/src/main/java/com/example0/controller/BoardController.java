@@ -80,13 +80,21 @@ private ReservationRepository reservationRepository;
 	 */
 	//페이징 숙소 리스트
 	@GetMapping("hotellist")
-	public String list(Model model,@PageableDefault(size = 6 , direction = Direction.DESC) Pageable pageable,@RequestParam(required = false, defaultValue =  "")	String field,@RequestParam(required = false, defaultValue = "")	String word) {
-		Page<Hotel> lists= boardService.findAll(field,word,pageable);
+	public String list(Model model,
+			@PageableDefault(size = 6 , direction = Direction.DESC) Pageable pageable,
+			@RequestParam(required = false, defaultValue =  "")	String field, 
+			@RequestParam(required = false, defaultValue =  "")	String field2,
+			@RequestParam(required = false, defaultValue = "")	String word) {
+		Page<Hotel> lists= boardService.findAll(field, field2,word,pageable);
+		//카운트
+		Long count = boardService.count(field,word);
 		
-			Long count = boardService.count(field,word);
-		
+		System.out.println(word);
+		System.out.println(field);
+		System.out.println(field2);
 		model.addAttribute("count",count);
 		model.addAttribute("hotels",lists);
+		model.addAttribute("word", word);
 		return "/hotel/hotellist";
 	}
 	

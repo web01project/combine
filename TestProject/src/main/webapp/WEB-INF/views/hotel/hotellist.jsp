@@ -12,9 +12,14 @@
 	<h2>category filter</h2>
 	<div class="category_menu">
 		<form class="form-inline" action="/hotel/hotellist" method="get">
-			<select name='field' class="form-control mr-sm-1">
+		
+			<input type="hidden" name='field' value="location1">
+			
+			<select name='field2' class="form-control mr-sm-1">
 				<option value="price">금액</option>
 			</select>
+			
+			<input type="text" name="word" value="${word }"/>
 			<button class='btn btn-secondary'>정렬하기</button>
 		</form>
 
