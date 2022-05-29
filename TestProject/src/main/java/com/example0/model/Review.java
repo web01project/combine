@@ -56,8 +56,4 @@ public class Review {
 	@JsonIgnore
 	@JoinColumn(name = "h_num")
 	private Hotel hotel;
-	// 파일이름
-	private String fileimage;
-	
-	
 }
