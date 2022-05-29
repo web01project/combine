@@ -26,7 +26,7 @@
 		<section id="section_detail">
 
 			<img class="center" src="/resources/img/${hotel.fileimage }">
-
+ 
 		</section>
 		<!--사이드바-->
 		<aside id="aside_detail">
