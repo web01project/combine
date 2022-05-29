@@ -92,8 +92,8 @@
 	<div class="child2">설명:${hotel.content }</div>
 	<div class="child">전화번호:${hotel.h_tel }</div>
 	<div class="child">
-		<a href="/hotel/reservationform/${hotel.h_num }"><button
-				class="button-19">예약하기</button></a>
+		<a href="/hotel/reservationform/${hotel.h_num }">
+		<button	class="button-19">예약하기</button></a>
 	</div>
 </div>
 

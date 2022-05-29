@@ -49,6 +49,7 @@ public class CommentService {
 		return commentRepository.myreply(n_num);
 	}
 	
+	
 	//내 댓글 카운트
 	public int myreplycount(Long n_num) {
 		return commentRepository.myreplycount(n_num);

@@ -63,4 +63,5 @@ public class Review {
 	private String fileimage;
 	//평점
 	private String jum;
+	
 }
