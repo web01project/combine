@@ -56,9 +56,6 @@ public class Review {
 	@JsonIgnore
 	@JoinColumn(name = "h_num")
 	private Hotel hotel;
-	// 업로드 파일
-	@Transient //객체에서 빼기
-	private MultipartFile upload;
 	// 파일이름
 	private String fileimage;
 	
