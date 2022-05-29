@@ -13,8 +13,9 @@
 							<div class="row row-space">
 								<div class="col-1">
 									<div class="input-group">
+										<input type="hidden" name='field' value="location1">
 										<label class="label">장소를 입력하세요.</label> <input
-											class="input--style-1" type="text" name="location1" value="장소를 입력하세요"
+											class="input--style-1" type="text" name="word" value="장소를 입력하세요"
 											placeholder="Enter location" required="required">
 									</div>
 								</div>
