@@ -40,40 +40,6 @@
 							</div>
 							<div class="row row-space">
 								<div class="col-2">
-									<div class="input-group m-b-0">
-										<label class="label">인원</label>
-										<div class="input-group-icon" id="js-select-special">
-											<input class="input--style-1 input--text-small" type="text"
-												name="passengers" value="1 Adult, 0 Children, 1 Room"
-												disabled="disabled" id="info"> <i
-												class="zmdi zmdi-plus input-icon"></i>
-										</div>
-										<div class="dropdown-select">
-											<ul class="list-room">
-												<li class="list-room__item"><span
-													class="list-room__name">Room 1</span>
-													<ul class="list-person">
-														<li class="list-person__item"><span class="name">Adults</span>
-															<div class="quantity quantity1">
-																<span class="minus">-</span> <input class="inputQty"
-																	type="number" min="0" value="1"> <span
-																	class="plus">+</span>
-															</div></li>
-														<li class="list-person__item"><span class="name">Children</span>
-															<div class="quantity quantity2">
-																<span class="minus">-</span> <input class="inputQty"
-																	type="number" min="0" value="0"> <span
-																	class="plus">+</span>
-															</div></li>
-													</ul></li>
-											</ul>
-							<!-- 				<div class="list-room__footer">
-												<a href="#" id="btn-add-room">Add room</a>
-											</div> -->
-										</div>
-									</div>
-								</div>
-								<div class="col-2">
 									<button class="btn-submit m-b-0" type="submit">search</button>
 								</div>
 							</div>

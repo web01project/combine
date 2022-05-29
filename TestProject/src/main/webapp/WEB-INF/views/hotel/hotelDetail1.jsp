@@ -191,7 +191,6 @@
 	//지도에서 보기 클릭
 	$(document).ready(function(){
 	$("#mapBtn").click(function(){
-		alert("지도를 확인하세요");
 		var offset = $('#mapView').offset();
 		 $('html').animate({scrollTop : offset.top}, 400);
 		 
