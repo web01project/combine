@@ -5,7 +5,7 @@
 <div id="wapper">
 	<!--헤더시작-->
 	<header>
-	<h3>${hotel.h_name }</h3>
+		<h3>${hotel.h_name }</h3>
 
 		<span id="span_detail">지도에서 보기</span>
 	</header>
@@ -18,19 +18,18 @@
 			<li><a href="">link</a></li>
 		</ul>
 		<div id="replyResult"></div>
-	
-	<div align="center">
-		<textarea rows="3" cols="25" id="msg"></textarea>
-		
-		<button type="button" class="btn btn-secondary btn-sm" id="btnComment">리뷰쓰기</button>
-		
-	</div>
-	<hr />
-<form id ="frm" action="post">
 
-</form>
+		<div align="center">
+			<textarea rows="3" cols="25" id="msg"></textarea>
+
+			<button type="button" class="btn btn-secondary btn-sm"
+				id="btnComment">리뷰쓰기</button>
+
+		</div>
+		<hr />
+		<form id="frm" action="post"></form>
 	</nav>
-	 
+
 	<!--콘텐츠부분-->
 	<section id="section_detail">
 		<article id="article_detail">
@@ -38,7 +37,7 @@
 				<img class="center" src="/resources/img/${hotel.fileimage }">
 			</div>
 			<p>숙소 상세정보</p>
-			<div> ${hotel.content }</div>
+			<div>${hotel.content }</div>
 		</article>
 	</section>
 	<!--사이드바-->
@@ -48,9 +47,15 @@
 	</aside>
 </div>
 <div id="wrapper">
-	<span class="price_tag">금액:${hotel.price }</span>
-	<a href="/hotel/reservationform/${hotel.h_num }">
-	<button class="button-19" >예약하기</button>	
+	<!-- 좋아요 기능 구현 -->
+	<div style="text-align: right;">
+		<a class="btn btn-outline-dark heart"> <img id="heart">
+		</a>
+	</div>
+	<span class="price_tag">금액:${hotel.price }</span> <a
+		href="/hotel/reservationform/${hotel.h_num }"> <span
+		class="price_tag">좋아요:${hotel.h_like }</span>
+		<button class="button-19">예약하기</button>
 	</a>
 	<button class="button-19" id="btnDelete">삭제하기</button>
 </div>
@@ -172,6 +177,7 @@
 	})
 	$("#btnDelete").click(function(){
 	if(!confirm("정말 삭제할까요?")) return
+	
 	$.ajax({
 		type:"delete",
 		url : "/hotel/delete/${hotel.h_num}",
@@ -187,5 +193,49 @@
 	})
 	})
 	init();
+	//좋아요 기능 구현
+ $(document).ready(function () {
+	 if(${empty principal.user}){
+			alert("로그인하세요")
+			location.href="/login"
+			return
+		}
+        var heartval = $(heart);
+
+        if(heartval>0) {
+            console.log(heartval);
+            $("#heart").prop("src", "../../resources/img/like2.png");
+            $(".heart").prop('name',heartval)
+        }
+        else {
+            console.log(heartval);
+            $("#heart").prop("src", "../../resources/img/like1.png");
+            $(".heart").prop('name',heartval)
+        }
+
+        $(".heart").on("click", function() {
+            
+        	 var that = $(".heart");
+            
+            var sendData = {
+            	"h_num":${hotel.h_num},
+               "heart" : that.prop('name')};
+            $.ajax({
+               url : '/hotel/heart',
+               type : 'POST',
+           	contentType : "application/json;charset=utf-8",
+			data : JSON.stringify(sendData),
+               success : function(data) {
+                  that.prop('name', data);
+                   if (data == 1) {
+                     $('#heart').prop("src", "../../resources/img/like2.png");
+                  } else {
+                     $('#heart').prop("src", "../../resources/img/like1.png");
+                  } 
+
+               }
+            }); //ajax
+         });
+      }); //function
 </script>
 <%@ include file="../include/footer.jsp"%>

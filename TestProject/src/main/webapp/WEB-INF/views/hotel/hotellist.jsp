@@ -11,7 +11,7 @@
 <section class="filters">
 	<h2>category filter</h2>
 	<div class="category_menu">
-		<form class="form-inline" action="/hotellist" method="get">
+		<form class="form-inline" action="/hotel/hotellist" method="get">
 			<select name='field' class="form-control mr-sm-1">
 				<option value="price">금액</option>
 				<option value="grade">평점</option>
@@ -28,7 +28,7 @@
 		<h4>${count}개의예약가능한숙소가있습니다.</h4>
 		<div class="form-group text-right"></div>
 		<div class="row ">
-			<c:forEach items="${hotels }" var="hotel">
+			<c:forEach items="${hotels.content }" var="hotel">
 
 				<div class="col-3 mb-3" style="width: 400px">
 					<div class="card">
@@ -41,13 +41,13 @@
 						<%-- <a href="/hotel/liketest/${hotel.h_num }" onclick="return confirm('찜하시겠습니까? ?');">
 							<button type="button" class="btn btn-secondary btn_sm"
 								id="btnLike">좋아요</button>
-							</a> --%>
+							</a> 
 						<div style="text-align: right;">
 							<a class="btn btn-outline-dark heart"
 								data-h_num="${hotel.h_num }" data-name=''
 								data-h_like="${hotel.h_like }"> <img id="heart" src="">
 							</a>
-						</div>
+						</div> --%>
 						<div class="card-body">
 							<h2 class="card-title">${hotel.h_name }</h2>
 							<span class="card-text"> 위치: ${hotel.location1 }</span><br /> <span
@@ -85,22 +85,29 @@
 				</div>
 				<!-- col -->
 			</c:forEach>
-		</div>
-	</div>
+			<div class="d-flex justify-content-between mt-5 mr-auto">
+				<ul class="pagination">
+					<c:if test="${hotels.first==false }">
+						<li class="page-item"><a class="page-link"
+							href="?page=${hotels.number-1 }">이전</a></li>
+					</c:if>
+					<c:if test="${hotels.last ==false }">
+						<li class="page-item"><a class="page-link"
+							href="?page=${hotels.number+1 }">다음</a></li>
+					</c:if>
+				</ul>
+				<div></div>
+			</div>
 </Section>
 <script>
-	$(document).ready(function() {
+/* 	$(document).ready(function() {
 
 		var heartval = $
 		{
-<<<<<<< HEAD
 			heart
 		}
 		; 
-=======
-heart/{#$hotel.h_num}}
-		;
->>>>>>> branch 'main' of https://github.com/web01project/combine.git
+
 
 		//좋아요 처리
 		if (heartval > 0) {
@@ -115,7 +122,7 @@ heart/{#$hotel.h_num}}
 
 		$(".heart").on("click", function() {
 			
-			alert($("h_like").val());
+			alert($("heart").val());
 		
 			if(${empty principal.user}){
 				alert("로그인하세요")
@@ -132,7 +139,9 @@ heart/{#$hotel.h_num}}
 			$.ajax({
 				url : '/hotel/heart/' + $(that).data("h_num"),
 				type : 'POST',
-				data : sendData,
+				contentType : "application/json;charset=utf-8",
+				data : JSON.stringify(sendData),
+
 				success : function(data) {
 					that.prop('name', data);
 					if (data == 1) {
@@ -144,7 +153,7 @@ heart/{#$hotel.h_num}}
 				}
 			}); //ajax
 		});
-	}); //function
+	}); //function */
 </script>
 
 
