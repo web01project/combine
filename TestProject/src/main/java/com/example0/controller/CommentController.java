@@ -24,9 +24,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example0.config.auth.PrincipalDetails;
 import com.example0.model.Hotel;
-import com.example0.model.PageMaker;
 import com.example0.model.Review;
 import com.example0.model.User;
+import com.example0.repository.BoardRepository;
 import com.example0.service.CommentService;
 
 @RestController
@@ -35,6 +35,8 @@ public class CommentController {
 	@Autowired
 	private CommentService commentService;
 	//댓글리스트
+	@Autowired
+	private BoardRepository boardRepository;
 	
 	 @GetMapping("list/{h_num}") 
 	 public List<Review> list(@PathVariable Long h_num){ 
@@ -57,27 +59,14 @@ public class CommentController {
 				@RequestBody Review review,
 				@AuthenticationPrincipal PrincipalDetails principal) {
 			System.out.println("principal : " + principal);
-			
-			Hotel h = new Hotel();
-			h.setH_num(num);
-	        review.setPoint(2.3f);
+			Hotel h = boardRepository.findById(num).get();
 			review.setHotel(h);
-			
-			/*
-			 * User user = new User(); user.setId(1L); user.setUsername("11");
-			 */
-			
-			//System.out.println("princopal.getUser():"+principal.getUser());
 			review.setUser(principal.getUser());//user
-			review.setPoint(10);
-			//comment.setUser(p.getUser());
+			
 			commentService.insert(review);
 			return new ResponseEntity<String>("success",HttpStatus.OK);
 		}
 		
-	
-		
-	
 		 //게시글 전체보기(페이징 , 검색)
 		  
 			/*

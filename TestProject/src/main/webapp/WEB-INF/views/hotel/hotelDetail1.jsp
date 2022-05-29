@@ -39,19 +39,19 @@
 			<div id="replyResult"></div>
 	<td><label for="content">리뷰 평점</label></td>
 			<td><label id="star1"> <input type="radio"
-				class="form-check-input" name="jum" value="STAR1" id="jum"
-				checked="checked">1개
+				class="form-check-input" name="point" value="1" id="point"
+				>1개
 			</label> <label id="star2"> <input type="radio"
-				class="form-check-input" name="jum" value="STAR2" id="jum"
-				checked="checked">2개
+				class="form-check-input" name="point" value="2" id="point"
+				>2개
 			</label> <label id="star3"> <input type="radio"
-				class="form-check-input" name="jum" value="STAR3" id="jum"
-				checked="checked">3개
+				class="form-check-input" name="point" value="3" id="point"
+				>3개
 			</label> <label id="star3"> <input type="radio"
-				class="form-check-input" name="jum" value="STAR4" id="jum"
-				checked="checked">4개
+				class="form-check-input" name="point" value="4" id="point"
+				>4개
 			</label> <label id="star3"> <input type="radio"
-				class="form-check-input" name="jum"" value="STAR5" id="jum"
+				class="form-check-input" name="point" value="5" id="point"
 				checked="checked">5개
 			</label></td>
 			<div id="replyResult"></div>
@@ -210,7 +210,7 @@
 		}
 		data = {
 			"content" : $("#msg").val(),
-			"h_num": ${hotel.h_num }
+			"point" : $("input[name=point]:checked").val()
 		}
 		$.ajax({
 			type : "post",
