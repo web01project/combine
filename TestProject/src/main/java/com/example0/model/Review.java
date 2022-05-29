@@ -39,7 +39,7 @@ public class Review {
 	private Long review_num;
 	// 리뷰 내용
 	private String content;
-	// 리뷰 작성일
+	// 리뷰 작성일 
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@JsonFormat(pattern = "yyyy-MM-dd")

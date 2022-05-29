@@ -7,7 +7,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 	integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
-<title>내 예약</title>
+<title>등록 숙소관리</title>
 <!-- ↑마이페이지 헤더 -->
 <div class="wrap">
 	<div class="blueContanier">
@@ -40,7 +40,7 @@
 	<table class="table table-hover">
 		<thead>
 			<tr align="center">
-				<th colspan="3"><h2>내 예약 목록</h2></th>
+				<th colspan="3"><h2>등록 숙소 관리</h2></th>
 			</tr>
 		</thead>
 			
