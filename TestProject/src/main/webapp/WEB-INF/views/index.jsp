@@ -9,35 +9,18 @@
 			<div class="wrapper wrapper--w900">
 				<div class="card card-6">
 					<div class="card-body">
-						<form method="" action="/hotel/hotellist">
+						<form method="" action="/hotel/hotellist" method="get">
 							<div class="row row-space">
 								<div class="col-1">
 									<div class="input-group">
 										<label class="label">장소를 입력하세요.</label> <input
-											class="input--style-1" type="text" name="from"
+											class="input--style-1" type="text" name="location1" value="장소를 입력하세요"
 											placeholder="Enter location" required="required">
 									</div>
 								</div>
  
 							</div>
-							<div class="row row-space">
-								<div class="col-2">
-									<div class="input-group">
-										<label class="label">체크인</label> <input
-											class="input--style-1" type="text" name="depart"
-											placeholder="YYYY-MM-DD" id="datepicker" 
-											onclick="javascript:a_datepicker(this);" readonly="readonly">
-									</div>
-								</div>
-								<div class="col-2">
-									<div class="input-group">
-										<label class="label">체크아웃</label> <input
-											class="input--style-1" type="text" name="return"
-											placeholder="YYYY-MM-DD" id="datepicker2" 
-											onclick="javascript:a_datepicker(this);" readonly="readonly">
-									</div>
-								</div>
-							</div>
+
 							<div class="row row-space">
 								<div class="col-2">
 									<button class="btn-submit m-b-0" type="submit">search</button>

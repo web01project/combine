@@ -55,7 +55,7 @@ public class BoardService {
 		if (field.equals("price"))
 			return boardRepository.priceCategory(pageable);
 		if(field.equals("location1"))
-			return  boardRepository.findByLocationContaining(word, pageable);
+			return  boardRepository.findByLocation1Containing(word, pageable);
 		return boardRepository.findAll(pageable);
 	}
 

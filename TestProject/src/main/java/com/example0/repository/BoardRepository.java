@@ -26,7 +26,7 @@ public interface BoardRepository extends JpaRepository<Hotel, Long> {
 	 * cntTitleSearch();
 	 */
 	//위치기반 검색리스트
-	Page<Hotel> findByLocationContaining(String location1,Pageable pageable);
+	Page<Hotel> findByLocation1Containing(String location1,Pageable pageable);
 
 	
 	@Query(value = "select count(*) from hotel where location1 like CONCAT('%', :word, '%') ", 
