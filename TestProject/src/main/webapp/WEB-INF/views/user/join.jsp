@@ -18,8 +18,8 @@
 						<input type="radio" class="form-check-input" name="role"
 							value="ROLE_MANAGER" id="role" >관리자
 <!-- 						<input type="radio" class="form-check-input" name="role"
-							value="ROLE_ADMIN" id="role">사이트관리자
-						</label> -->
+							value="ROLE_ADMIN" id="role">사이트관리자 -->
+						</label>
 						</td>
 					</tr>
 					<tr>

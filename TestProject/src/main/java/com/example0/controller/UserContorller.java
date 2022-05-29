@@ -96,6 +96,12 @@ public class UserContorller {
 		return "user/myreply";
 	}
 	
+	//내가 찜한호텔폼
+	@GetMapping("mylike/{id}")
+	public String likelist(@PathVariable Long id, Model model) {
+//		model.addAttribute("likes", );
+		return "user/mylike";
+	}
 	
 //	//내장바구니 추가
 //	@PostMapping("cartin")

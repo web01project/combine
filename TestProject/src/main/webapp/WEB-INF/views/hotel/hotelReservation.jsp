@@ -136,7 +136,7 @@ $("#btnReservation").click(function(){
 	.done(function(resp){
 		if(resp == "success"){
 			alert("예약 성공")
-			location.href="/hotel/reservationform/${hotel.h_num}";
+			location.href="/user/reserlist/${principal.user.id }";
 		}else{
 			alert("예약 중복")
 		}

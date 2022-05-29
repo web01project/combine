@@ -32,7 +32,7 @@ public interface BoardRepository extends JpaRepository<Hotel, Long> {
 
 	@Query(value = "select * from hotel where u_num=:id", nativeQuery = true)
 	public List<Hotel> myHotel(@Param("id") Long id);
->>>>>>> branch 'main' of https://github.com/web01project/combine.git
+//>>>>>>> branch 'main' of https://github.com/web01project/combine.git
 }
 
  
