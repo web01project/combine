@@ -164,7 +164,7 @@
 				    str+="<td>"+val.user.name+"</td>"
 				   str+="<td>"+val.content+"</td>"
 				   str+="<td>"+val.regdate+"</td>"
-				   str+="<td>"+val.jum+"</td>"
+				   str+="<td>"+val.point+"</td>"
 				    if("${principal.user.id}"==val.user.id){
 					   str+="<td><a href='javascript:fdel("+val.review_num+")'>삭제</a></td>"
 				   } 
