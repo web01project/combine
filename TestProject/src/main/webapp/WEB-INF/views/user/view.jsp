@@ -13,7 +13,7 @@
 						<td>이메일(Email)</td>
 						<td><input type="text" class="form-control" id="useremail"
 							placeholder="Enter email" name="useremail" value="${user.useremail}" readonly="readonly"></td>
-					</tr>					
+					</tr>
 					<tr>
 						<td>이름(Name)</td>
 						<td><input type="text" class="form-control" id="name"

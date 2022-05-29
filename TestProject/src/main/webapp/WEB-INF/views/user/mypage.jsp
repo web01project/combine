@@ -8,6 +8,7 @@
 <div class="wrap">
 	<div class="blueContanier">
 		<div>
+			<a href="/user/mypage/${principal.user.id }">
 			<c:if test="${principal.user.role == 'ROLE_ADMIN' }">
 				<div class="grade" style="font-size: x-large;">ADMIN</div>
 			</c:if>
@@ -18,8 +19,9 @@
 				<div class="grade" style="font-size: x-large;">USER</div>
 			</c:if>
 			<div class="name">
-			<a href="/user/mypage/${principal.user.id }" style="color: white;">
-			${principal.user.name } 님
+			<font style="color: white;">
+				${principal.user.name } 님
+			</font>	
 			</a>
 			</div>
 		</div>
@@ -56,9 +58,9 @@
 	    
     	<div class="status">
 			<div class="item">
-				<a href="#" >
+				<a href="/user/mycart/${principal.user.id}" >
 				<div>
-					<div class="green number">0</div>
+					<div class="green number">${cartcount }</div>
 					<div class="text">장바구니</div>
 				</div>
 				</a>

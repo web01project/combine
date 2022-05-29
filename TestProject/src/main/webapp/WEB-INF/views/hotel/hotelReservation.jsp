@@ -45,6 +45,7 @@
 			</div>
 			<br/>
 			<div class="col-1">
+				<button class="btn-submit m-b-0" type="button" id="btnCart" >장바구니넣기</button>
 				<button class="btn-submit m-b-0" type="button" id="btnReservation" >예약</button>
 			</div>
 		</div>
@@ -143,6 +144,52 @@ $("#btnReservation").click(function(){
 	})
 	.fail(function(){
 		alert("예약 오류")
+	})
+})
+
+$("#btnCart").click(function(){
+	if($("#userid").val()==""){
+		alert("로그인하세요");
+		location.href="/login";
+		return false;
+	}
+	if($("#CheckIn").val() == ""){
+		alert("체크인날짜를 선택하세요.")
+		return false;
+	}
+	if($("#CheckOut").val() == ""){
+		alert("체크아웃날짜를 선택하세요.")
+		return false;
+	}
+	if($("#CheckIn").val() > $("#CheckOut").val()){
+		alert("체크인 체크아웃 날짜를 확인하세요")
+		return false;
+	}
+	if($("#poeple").val() == ""){
+		alert("인원을 체크하세요")
+		return false;
+	}
+	if(!confirm("장바구니에 넣으시겠습니까?")) return false;
+	
+	data={
+			"check_in" : $("#CheckIn").val(),
+			"check_out" : $("#CheckOut").val(),
+			"people" : $("#people").val()
+	}
+	$.ajax({
+		type:"post",
+		url:"/user/cartin/${hotel.h_num}",
+		contentType : "application/json;charset=utf-8",
+		data : JSON.stringify(data)
+	})
+	.done(function(resp){
+		if(resp == "success"){
+			alert("장바구니에 들어갔습니다")
+			location.href="/user/mycart/${principal.user.id }";
+		}
+	})
+	.fail(function(){
+		alert("오류")
 	})
 })
 
