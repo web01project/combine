@@ -53,6 +53,8 @@ public class BoardService {
 	// 페이징 전체보기
 	public Page<Hotel> findAll(String field,String field2,String word,Pageable pageable) {
 		
+		if(!field2.isEmpty())
+			return boardRepository.sortHotel(word, pageable);
 		if(field.equals("location1"))
 			return  boardRepository.findByLocation1Containing(word, pageable);
 		
@@ -69,9 +71,7 @@ public class BoardService {
 		public Long count(String field,String word) {
 			if(field.equals("location1"))
 				return boardRepository.cntLocationSearch(word);
-			/*
-			 * if(field.equals("price")) return boardRepository.count();
-			 */
+			
 			return boardRepository.count();
 
 		}
