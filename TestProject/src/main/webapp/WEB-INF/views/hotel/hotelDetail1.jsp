@@ -4,19 +4,33 @@
 <link href="/css/detail.css" rel="stylesheet" />
 <div id="wapper">
 	<!--헤더시작-->
-	
-		<header>
-			<h3>${hotel.h_name }</h3>
 
-			<button type="button" id="mapBtn">
-				<span id="span_detail">지도에서 보기</span>
+	<header>
+		<h3>${hotel.h_name }</h3>
 
-			</button>
-			<span>${hotel.location1 } </span><span>${hotel.location2 } </span>
-		</header>
-		<!--네비게이션-->
-		<div class="total">	
+		<button type="button" id="mapBtn">
+			<span id="span_detail">지도에서 보기</span>
+
+		</button>
+		<span>${hotel.location1 } </span><span>${hotel.location2 } </span>
+	</header>
+	<!--네비게이션-->
+	<div class="total">
 		<nav id="nav_detail">
+			<div id="mapView"></div>
+			<div id="map" style="width: 100%; height: 100%;">맵정보</div>
+			<div id="clickLatlng"></div>
+		</nav>
+
+		<!--콘텐츠부분-->
+		<section id="section_detail">
+
+			<img class="center" src="/resources/img/${hotel.fileimage }">
+
+		</section>
+		<!--사이드바-->
+		<aside id="aside_detail">
+
 			<p>리뷰</p>
 			<ul>
 				<li><a href="">${reply.count}개의 리뷰후기</a></li>
@@ -34,36 +48,24 @@
 			</div>
 			<hr />
 			<form id="frm" action="post"></form>
-		</nav>
-
-		<!--콘텐츠부분-->
-		<section id="section_detail">
-
-			<img class="center" src="/resources/img/${hotel.fileimage }">
-
-		</section>
-		<!--사이드바-->
-		<aside class="mapView" id="aside_detail">
-			<div id="map" style="width: 100%; height: 100%;">맵정보</div>
-			<div id="clickLatlng"></div>
 		</aside>
 	</div>
 
 	<!-- 좋아요 기능 구현 -->
-	<!-- <div style="text-align: right;">
+	<div style="text-align: right;">
 		<a class="btn btn-outline-dark heart"> <img id="heart">
 		</a>
-	</div> -->
 	</div>
-	<div class="parent">
-		<div class="child">금액:${hotel.price }</div>
-		<div class="child2">설명:${hotel.content }</div>
-		<div class="child">전화번호:${hotel.h_tel }</div>
-		<div class="child">
-			<a href="/hotel/reservationform/${hotel.h_num }"><button
-					class="button-19">예약하기</button></a>
-		</div>
+</div>
+<div class="parent">
+	<div class="child">금액:${hotel.price }</div>
+	<div class="child2">설명:${hotel.content }</div>
+	<div class="child">전화번호:${hotel.h_tel }</div>
+	<div class="child">
+		<a href="/hotel/reservationform/${hotel.h_num }"><button
+				class="button-19">예약하기</button></a>
 	</div>
+</div>
 
 
 <script type="text/javascript"
@@ -156,11 +158,14 @@
 		})
 	}
 	//지도에서 보기 클릭
+	$(document).ready(function(){
 	$("#mapBtn").click(function(){
 		alert("지도를 확인하세요");
-		$("#mapView").focus();
-		return false;
-	})
+		var offset = $('#mapView').offset();
+		 $('html').animate({scrollTop : offset.top}, 400);
+		 
+	});
+	});
 	
 	$("#btnComment").click(function() {
 		if(${empty principal.user}){
@@ -217,6 +222,7 @@
 
         if(heartval>0) {
             console.log(heartval);
+            alert($('heart').val);
             $("#heart").prop("src", "../../resources/img/like2.png");
             $(".heart").prop('name',heartval)
         }
