@@ -63,7 +63,7 @@ public class BoardService {
 
 	
 	//개수 
-	public Long count() { 
+	public Long count() {
 		return boardRepository.count();
 		}
 	 

@@ -78,7 +78,6 @@
 						</c:if>
 						주소 : ${hotel.location1}<br/>
 						전화번호 : ${hotel.h_tel}<br/>
-						좋아요 : ${hotel.h_like }
 				</td>
 				<td align="right">
 					<div>

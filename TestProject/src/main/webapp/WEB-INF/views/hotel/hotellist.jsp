@@ -142,7 +142,7 @@
 				}
 			}); //ajax
 		});
-	}); //function */ */
+	}); //function */
 </script>
 
 

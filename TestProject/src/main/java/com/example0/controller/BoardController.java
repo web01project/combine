@@ -88,7 +88,7 @@ private ReservationRepository reservationRepository;
 		Page<Hotel> lists= boardService.findAll(field, field2,word,pageable);
 		//카운트
 		Long count = boardService.count(field,word);
-		
+		System.out.println(lists);
 		System.out.println(word);
 		System.out.println(field);
 		System.out.println(field2);

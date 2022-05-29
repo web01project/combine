@@ -29,11 +29,14 @@ public interface BoardRepository extends JpaRepository<Hotel, Long> {
 	//위치기반 검색리스트//
 	Page<Hotel> findByLocation1Containing(String location1,Pageable pageable);
 
-	@Query(value = "select * from hotel where location1 like CONCAT('%',:word,'%') order by price", nativeQuery = true)
+	@Query(value = "select * from hotel where location1 like CONCAT('%',:word,'%') order by price", 
+			countQuery = "select count(*) from hotel sc where location1 like CONCAT('%',:word,'%')", 
+			nativeQuery = true)
 	Page<Hotel> sortHotel(@Param("word") String word, Pageable pageable);
 	
-	@Query(value = "select count(*) from hotel sc where location1 like CONCAT('%',:word,'%')", countQuery = "select count(*) from hotel sc where location1 like CONCAT('%',:word,'%')",
-			  nativeQuery=true)
+	@Query(value = "select count(*) from hotel sc where location1 like CONCAT('%',:word,'%')", 
+			countQuery = "select count(*) from hotel sc where location1 like CONCAT('%',:word,'%')",
+			nativeQuery=true)
 	public Long cntLocationSearch(@Param("word") String  word);
 	
 	@Query("select count(*) from Hotel")
