@@ -56,8 +56,8 @@
 				</td>
 				<td align="right">
 					<div>
-					<a href="/hotel/view/${review.review_num }">
-						<button class="btn btn-danger btn-sm">삭제하기</button>
+					<a href="javascript:fdel(${review.review_num })">
+						<button type="submit" class="btn btn-danger btn-sm">삭제하기</button>
 					</a>
 					</div>
 				</td>
@@ -68,4 +68,22 @@
 	</div>
 	
 </div>
+
+<script>
+function fdel(review_num){
+	if(!confirm("정말 삭제할까요?")) return;
+	$.ajax({
+		type:"delete",
+		url : "/reply/delete/"+review_num
+	})
+	.done(function(resp){
+		alert(resp+" 번 글 삭제 성공")
+		location.href="/user/myreply/${principal.user.id}"
+	})
+	.fail(function(){
+		alert("댓글 삭제 실패")
+	})
+}
+</script>
+
 <%@ include file="../include/footer.jsp"%>
