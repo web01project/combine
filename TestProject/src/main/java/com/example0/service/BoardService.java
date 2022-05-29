@@ -50,6 +50,7 @@ public class BoardService {
 		return boardRepository.findAll();
 	}
 
+	
 	// 페이징 전체보기
 	public Page<Hotel> findAll(String field,String field2,String word,Pageable pageable) {
 		
