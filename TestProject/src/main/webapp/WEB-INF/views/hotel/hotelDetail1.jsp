@@ -4,60 +4,68 @@
 <link href="/css/detail.css" rel="stylesheet" />
 <div id="wapper">
 	<!--헤더시작-->
-	<header>
-		<h3>${hotel.h_name }</h3>
+	
+		<header>
+			<h3>${hotel.h_name }</h3>
 
-		<button type="button" id="mapBtn"><span id="span_detail">지도에서 보기</span></button>
-	</header>
-	<!--네비게이션-->
-	<nav id="nav_detail">
-		<p>리뷰</p>
-		<ul>
-			<li><a href="">${reply.count}개의 리뷰후기</a></li>
-			<li><a href="">link</a></li>
-			<li><a href="">link</a></li>
-		</ul>
-		<div id="replyResult"></div>
+			<button type="button" id="mapBtn">
+				<span id="span_detail">지도에서 보기</span>
 
-		<div align="center">
-			<textarea rows="3" cols="25" id="msg"></textarea>
+			</button>
+			<span>${hotel.location1 } </span><span>${hotel.location2 } </span>
+		</header>
+		<!--네비게이션-->
+		<div class="total">	
+		<nav id="nav_detail">
+			<p>리뷰</p>
+			<ul>
+				<li><a href="">${reply.count}개의 리뷰후기</a></li>
+				<li><a href="">link</a></li>
+				<li><a href="">link</a></li>
+			</ul>
+			<div id="replyResult"></div>
 
-			<button type="button" class="btn btn-secondary btn-sm"
-				id="btnComment">리뷰쓰기</button>
+			<div align="center">
+				<textarea rows="3" cols="25" id="msg"></textarea>
 
-		</div>
-		<hr />
-		<form id="frm" action="post"></form>
-	</nav>
+				<button type="button" class="btn btn-secondary btn-sm"
+					id="btnComment">리뷰쓰기</button>
 
-	<!--콘텐츠부분-->
-	<section id="section_detail">
-		<article id="article_detail">
-			<div>
-				<img class="center" src="/resources/img/${hotel.fileimage }">
 			</div>
-			<p>숙소 상세정보</p>
-			<div>${hotel.content }</div>
-		</article>
-	</section>
-	<!--사이드바-->
-	<aside class="mapView" id="aside_detail">
-		<div id="map" style="width: 100%; height: 100%;">맵정보</div>
-		<div id="clickLatlng"></div>
-	</aside>
-</div>
-<div id="wrapper">
+			<hr />
+			<form id="frm" action="post"></form>
+		</nav>
+
+		<!--콘텐츠부분-->
+		<section id="section_detail">
+
+			<img class="center" src="/resources/img/${hotel.fileimage }">
+
+		</section>
+		<!--사이드바-->
+		<aside class="mapView" id="aside_detail">
+			<div id="map" style="width: 100%; height: 100%;">맵정보</div>
+			<div id="clickLatlng"></div>
+		</aside>
+	</div>
+
 	<!-- 좋아요 기능 구현 -->
-	<div style="text-align: right;">
+	<!-- <div style="text-align: right;">
 		<a class="btn btn-outline-dark heart"> <img id="heart">
 		</a>
+	</div> -->
 	</div>
-	<span class="price_tag">금액:${hotel.price }</span> <a
-		href="/hotel/reservationform/${hotel.h_num }"> <span
-		class="price_tag">좋아요:${hotel.h_like }</span>
-		<button class="button-19">예약하기</button>
-	</a>
-</div>
+	<div class="parent">
+		<div class="child">금액:${hotel.price }</div>
+		<div class="child2">설명:${hotel.content }</div>
+		<div class="child">전화번호:${hotel.h_tel }</div>
+		<div class="child">
+			<a href="/hotel/reservationform/${hotel.h_num }"><button
+					class="button-19">예약하기</button></a>
+		</div>
+	</div>
+
+
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6fa928439db918e52edfb39bd62d69f5&libraries=services,clusterer,drawing"></script>
 <script>

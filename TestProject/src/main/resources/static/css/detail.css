@@ -1,3 +1,9 @@
+
+
+div.total{
+		margin-top: 50px;
+	
+}
 h3, .h3 {
 	font-size: 2rem;
 	border: 0 0 0 0;
@@ -7,7 +13,7 @@ h3, .h3 {
 
 html, body {
 	width: 100%;
-	height: 100%;
+	height: 120%;
 }
 
 .container {
@@ -15,11 +21,32 @@ html, body {
 	height: 100%;
 }
 
+.left-container {
+	width: 50%;
+	float: left;
+	box-sizing: border-box;
+	border: solid;
+	border-color: skyblue;
+	box-sizing: border-box;
+	border: solid;
+	border-color: skyblue;
+}
+
+.right-container {
+	width: 50%; float : right;
+	box-sizing: border-box;
+	border: solid;
+	border-color: 777777;
+	float: right;
+}
+
 .center {
 	display: block;
-	margin-left: 80px;
+	width: 100%;
+	height: 100%;
+	margin-left: 0;
 	margin-right: auto;
-	margin-bottom :50px;
+	margin-bottom: 0px;
 	border: 8px;
 	padding: 10px;
 }
@@ -28,8 +55,8 @@ html, body {
 	width: auto;
 	text-align: left;
 	min-height: 300px;
-	margin: 100px 50px 100px 50px;
-	height: 50%;
+	margin: 100px 50px 0px 50px;
+	height: 40%;
 }
 
 #nav_detail, #aside_detail, #section_detail {
@@ -40,10 +67,9 @@ html, body {
 	float: left;
 }
 
-
 #nav_detail {
-	width:20%;
-	height:500px;
+	width: 20%;
+	height: 500px;
 }
 
 #section_detail {
@@ -52,7 +78,7 @@ html, body {
 }
 
 #aside_detail {
-	width: 25%;
+	width: 28%;
 	height: 500px;
 }
 
@@ -61,7 +87,7 @@ html, body {
 	margin: 20px;
 	align-content: center;
 }
- 
+
 .button-19 {
 	appearance: button;
 	background-color: #1899D6;
@@ -90,18 +116,39 @@ html, body {
 	-webkit-user-select: none;
 	vertical-align: middle;
 	white-space: nowrap;
-	width: 100%;
+	width:100%;
 }
 
-.price_tag {
-	display:table-cell;
-	padding-left:10px;
-	text-align: left;
-	vertical-align:middle;
+.parent {
+	display: flex;
+	align-content: center;
+	border: 1px solid #999;
+	margin-top: 10px;
+	margin: 55px;
+	vertical-align: middle;
+}
+
+.child {
+	flex: 0.3;
+	text-align:center;
+	vertical-align: middle;
+	border: 1px solid #999;
 	
 }
 
+.child2 {
+	flex: 1;
+	text-align:center;
+	
+	vertical-align: middle;
+	border: 1px solid #999;
+	
+	}
+
+
+
 .button-19:after {
+	align-content:center;
 	background-clip: padding-box;
 	background-color: #1CB0F6;
 	border: solid transparent;
@@ -110,10 +157,11 @@ html, body {
 	bottom: -4px;
 	content: "";
 	left: 0;
-	position: absolute;
+	position: relative;
 	right: 0;
 	top: 0;
 	z-index: -1;
+	
 }
 
 .button-19:main, .button-19:focus {
