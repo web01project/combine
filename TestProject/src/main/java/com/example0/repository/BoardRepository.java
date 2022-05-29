@@ -12,6 +12,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.example0.model.Hotel;
 
+
 public interface BoardRepository extends JpaRepository<Hotel, Long> {
 
 	@Query(value ="select * from hotel order by price" ,countQuery = "select count(*) from hotel", nativeQuery = true)
