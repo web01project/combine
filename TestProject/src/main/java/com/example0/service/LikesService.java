@@ -31,4 +31,5 @@ public class LikesService {
 	  likeRepository.getBoardLike(h_num,u_num);
 	 }
 	
+//
 }

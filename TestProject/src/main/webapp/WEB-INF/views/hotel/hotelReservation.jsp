@@ -50,8 +50,8 @@
 		</div>
 
 		<div style="display: table-cell;">
-				<h1 style="color: white;">${hotel.h_name }</h1><br/>
-				<h2 style="color: white;">예약 현황</h2><br/>
+				<h1 style="color: white;" align="center">${hotel.h_name }</h1><br/>
+				<h2 style="color: white;" align="center">예약 현황</h2><br/>
 			<font color="white" size="5">
 				<!-- 체크인 체크아웃 확인 -->
 				<c:forEach items="${reservation}" var="rsv">
@@ -59,8 +59,9 @@
 					pattern="yyyy-MM-dd"/>
 					<fmt:formatDate var="rsvOutDt" value="${rsv.check_out}" 
 					pattern="yyyy-MM-dd"/>
-					
-					예약일 : ${rsvInDt} ~ ${rsvOutDt}
+					<div align="center">
+					${rsvInDt} ~ ${rsvOutDt}
+					</div>
 				<br/>
 				</c:forEach>
 			</font>
@@ -135,7 +136,7 @@ $("#btnReservation").click(function(){
 	.done(function(resp){
 		if(resp == "success"){
 			alert("예약 성공")
-			location.href="/hotel/reservationform/${hotel.h_num}";
+			location.href="/user/reserlist/${principal.user.id }";
 		}else{
 			alert("예약 중복")
 		}
