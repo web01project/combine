@@ -59,7 +59,7 @@
 				<a href="#" >
 				<div>
 					<div class="green number">0</div>
-					<div class="text">찜한호텔</div>
+					<div class="text">장바구니</div>
 				</div>
 				</a>
 		</div>

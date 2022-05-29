@@ -50,11 +50,10 @@
 			pattern="yyyy-MM-dd"/>
 			<tr>
 				
-				<td >
+				<td style="width: 200px; height: 200px;">
 				<a href="/hotel/detail/${rsv.hotel.h_num}">
-					<img class="card-img-top"
-					src="/resources/img/${rsv.hotel.fileimage }" alt="Card image"
-					width="" height="200px"/>
+					<img class="card-img-top" style="width: 200px; height: 200px;"
+					src="/resources/img/${rsv.hotel.fileimage }" alt="Card image"/>
 				</a>				
 				</td>
 				
@@ -85,9 +84,6 @@
 						인원 : ${rsv.people }<br/>
 				</td>
 				<td align="center">
-				<div>
-				<button class="btn btn-secondary btn-sm">자세히보기</button>
-				</div>
 				<div>
 				좋아요 : ${rsv.hotel.h_like }
 				</div>

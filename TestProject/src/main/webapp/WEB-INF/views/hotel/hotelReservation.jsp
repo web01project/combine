@@ -7,7 +7,6 @@
 
 <header class="masthead">
 	<div class="container position-relative">
-		<div class="page-wrapper bg-img-3 p-t-240 p-b-120">
 			<div class="wrapper wrapper--w900">
 				<div class="card card-6">
 					<div class="card-body">
@@ -39,8 +38,8 @@
 			<!-- 인원수넣기 -->
 			<div class="col-1">
 				<div class="input-group">
-					<label class="label">인원수</label><input
-					class="input--style-1" id="people">
+					<label class="label">인원수</label><input type="text"
+					class="input--style-1" id="people" >
 					
 				</div>
 			</div>
@@ -73,7 +72,6 @@
 						</form>
 					</div>
 				</div>
-			</div>
 		</div>
 	</div>
 </header>
