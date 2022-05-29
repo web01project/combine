@@ -87,7 +87,6 @@
 				</td>
 				<td align="center">
 				<div>
-				좋아요 : ${rsv.hotel.h_like }
 				</div>
 				</td>
 				<td></td>

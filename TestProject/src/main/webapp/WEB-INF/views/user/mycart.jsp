@@ -93,7 +93,7 @@
 				<a href="javascript:cartdel(${cart.cart_num })">
 				<button type="button" class="btn btn-danger">삭제하기</button>
 				</a>
-				<br/>좋아요 : ${cart.hotel.h_like }
+				<br/>
 				</div>
 				</td>
 			</tr>
