@@ -89,6 +89,7 @@ $("input[type=radio][name=role]").on("click",function(){
 $("#btnJoin").click(function() {
 	//전화번호 정규식
 	var regTel = /^[0-9]{3}-[0-9]{4}-[0-9]{4}$/
+	var Age=20 
 	//이메일 정규식
 	var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/
 	if ($("#name").val() == "") {
@@ -119,6 +120,10 @@ $("#btnJoin").click(function() {
 	if ($("#age").val() == "") {
 		alert("나이를 입력하세요")
 		$("#age").focus();
+		return false;
+	}
+	if($("#age").val()<=19	){
+		alert("미성년자는 가입이 되지 않습니다")
 		return false;
 	}
 	if ($("#tel").val() == "") {
