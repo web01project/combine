@@ -118,4 +118,10 @@ public class BoardService {
 		return hotel;
 
 	}
+
+	//내호텔리스트
+	public List<Hotel> myhotel(Long u_num) {
+		return boardRepository.myHotel(u_num);
+	}
+
 }

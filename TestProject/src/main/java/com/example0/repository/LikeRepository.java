@@ -24,7 +24,7 @@ public interface LikeRepository extends JpaRepository<Likes, Long> {
 	@Query(value="update hotel set h_like = (select count(*) from hotel_like where h_num =:h_num) where h_num =:h_num",
 			nativeQuery = true)
 	public void updateBoardLike(@Param("h_num")Long h_num);
-
+ 
 	//좋아요 갯수 반환
 	@Modifying
 	@Query(value="select count(*) from hotel_like where where h_num =:h_num and u_num =:u_num",

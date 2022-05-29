@@ -18,7 +18,7 @@ public class LikesService {
 		likeRepository.createBoardLike(h_num, u_num);
 		likeRepository.updateBoardLike(u_num);
 		//likeRepository.createBoardLike(h_like.getHotellike_num(),h_like.getHotel().getH_num(),h_like.getUser().getId());
-
+ 
 	}
 	@Transactional
 	public void deleteHotelLike(Long h_num,Long u_num) {

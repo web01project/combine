@@ -22,6 +22,7 @@ import com.example0.model.User;
 import com.example0.repository.BoardRepository;
 import com.example0.repository.ReservationRepository;
 import com.example0.service.BoardService;
+import com.example0.service.CommentService;
 import com.example0.service.ReservationService;
 import com.example0.service.UserService;
 
@@ -34,6 +35,8 @@ public class UserContorller {
 
 	private final UserService uservice;
 	private final ReservationService rservice;
+	private final BoardService bservice;
+	private final CommentService cservice;	
 	private final BoardRepository boardRepository;
 	private final ReservationRepository reservationRepository;
 	
@@ -44,6 +47,8 @@ public class UserContorller {
 		model.addAttribute("price", rservice.pricesum(id));
 		//내예약 카운트
 		model.addAttribute("count",rservice.count(id));
+		//내 댓글 카운트
+		model.addAttribute("replycnt", cservice.myreplycount(id));
 		return "user/mypage";
 	}
 	
@@ -76,6 +81,21 @@ public class UserContorller {
 		model.addAttribute("reservations", rservice.rlist(id));
 		return "user/myreservation";
 	}
+	
+	//내 호텔 리스트
+	@GetMapping("myhotel/{id}")
+	public String myhotel(@PathVariable Long id, Model model) {
+		model.addAttribute("myhotel", bservice.myhotel(id));
+		return "user/myhotellist";
+	}
+	
+	//내 댓글 리스트폼
+	@GetMapping("myreply/{id}")
+	public String replylist(@PathVariable Long id, Model model) {
+		model.addAttribute("myreply", cservice.myreply(id));
+		return "user/myreply";
+	}
+	
 	
 //	//내장바구니 추가
 //	@PostMapping("cartin")

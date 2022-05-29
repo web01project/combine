@@ -73,10 +73,6 @@
 							<span class="card-text" id="h_like"> 좋아요 : ${hotel.h_like }</span>
 							<a href="/hotel/detail/${hotel.h_num }"><button
 									class="button-19">선택하기</button></a>
-							<c:if test="${principal.user.role == 'ROLE_MANAGER'}">
-								<a href="/hotel/update/${hotel.h_num }"><button
-										class="button-19">수정하기</button></a>
-							</c:if>
 						</div>
 						<!--card-body  -->
 
@@ -134,7 +130,7 @@
 			var sendData = {
 		            'h_num' : $(that).data("h_num"),
 		            /* 'heart' : that.prop('data-name') */
-		            'h_like' : $(that).data("h_like")
+		 /*            'h_like' : $(that).data("h_like")
 		         };
 			$.ajax({
 				url : '/hotel/heart/' + $(that).data("h_num"),
@@ -149,11 +145,11 @@
 					} else {
 						$('#heart').prop("src", "../resources/img/like1.png");
 					}
-
+  
 				}
 			}); //ajax
 		});
-	}); //function */
+	}); //function */ */
 </script>
 
 

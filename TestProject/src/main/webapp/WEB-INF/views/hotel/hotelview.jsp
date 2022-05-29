@@ -174,7 +174,7 @@ $("#btnDelete").click(function(){
 			alert("삭제실패 : " + e)
 		}
 	})
-	})
+})
 	init();
 </script>
 

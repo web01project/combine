@@ -43,61 +43,53 @@
 		</thead>
 			
 		<tbody>
-			<c:forEach items="${reservations }" var ="rsv" varStatus="st">
-			<fmt:formatDate var="rsvInDt" value="${rsv.check_in}" 
-			pattern="yyyy-MM-dd"/>
-			<fmt:formatDate var="rsvOutDt" value="${rsv.check_out}" 
-			pattern="yyyy-MM-dd"/>
-			<tr>
-				
+			<c:forEach items="${myhotel }" var ="hotel">
+			<tr>			
 				<td style="width: 200px; height: 200px;">
-				<a href="/hotel/detail/${rsv.hotel.h_num}">
+				<a href="/hotel/detail/${hotel.h_num}">
 					<img class="card-img-top" style="width: 200px; height: 200px;"
-					src="/resources/img/${rsv.hotel.fileimage }" alt="Card image"/>
-				</a>				
+					src="/resources/img/${hotel.fileimage }" alt="Card image"/>
+				</a>
 				</td>
 				
 				<td>
 			
-				<a href="/hotel/detail/${rsv.hotel.h_num}">
-				<font size="6em" >${rsv.hotel.h_name }(${rsvInDt} ~ ${rsvOutDt})
+				<a href="/hotel/detail/${hotel.h_num}">
+				<font size="6em" >${hotel.h_name }
 				</font><br/>
 				</a>
-						<font size ="5em">금액 : &#8361;${rsv.hotel.price }</font><br/><br/>
+						<font size ="5em">금액 : &#8361;${hotel.price }</font><br/><br/>
 						등급 
-						<c:if test="${rsv.hotel.grade=='STAR1' }">
+						<c:if test="${hotel.grade=='STAR1' }">
 							<span><i class="fa-solid fa-star"></i></span>
 							<br />
 						</c:if>
-						<c:if test="${rsv.hotel.grade=='STAR2' }">
+						<c:if test="${hotel.grade=='STAR2' }">
 							<span><i class="fa-solid fa-star"></i><i
 								class="fa-solid fa-star"></i></span>
 							<br />
 						</c:if>
-						<c:if test="${rsv.hotel.grade=='STAR3' }">
+						<c:if test="${hotel.grade=='STAR3' }">
 							<span><i class="fa-solid fa-star"></i><i
 								class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
 							<br />
 						</c:if>
-						주소 : ${rsv.hotel.location1}<br/>
-						전화번호 : ${rsv.hotel.h_tel}<br/>
-						인원 : ${rsv.people }<br/>
+						주소 : ${hotel.location1}<br/>
+						전화번호 : ${hotel.h_tel}<br/>
+						좋아요 : ${hotel.h_like }
 				</td>
-				<td align="center">
-				<div>
-				좋아요 : ${rsv.hotel.h_like }
-				</div>
+				<td align="right">
+					<div>
+					<a href="/hotel/view/${hotel.h_num }">
+					<button class="btn btn-secondary btn-sm">수정하기</button>
+					</a>
+					</div>
 				</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
 			</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	</div>
 </div>
-
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

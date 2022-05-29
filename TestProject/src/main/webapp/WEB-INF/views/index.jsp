@@ -6,7 +6,6 @@
 <!-- Masthead-->
 <header class="masthead">
 	<div class="container position-relative">
-		<div class="page-wrapper bg-img-3 p-t-240 p-b-120">
 			<div class="wrapper wrapper--w900">
 				<div class="card card-6">
 					<div class="card-body">
@@ -82,7 +81,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 	</div>
 </header>
 

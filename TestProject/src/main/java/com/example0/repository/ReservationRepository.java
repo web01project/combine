@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import com.example0.model.Reservation;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long>{
-	
+	 
 	// user 의 예약 리스트확인
 	@Query(value = "select * from reservation r join hotel h"
 			+ " where r.h_num = h.h_num and r.u_num=:id order by r.check_in desc",
@@ -18,7 +18,7 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long>{
 	public List<Reservation> rservationUserid(@Param("id") Long id);
 	
 	//호텔 예약리스트 
-	@Query(value = "select * from reservation where h_num=:id order by check_in",
+	@Query(value = "select * from reservation where h_num=:id order by check_in desc",
 					nativeQuery = true)
 	public List<Reservation> hnumReservation(@Param("id") Long id);
 	

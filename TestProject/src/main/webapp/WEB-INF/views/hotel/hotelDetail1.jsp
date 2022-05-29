@@ -57,7 +57,6 @@
 		class="price_tag">좋아요:${hotel.h_like }</span>
 		<button class="button-19">예약하기</button>
 	</a>
-	<button class="button-19" id="btnDelete">삭제하기</button>
 </div>
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6fa928439db918e52edfb39bd62d69f5&libraries=services,clusterer,drawing"></script>
@@ -216,7 +215,7 @@
         $(".heart").on("click", function() {
             
         	 var that = $(".heart");
-            
+             
             var sendData = {
             	"h_num":${hotel.h_num},
                "heart" : that.prop('name')};

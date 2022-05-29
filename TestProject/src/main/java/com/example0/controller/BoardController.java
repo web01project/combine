@@ -112,7 +112,7 @@ private ReservationRepository reservationRepository;
 	 * System.out.println("강:"+boardlike);
 	 * 
 	 * model.addAttribute("heart",1); }
-	 */
+	 */ 
 	//좋아요 추가
 	    @ResponseBody
 	    @RequestMapping(value = "/heart", method = RequestMethod.POST, produces = "application/json")

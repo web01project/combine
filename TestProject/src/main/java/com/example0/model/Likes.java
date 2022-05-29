@@ -27,7 +27,7 @@ public class Likes {
 
 	private Long u_num;
 	
-	// 유저번호
+	// 유저번호 
 	
 	private Long h_num;
 

@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.example0.model.Hotel;
 import com.example0.model.User;
 import com.example0.repository.UserRepository;
 
@@ -32,6 +33,7 @@ public class UserService {
 	public List<User> ulist(){
 		return userRepository.findAllUser();
 	}
+	@Transactional
 	//유저삭제
 	public void delete(Long id) {
 		userRepository.deleteById(id);
@@ -58,5 +60,5 @@ public class UserService {
 		u.setBusinessnum(user.getBusinessnum());
 	}
 	
-	//
+	
 }
