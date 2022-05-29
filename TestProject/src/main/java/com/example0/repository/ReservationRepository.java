@@ -18,7 +18,7 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long>{
 	public List<Reservation> rservationUserid(@Param("id") Long id);
 	
 	//호텔 예약리스트 
-	@Query(value = "select * from reservation where h_num=:id order by check_in",
+	@Query(value = "select * from reservation where h_num=:id order by check_in desc",
 					nativeQuery = true)
 	public List<Reservation> hnumReservation(@Param("id") Long id);
 	

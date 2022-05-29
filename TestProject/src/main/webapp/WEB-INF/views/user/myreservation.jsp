@@ -21,7 +21,11 @@
 			<c:if test="${principal.user.role == 'ROLE_USER' }">
 				<div class="grade" style="font-size: x-large;">USER</div>
 			</c:if>
-			<div class="name">${principal.user.name } 님</div>
+			<div class="name">
+			<a href="/user/mypage/${principal.user.id }" style="color: white;">
+			${principal.user.name } 님
+			</a>
+			</div>
 		</div>
 		<div class="modify">
 			<a class="btn btn-secondary btn-sm" 

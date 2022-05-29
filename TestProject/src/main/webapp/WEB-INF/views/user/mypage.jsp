@@ -17,7 +17,11 @@
 			<c:if test="${principal.user.role == 'ROLE_USER' }">
 				<div class="grade" style="font-size: x-large;">USER</div>
 			</c:if>
-			<div class="name">${principal.user.name } 님</div>
+			<div class="name">
+			<a href="/user/mypage/${principal.user.id }" style="color: white;">
+			${principal.user.name } 님
+			</a>
+			</div>
 		</div>
 		<div class="modify">
 			<a class="btn btn-secondary btn-sm" 
@@ -32,7 +36,7 @@
 			</a>
 		</div>	
 		<div class="item">
-			<a href="/hotel/myreply/${principal.user.id }" >
+			<a href="/user/myreply/${principal.user.id}" >
 			<div class="number">${replycnt }</div>
 			<div>호텔후기</div>
 			</a>
@@ -74,7 +78,7 @@
 		<div class="icon" style="font-size: 25px;"> > </div>
 		
 		<div class="item">
-			<a href="/hotel/myreply/${principal.user.id }" >
+			<a href="/user/myreply/${principal.user.id}" >
 			<div>
 				<div class="green number">${replycnt }</div>
 				<div class="text">호텔후기</div>
@@ -90,7 +94,7 @@
 	        <div class="text">예약목록<span class="circle"></span></div>
 	        <div class="right"> > </div>
 		</a>
-	    <a href="/hotel/myreply/${principal.user.id }" class="item">
+	    <a href="/user/myreply/${principal.user.id }" class="item">
 	        <div class="icon">ii</div>
 	        <div class="text">호텔후기</div>
 	        <div class="right"> > </div>

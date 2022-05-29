@@ -21,7 +21,11 @@
 			<c:if test="${principal.user.role == 'ROLE_USER' }">
 				<div class="grade" style="font-size: x-large;">USER</div>
 			</c:if>
-			<div class="name">${principal.user.name } 님</div>
+			<div class="name">
+			<a href="/user/mypage/${principal.user.id }" style="color: white;">
+			${principal.user.name } 님
+			</a>
+			</div>
 		</div>
 		<div class="modify">
 			<a class="btn btn-secondary btn-sm" 
@@ -41,11 +45,10 @@
 		<tbody>
 			<c:forEach items="${myhotel }" var ="hotel">
 			<tr>			
-				<td >
+				<td style="width: 200px; height: 200px;">
 				<a href="/hotel/detail/${hotel.h_num}">
-					<img class="card-img-top"
-					src="/resources/img/${hotel.fileimage }" alt="Card image"
-					width="" height="200px"/>
+					<img class="card-img-top" style="width: 200px; height: 200px;"
+					src="/resources/img/${hotel.fileimage }" alt="Card image"/>
 				</a>
 				</td>
 				

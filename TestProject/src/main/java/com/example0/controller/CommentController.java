@@ -35,11 +35,11 @@ public class CommentController {
 		return rlist;
 	}
 	//댓글삭제
-		@DeleteMapping("delete/{num}")
-		public Long delete(@PathVariable Long num) {
-			commentService.delete(num);
-			return num;
-		}
+	@DeleteMapping("delete/{num}")
+	public Long delete(@PathVariable Long num) {
+		commentService.delete(num);
+		return num;
+	}
 	//댓글추가
 	
 	@PostMapping("insert/{num}")
