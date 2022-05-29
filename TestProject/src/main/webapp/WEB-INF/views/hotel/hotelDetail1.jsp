@@ -195,7 +195,7 @@
 		error :function(e){
 			alert("삭제실패 : " + e)
 		}
-	})
+	}) 
 	})
 	init();
 	//좋아요 기능 구현
