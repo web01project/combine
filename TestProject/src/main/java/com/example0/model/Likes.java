@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import org.springframework.boot.context.properties.bind.DefaultValue;
  
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,19 +18,17 @@ import lombok.Setter;
 @AllArgsConstructor @NoArgsConstructor
 @Entity
 
-public class HotelLike {
+public class Likes {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long hotellike_num;
 	
 	// 유저번호
-	@ManyToOne
-	@JoinColumn(name = "u_num")
-	private User user;
+
+	private Long u_num;
 	
-	// 유저번호
-	@ManyToOne
-	@JoinColumn(name = "h_num")
-	private Hotel hotel;
-		
+	// 유저번호 
+	
+	private Long h_num;
+
 }

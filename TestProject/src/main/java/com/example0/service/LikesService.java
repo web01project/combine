@@ -1,8 +1,10 @@
 package com.example0.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
-import com.example0.model.HotelLike;
+import com.example0.model.Likes;
 import com.example0.repository.LikeRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -11,19 +13,22 @@ import lombok.RequiredArgsConstructor;
 public class LikesService {
 
 	private final LikeRepository likeRepository;
- 
-	public void insertHotelLike(HotelLike h_like) {
-		likeRepository.save(h_like);
-		likeRepository.updateBoardLike(h_like.getHotellike_num(),h_like.getHotel().getH_num(),h_like.getUser().getId());
+	@Transactional
+	public void insertHotelLike(Long h_num,Long u_num) {
+		likeRepository.createBoardLike(h_num, u_num);
+		likeRepository.updateBoardLike(u_num);
 		//likeRepository.createBoardLike(h_like.getHotellike_num(),h_like.getHotel().getH_num(),h_like.getUser().getId());
-
+ 
 	}
-	public void deleteHotelLike(HotelLike h_like) {
-		likeRepository.deleteById(h_like.getUser().getId());
-		likeRepository.updateBoardLike(h_like.getHotellike_num(),h_like.getHotel().getH_num(),h_like.getUser().getId());
+	@Transactional
+	public void deleteHotelLike(Long h_num,Long u_num) {
+		likeRepository.deleteBoardLike(h_num,u_num);
+		likeRepository.updateBoardLike(h_num);
 		//likeRepository.deleteBoardLike(h_like.getHotel().getH_num(),h_like.getUser().getId());
 	}
-	public Long getBoardLike(HotelLike h_like) {
-		return likeRepository.getBoardLike(h_like.getHotel().getH_num(),h_like.getUser().getId());
-	}
+	
+	 @Transactional public int getBoardLike(Long h_num,Long u_num) { return
+	  likeRepository.getBoardLike(h_num,u_num);
+	 }
+	
 }
