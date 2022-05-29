@@ -96,21 +96,6 @@ public class BoardService {
 		boardRepository.deleteById(num);
 	}
 
-	// 좋아요
-	public void like(Hotel hotel) {
-		Hotel h = boardRepository.findById(hotel.getH_num()).get();
-		h.setH_like(hotel.getH_like() + 1);
-	}
-
-	// 좋아요 테스트
-	@Transactional
-	public void liketest(Long h_num) {
-		Hotel hotel = boardRepository.findById(h_num).get();
-		System.out.println(hotel.getH_like());
-		hotel.setH_like(hotel.getH_like() + 1);
-		System.out.println(hotel.getH_like());
-	}
-
 	// 상세보기
 	@Transactional
 	public Hotel findById(Long h_num) {

@@ -81,11 +81,7 @@
 		</aside>
 	</div>
 
-	<!-- 좋아요 기능 구현 -->
-	<div style="text-align: right;">
-		<a class="btn btn-outline-dark heart"> <img id="heart">
-		</a>
-	</div>
+
 </div>
 <div class="parent">
 	<div class="child">금액:${hotel.price }</div>
@@ -242,50 +238,6 @@
 	}) 
 	})
 	init();
-	//좋아요 기능 구현
- $(document).ready(function () {
-	 if(${empty principal.user}){
-			alert("로그인하세요")
-			location.href="/login"
-			return
-		}
-        var heartval = $(heart);
 
-        if(heartval>0) {
-            console.log(heartval);
-            alert($('heart').val);
-            $("#heart").prop("src", "../../resources/img/like2.png");
-            $(".heart").prop('name',heartval)
-        }
-        else {
-            console.log(heartval);
-            $("#heart").prop("src", "../../resources/img/like1.png");
-            $(".heart").prop('name',heartval)
-        }
-
-        $(".heart").on("click", function() {
-            
-        	 var that = $(".heart");
-             
-            var sendData = {
-            	"h_num":${hotel.h_num},
-               "heart" : that.prop('name')};
-            $.ajax({
-               url : '/hotel/heart',
-               type : 'POST',
-           	contentType : "application/json;charset=utf-8",
-			data : JSON.stringify(sendData),
-               success : function(data) {
-                  that.prop('name', data);
-                   if (data == 1) {
-                     $('#heart').prop("src", "../../resources/img/like2.png");
-                  } else {
-                     $('#heart').prop("src", "../../resources/img/like1.png");
-                  } 
-
-               }
-            }); //ajax
-         });
-      }); //function
 </script>
 <%@ include file="../include/footer.jsp"%>

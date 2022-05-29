@@ -14,7 +14,6 @@
 		<form class="form-inline" action="/hotel/hotellist" method="get">
 			<select name='field' class="form-control mr-sm-1">
 				<option value="price">금액</option>
-				<option value="grade">평점</option>
 			</select>
 			<button class='btn btn-secondary'>정렬하기</button>
 		</form>
@@ -37,17 +36,7 @@
 								src="/resources/img/${hotel.fileimage }" alt="Card image"
 								width="100px" height="280px">
 						</div>
-						<!-- hotel like -->
-						<%-- <a href="/hotel/liketest/${hotel.h_num }" onclick="return confirm('찜하시겠습니까? ?');">
-							<button type="button" class="btn btn-secondary btn_sm"
-								id="btnLike">좋아요</button>
-							</a> 
-						<div style="text-align: right;">
-							<a class="btn btn-outline-dark heart"
-								data-h_num="${hotel.h_num }" data-name=''
-								data-h_like="${hotel.h_like }"> <img id="heart" src="">
-							</a>
-						</div> --%>
+						
 						<div class="card-body">
 							<h2 class="card-title">${hotel.h_name }</h2>
 							<span class="card-text"> 위치: ${hotel.location1 }</span><br /> <span
@@ -70,7 +59,6 @@
 									class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
 								<br />
 							</c:if>
-							<span class="card-text" id="h_like"> 좋아요 : ${hotel.h_like }</span>
 							<a href="/hotel/detail/${hotel.h_num }"><button
 									class="button-19">선택하기</button></a>
 						</div>

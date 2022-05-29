@@ -30,13 +30,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example0.config.auth.PrincipalDetails;
 import com.example0.model.Hotel;
-import com.example0.model.Likes;
 import com.example0.model.Reservation;
 import com.example0.model.User;
 import com.example0.repository.BoardRepository;
 import com.example0.repository.ReservationRepository;
 import com.example0.service.BoardService;
-import com.example0.service.LikesService;
 import com.example0.service.ReservationService;
 
 import lombok.RequiredArgsConstructor;
@@ -54,7 +52,6 @@ private BoardRepository boardRepository;
 private ReservationService rservice;
 @Autowired
 private ReservationRepository reservationRepository;
-@Autowired LikesService likesService;
 	
 	//호텔등록
 	@GetMapping("hotelInsert")
@@ -66,7 +63,6 @@ private ReservationRepository reservationRepository;
 				@AuthenticationPrincipal PrincipalDetails principal) {
 		String uploadFolder = session.getServletContext().getRealPath("/")+"\\resources\\img";
 		hotel.setUser(principal.getUser());
-		hotel.setH_like(0);
 		boardService.hotelInsert(hotel,uploadFolder);
 		return "redirect:hotellist";
 	}
@@ -113,40 +109,7 @@ private ReservationRepository reservationRepository;
 	 * 
 	 * model.addAttribute("heart",1); }
 	 */ 
-	//좋아요 추가
-	    @ResponseBody
-	    @RequestMapping(value = "/heart", method = RequestMethod.POST, produces = "application/json")
-	    public int heart(HttpServletRequest httpRequest) throws Exception {
-		    int heart = Integer.parseInt(httpRequest.getParameter("heart"));
-			/*
-			 * Hotel hotel = boardRepository.findById(h_num).get(); Likes likes = new
-			 * Likes();
-			 */
-		    Long h_num = Long.parseLong(httpRequest.getParameter("h_num"));
-	        Long u_num = 1L;
-	        Likes likes= new Likes();
-	        likes.setU_num(h_num);
-	        likes.setU_num(u_num);
-
-
-	        if(heart >= 1) {
-	            likesService.deleteHotelLike(h_num,u_num);
-	            heart=0;
-	        } else {
-	        	likesService.insertHotelLike(h_num,u_num);
-	            heart=1;
-	        }
-
-	        return heart;
-
-	    }
 	
-		/*
-		 * //좋아요 추가 임시
-		 * 
-		 * @GetMapping("liketest/{h_num}") public String like(@PathVariable Long h_num)
-		 * { boardService.liketest(h_num); return "redirect:/hotel/hotellist"; }
-		 */
 	
 	
 	//숙소수정

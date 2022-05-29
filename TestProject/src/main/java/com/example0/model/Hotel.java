@@ -46,9 +46,7 @@ public class Hotel {
 	// 숙소 등급
 	@Enumerated(EnumType.STRING)
 	private Grade grade;
-	// 숙소 찜
-	@ColumnDefault("0")
-	private int h_like;
+
 	// 숙소금액
 	private int price;
 	// 숙소 리뷰
