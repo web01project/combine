@@ -2,6 +2,8 @@ package com.example0.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -50,5 +52,9 @@ public class CommentService {
 	//내 댓글 카운트
 	public int myreplycount(Long n_num) {
 		return commentRepository.myreplycount(n_num);
+	}
+	//페이징
+	public Page<Review> findAll(Pageable pageable) {
+		return commentRepository.findAll(pageable);
 	}
 }

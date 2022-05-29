@@ -34,9 +34,26 @@
 			<p>리뷰</p>
 			<ul>
 				<li><a href="">${reply.count}개의 리뷰후기</a></li>
-				<li><a href="">link</a></li>
-				<li><a href="">link</a></li>
+				
 			</ul>
+			<div id="replyResult"></div>
+	<td><label for="content">리뷰 평점</label></td>
+			<td><label id="star1"> <input type="radio"
+				class="form-check-input" name="jum" value="STAR1" id="jum"
+				checked="checked">1개
+			</label> <label id="star2"> <input type="radio"
+				class="form-check-input" name="jum" value="STAR2" id="jum"
+				checked="checked">2개
+			</label> <label id="star3"> <input type="radio"
+				class="form-check-input" name="jum" value="STAR3" id="jum"
+				checked="checked">3개
+			</label> <label id="star3"> <input type="radio"
+				class="form-check-input" name="jum" value="STAR4" id="jum"
+				checked="checked">4개
+			</label> <label id="star3"> <input type="radio"
+				class="form-check-input" name="jum"" value="STAR5" id="jum"
+				checked="checked">5개
+			</label></td>
 			<div id="replyResult"></div>
 
 			<div align="center">
@@ -48,6 +65,19 @@
 			</div>
 			<hr />
 			<form id="frm" action="post"></form>
+			<div class="d-flex justify-content-between mt-5 mr-auto">
+				<ul class="pagination">
+					<c:if test="${hotels.first==false }">
+						<li class="page-item"><a class="page-link"
+							href="?page=${reviews.number-1 }">이전</a></li>
+					</c:if>
+					<c:if test="${hotels.last ==false }">
+						<li class="page-item"><a class="page-link"
+							href="?page=${reviews.number+1 }">다음</a></li>
+					</c:if>
+				</ul>
+				<div></div>
+			</div>
 		</aside>
 	</div>
 
@@ -133,6 +163,7 @@
 				    str+="<td>"+val.user.name+"</td>"
 				   str+="<td>"+val.content+"</td>"
 				   str+="<td>"+val.regdate+"</td>"
+				   str+="<td>"+val.jum+"</td>"
 				    if("${principal.user.id}"==val.user.id){
 					   str+="<td><a href='javascript:fdel("+val.review_num+")'>삭제</a></td>"
 				   } 

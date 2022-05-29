@@ -61,4 +61,6 @@ public class Review {
 	private MultipartFile upload;
 	// 파일이름
 	private String fileimage;
+	//평점
+	private String jum;
 }
