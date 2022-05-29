@@ -64,4 +64,5 @@ public class Review {
 	//평점
 	private String jum;
 	
+	
 }

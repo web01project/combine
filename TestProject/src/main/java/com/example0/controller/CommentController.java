@@ -77,6 +77,7 @@ public class CommentController {
 		
 	
 		
+	
 		 //게시글 전체보기(페이징 , 검색)
 		  
 			/*
