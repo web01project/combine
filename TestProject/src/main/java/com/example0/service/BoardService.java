@@ -51,9 +51,11 @@ public class BoardService {
 	}
 
 	// 페이징 전체보기
-	public Page<Hotel> findAll(String field, Pageable pageable) {
+	public Page<Hotel> findAll(String field,String word,Pageable pageable) {
 		if (field.equals("price"))
 			return boardRepository.priceCategory(pageable);
+		if(field.equals("location1"))
+			return  boardRepository.findByLocationContaining(word, pageable);
 		return boardRepository.findAll(pageable);
 	}
 
@@ -63,7 +65,9 @@ public class BoardService {
 		}
 	 
 	//정렬 개수
-		public Long count(String field) {
+		public Long count(String field,String word) {
+			if(field.equals("location1"))
+				return boardRepository.cntLocationSearch(word);
 			/*
 			 * if(field.equals("price")) return boardRepository.count();
 			 */

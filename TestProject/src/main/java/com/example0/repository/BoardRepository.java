@@ -25,7 +25,13 @@ public interface BoardRepository extends JpaRepository<Hotel, Long> {
 	 * @Query(value = "select count(*) from hotel", nativeQuery=true) public Long
 	 * cntTitleSearch();
 	 */
+	//위치기반 검색리스트
+	Page<Hotel> findByLocationContaining(String location1,Pageable pageable);
 
+	
+	@Query(value = "select count(*) from hotel where location1 like CONCAT('%', :word, '%') ", 
+			  nativeQuery=true)
+	public Long cntLocationSearch(@Param("word") String  word);
 	
 	@Query("select count(*) from Hotel")
 	public int getCount(HashMap<String, Object> map);
