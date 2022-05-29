@@ -7,7 +7,7 @@
 	<header>
 		<h3>${hotel.h_name }</h3>
 
-		<span id="span_detail">지도에서 보기</span>
+		<button type="button" id="mapBtn"><span id="span_detail">지도에서 보기</span></button>
 	</header>
 	<!--네비게이션-->
 	<nav id="nav_detail">
@@ -41,7 +41,7 @@
 		</article>
 	</section>
 	<!--사이드바-->
-	<aside id="aside_detail">
+	<aside class="mapView" id="aside_detail">
 		<div id="map" style="width: 100%; height: 100%;">맵정보</div>
 		<div id="clickLatlng"></div>
 	</aside>
@@ -147,7 +147,13 @@
 			alert("댓글 삭제 실패")
 		})
 	}
-
+	//지도에서 보기 클릭
+	$("#mapBtn").click(function(){
+		alert("지도를 확인하세요");
+		$("#mapView").focus();
+		return false;
+	})
+	
 	$("#btnComment").click(function() {
 		if(${empty principal.user}){
 			alert("로그인하세요")
