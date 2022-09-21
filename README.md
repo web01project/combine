@@ -2,7 +2,7 @@
 >hotel_combine <br>
 >호텔 예약시스템 프로젝트
 
-:pushpin: [발표 PPT]()
+:pushpin: [발표 PPT](https://docs.google.com/presentation/d/1zpB9VX4c_HRFyFEYx9_s9W1bYuMOSAqe/edit#slide=id.p1)
 
 <br>
 
